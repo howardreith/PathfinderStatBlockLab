@@ -84,6 +84,16 @@ const updateCreature = function (createCreatureObject, data) {
   })
 }
 
+const deleteCreature = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/creatures/' + data.id,
+    headers: {
+      authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp: signUp,
   signIn: signIn,
@@ -92,5 +102,6 @@ module.exports = {
   createCreature: createCreature,
   getCreatures: getCreatures,
   updateCreature: updateCreature,
-  showCreature: showCreature
+  showCreature: showCreature,
+  deleteCreature: deleteCreature
 }

@@ -68,11 +68,20 @@ const onShowCreature = function (event) {
     .catch(ui.showCreatureFail)
 }
 
+const onDeleteCreature = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+
+  api.deleteCreature(data)
+    .then(ui.deleteCreatureSuccess)
+    .catch(ui.deleteCreatureFail)
+}
 module.exports = {
   onSignIn: onSignIn,
   onCreateCreature: onCreateCreature,
   createCreatureObject: createCreatureObject,
   onUpdateCreature: onUpdateCreature,
   onGetCreatures: onGetCreatures,
-  onShowCreature: onShowCreature
+  onShowCreature: onShowCreature,
+  onDeleteCreature: onDeleteCreature
 }

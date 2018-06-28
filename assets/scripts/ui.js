@@ -46,6 +46,14 @@ const showCreatureFail = function (error) {
   console.log('showCreatureFail is ', error)
 }
 
+const deleteCreatureSuccess = function (deleteCreatureResponse) {
+  console.log('deleteCreatureResponse is ', deleteCreatureResponse)
+}
+
+const deleteCreatureFail = function (error) {
+  console.log('deleteCreatureFail is ', error)
+}
+
 module.exports = {
   signInSuccess: signInSuccess,
   signInError: signInError,
@@ -56,5 +64,7 @@ module.exports = {
   getCreaturesSuccess: getCreaturesSuccess,
   getCreaturesFail: getCreaturesFail,
   showCreatureSuccess: showCreatureSuccess,
-  showCreatureFail: showCreatureFail
+  showCreatureFail: showCreatureFail,
+  deleteCreatureSuccess: deleteCreatureSuccess,
+  deleteCreatureFail: deleteCreatureFail
 }

@@ -8,4 +8,5 @@ $(() => {
   $('#update-creature-form').on('submit', events.onUpdateCreature)
   $('#get-creatures-form').on('submit', events.onGetCreatures)
   $('#show-creature-form').on('submit', events.onShowCreature)
+  $('#delete-creature-form').on('submit', events.onDeleteCreature)
 })
