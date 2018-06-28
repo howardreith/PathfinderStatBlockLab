@@ -63,10 +63,10 @@ const getCreatures = function () {
   })
 }
 
-const showCreature = function () {
+const showCreature = function (data) {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/creatures/' + store.id,
+    url: config.apiUrl + '/creatures/' + data.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

@@ -7,4 +7,5 @@ $(() => {
   $('#create-creature-form').on('submit', events.onCreateCreature)
   $('#update-creature-form').on('submit', events.onUpdateCreature)
   $('#get-creatures-form').on('submit', events.onGetCreatures)
+  $('#show-creature-form').on('submit', events.onShowCreature)
 })

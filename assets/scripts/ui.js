@@ -36,6 +36,16 @@ const getCreaturesFail = function (error) {
   console.log('getCreaturesFail is ', error)
 }
 
+const showCreatureSuccess = function (showCreatureResponse) {
+  console.log('showCreatureResponse is ', showCreatureResponse)
+  $('#monster-name').text('Name: ' + showCreatureResponse.creature.name)
+  $('#monster-cr').text('CR: ' + showCreatureResponse.creature.cr)
+}
+
+const showCreatureFail = function (error) {
+  console.log('showCreatureFail is ', error)
+}
+
 module.exports = {
   signInSuccess: signInSuccess,
   signInError: signInError,
@@ -44,5 +54,7 @@ module.exports = {
   updateCreatureSuccess: updateCreatureSuccess,
   updateCreatureFail: updateCreatureFail,
   getCreaturesSuccess: getCreaturesSuccess,
-  getCreaturesFail: getCreaturesFail
+  getCreaturesFail: getCreaturesFail,
+  showCreatureSuccess: showCreatureSuccess,
+  showCreatureFail: showCreatureFail
 }
