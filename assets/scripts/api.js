@@ -40,10 +40,13 @@ const signOut = function () {
   })
 }
 
-const createCreature = function () {
+const createCreature = function (createCreatureObject) {
+  // console.log('createCreatureObject is ', createCreatureObject)
+  // console.log('createCreatureObject stringefy is ' + JSON.stringify(createCreatureObject, null, 4))
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/creatures',
+    data: createCreatureObject,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -70,11 +73,11 @@ const showCreature = function () {
   })
 }
 
-const updateCreature = function (updateCreatureObject) {
+const updateCreature = function (createCreatureObject, data) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/creatures/' + store.id,
-    data: updateCreatureObject,
+    url: config.apiUrl + '/creatures/' + data.id,
+    data: createCreatureObject,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

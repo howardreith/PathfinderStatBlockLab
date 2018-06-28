@@ -14,9 +14,23 @@
     <body>
       <h1>Pathfinder Stat Block Lab</h1>
       <form id="sign-in-form">
-        <button type="submit" id= "sign-in-submit" class="button">Sign In</button>
-        <input name="credentials[password]" class = "sign-in-password" placeholder="Password" type="password">
         <input name="credentials[email]" class = "sign-in-email" placeholder="Sign In - Email " type="email">
+        <input name="credentials[password]" class = "sign-in-password" placeholder="Password" type="password">
+        <button type="submit" id= "sign-in-submit" class="button">Sign In</button>
+      </form>
+      <form id="create-creature-form">
+        <input name="name" id= "create-name" class="create" placeholder="Creature Name" type="text">
+        <input name="cr" id= "create-cr" class="create" placeholder="CR" type="number">
+        <button type="submit" id= "create-submit" class="button">Create</button>
+      </form>
+      <form id="update-creature-form">
+        <input name="id" id= "update-id" class="update" placeholder="ID" type="number">
+        <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text">
+        <input name="cr" id= "update-cr" class="update" placeholder="CR" type="number">
+        <button type="submit" id= "update-submit" class="button">Update</button>
+      </form>
+      <form id="get-creatures-form">
+        <button type="submit" id="get-creatures" class="button">Get Creatures</button>
       </form>
     </body>
 </html>
