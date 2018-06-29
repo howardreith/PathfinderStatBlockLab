@@ -1,6 +1,7 @@
 'use strict'
 
 const events = require('./events')
+const search = require('./search')
 
 $(() => {
   $('#sign-in-form').on('submit', events.onSignIn)
@@ -9,4 +10,5 @@ $(() => {
   $('#get-creatures-form').on('submit', events.onGetCreatures)
   $('#show-creature-form').on('submit', events.onShowCreature)
   $('#delete-creature-form').on('submit', events.onDeleteCreature)
+  $('#search').on('click', search.onClick)
 })

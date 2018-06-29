@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Pathfinder Stat Block Generator</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,34 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form id='search' class="form-inline my-2 my-lg-0">
+            <input id = 'search-input' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value='Search'>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <ul id="result-list" class='result'>
+            <li>sample result</li>
+            <li>sample result</li>
+            <li>sample result</li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- <input type="text" id="the-search-input" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+        <ul id="search-list">
+          <li id = 'search1'><a href="#"></a></li>
+          <li id = 'search2'><a href="#"></a></li>
+
+          <li id = 'search3'><a href="#"></a></li>
+          <li id = 'search4'><a href="#"></a></li>
+
+          <li id = 'search5'><a href="#"></a></li>
+          <li id = 'search6'><a href="#"></a></li>
+          <li id = 'search7'><a href="#"></a></li>
+        </ul> -->
+
       <h1>Pathfinder Stat Block Lab</h1>
       <form id="sign-in-form">
         <input name="credentials[email]" class = "sign-in-email" placeholder="Sign In - Email " type="email">

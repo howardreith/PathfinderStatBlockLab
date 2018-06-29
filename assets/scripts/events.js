@@ -76,6 +76,7 @@ const onDeleteCreature = function (event) {
     .then(ui.deleteCreatureSuccess)
     .catch(ui.deleteCreatureFail)
 }
+
 module.exports = {
   onSignIn: onSignIn,
   onCreateCreature: onCreateCreature,
