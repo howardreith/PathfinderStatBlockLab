@@ -1,7 +1,8 @@
 // const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui.js')
 const api = require('./api.js')
-// const store = require('./store.js')
+const store = require('./store.js')
+const events = require('./events.js')
 
 const onClick = function (event) {
   event.preventDefault()
@@ -14,12 +15,14 @@ const onClick = function (event) {
 const onSearch = function (onClickData) {
   console.log('onClickData is ', onClickData)
   console.log('The list is ', onClickData.creatures)
+  store.creatures = onClickData.creatures
   const creaturesArray = onClickData.creatures
   const creaturesList = []
   for (let i = 0; i < creaturesArray.length; i++) {
     creaturesList.push(creaturesArray[i].name)
     console.log(creaturesList)
   }
+  store.creaturesList = creaturesList
   function updateResult (query) {
     let resultList = document.querySelector('.result')
     resultList.innerHTML = ''
@@ -41,11 +44,16 @@ const onSearch = function (onClickData) {
 const onResultClick = function (event) {
   const chosenMonster = event.target.innerHTML
   console.log('the value is ' + chosenMonster)
-  let a = api.getCreatures()
-  console.log('a is ' + a.creatures)
-  // const creaturesArray = onClickData.creatures
-  // creaturesList.indexOf(event.target.innerHTML)
+  console.log('store.creatures is ' + store.creatures)
+  console.log('store.creaturesList is ' + store.creaturesList)
+  const monsterIndex = store.creaturesList.indexOf(chosenMonster)
+  console.log('monsterIndex is ' + monsterIndex)
+  console.log('The database index is ' + store.creatures[monsterIndex].id)
+  const monsterDatabaseIndex = store.creatures[monsterIndex].id
+  events.onShowFromSearch(monsterDatabaseIndex)
 }
+// const creaturesArray = onClickData.creatures
+// creaturesList.indexOf(event.target.innerHTML)
 
 module.exports = {
   onClick: onClick,

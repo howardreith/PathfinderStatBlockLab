@@ -62,6 +62,16 @@ const onGetCreatures = function (event) {
 const onShowCreature = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log('data is ' + data)
+  console.log('data is also ' + JSON.stringify(data, null, 4))
+
+  api.showCreature(data)
+    .then(ui.showCreatureSuccess)
+    .catch(ui.showCreatureFail)
+}
+
+const onShowFromSearch = function (searchResult) {
+  const data = { 'id': searchResult }
 
   api.showCreature(data)
     .then(ui.showCreatureSuccess)
@@ -84,5 +94,6 @@ module.exports = {
   onUpdateCreature: onUpdateCreature,
   onGetCreatures: onGetCreatures,
   onShowCreature: onShowCreature,
-  onDeleteCreature: onDeleteCreature
+  onDeleteCreature: onDeleteCreature,
+  onShowFromSearch: onShowFromSearch
 }
