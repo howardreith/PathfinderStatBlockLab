@@ -36,8 +36,13 @@ const onSearch = function (onClickData) {
     updateResult(this.value)
   })
 }
+// $('.list-group-item').on('click', onSearchResultClick)
+
+const onResultClick = function (event) {
+  console.log('the value is ' + event.target.innerHTML)
+}
 
 module.exports = {
-  onClick: onClick
-  // updateResult: updateResult
+  onClick: onClick,
+  onResultClick: onResultClick
 }

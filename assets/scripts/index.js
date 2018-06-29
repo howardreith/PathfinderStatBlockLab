@@ -11,4 +11,5 @@ $(() => {
   $('#show-creature-form').on('submit', events.onShowCreature)
   $('#delete-creature-form').on('submit', events.onDeleteCreature)
   $('#search').on('click', search.onClick)
+  $('#result-list').on('click', search.onResultClick)
 })
