@@ -37,9 +37,14 @@ const onSearch = function (onClickData) {
   })
 }
 // $('.list-group-item').on('click', onSearchResultClick)
-
+//
 const onResultClick = function (event) {
-  console.log('the value is ' + event.target.innerHTML)
+  const chosenMonster = event.target.innerHTML
+  console.log('the value is ' + chosenMonster)
+  let a = api.getCreatures()
+  console.log('a is ' + a.creatures)
+  // const creaturesArray = onClickData.creatures
+  // creaturesList.indexOf(event.target.innerHTML)
 }
 
 module.exports = {
