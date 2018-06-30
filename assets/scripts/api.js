@@ -41,8 +41,8 @@ const signOut = function () {
 }
 
 const createCreature = function (createCreatureObject) {
-  // console.log('createCreatureObject is ', createCreatureObject)
-  // console.log('createCreatureObject stringefy is ' + JSON.stringify(createCreatureObject, null, 4))
+  // console.log('updateCreatureObject is ', updateCreatureObject)
+  // console.log('updateCreatureObject stringefy is ' + JSON.stringify(updateCreatureObject, null, 4))
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/creatures',
@@ -73,11 +73,11 @@ const showCreature = function (data) {
   })
 }
 
-const updateCreature = function (createCreatureObject, data) {
+const updateCreature = function (updateCreatureObject, data) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/creatures/' + data.id,
-    data: createCreatureObject,
+    data: updateCreatureObject,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

@@ -41,7 +41,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
   $('#display-name').text('Name: ' + showCreatureResponse.creature.name)
   $('#display-cr').text('CR: ' + showCreatureResponse.creature.cr)
   $('#display-alignment').text('Alignment: ' + showCreatureResponse.creature.alignment)
-  $('#display-type').text('Type: ' + showCreatureResponse.creature.type)
+  $('#display-creature_category').text('Type: ' + showCreatureResponse.creature.creature_category)
   $('#display-subtype').text('Subtype: ' + showCreatureResponse.creature.subtype)
   $('#display-size').text('Size: ' + showCreatureResponse.creature.size)
   $('#display-initiative').text('Initiative: ' + showCreatureResponse.creature.initiative)

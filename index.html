@@ -44,9 +44,7 @@
         <button type="submit" id= "sign-in-submit" class="button">Sign In</button>
       </form>
       <form id="create-creature-form">
-        <input name="name" id= "create-name" class="create" placeholder="Creature Name" type="text">
-        <input name="cr" id= "create-cr" class="create" placeholder="CR" type="number">
-        <button type="submit" id= "create-submit" class="button">Create</button>
+        <button type="submit" id= "create-submit" class="button">Create Creature</button>
       </form>
       <div id="update-lab" class=workspace>
         <form id="update-creature-form">
@@ -54,7 +52,7 @@
           <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
           <input name="cr" id= "update-cr" class="update" placeholder="CR" type="number"><br>
           <input name="alignment" id= "update-alignment" class="update" placeholder="Alignment" type="text"><br>
-          <input name="type" id= "update-type" class="update" placeholder="Type" type="text"><br>
+          <input name="creature_category" id= "update-creature_category" class="update" placeholder="Type" type="text"><br>
           <input name="subtype" id= "update-subtype" class="update" placeholder="Subtype" type="text"><br>
           <input name="size" id= "update-size" class="update" placeholder="Size" type="text"><br>
           <input name="initiative" id= "update-initiative" class="update" placeholder="Initiative" type="text"><br>
@@ -75,7 +73,7 @@
           <input name="organization" id= "update-organization" class="update" placeholder="Organization" type="text"><br>
           <input name="treasure" id= "update-treasure" class="update" placeholder="Treasure" type="text"><br>
           <input name="ac" id= "update-ac" class="update" placeholder="AC" type="integer"><br>
-          <input name="touch" id= "update-touch" class="update" placeholder="Touch" type="integer"><br>
+          <input name="dodgeac" id= "update-dodgeac" class="update" placeholder="Touch" type="integer"><br>
           <input name="flat_footed" id= "update-flat_footed" class="update" placeholder="Flat-footed" type="integer"><br>
           <input name="ac_notes" id= "update-ac_notes" class="update" placeholder="AC Breakdown" type="text"><br>
           <input name="cmd" id= "update-cmd" class="update" placeholder="CMD" type="text"><br>
@@ -115,12 +113,12 @@
         <input name="id" id= "show-id" class="show" placeholder="ID" type="number">
         <button type="submit" id= "show-submit" class="button">Get Creature Stats</button>
       </form>
-      <div class='display-monster'>
+      <div class='display-creature'>
         <ul>
           <li id='display-name'>Name: </li>
           <li id='display-cr'>CR: </li>
           <li id='display-alignment'>Alignemt: </li>
-          <li id='display-type'>Type: </li>
+          <li id='display-creature_category'>Type: </li>
           <li id='display-subtype'>Subtype: </li>
           <li id='display-size'>Size: </li>
           <li id='display-initiative'>Initiative: </li>
