@@ -24,7 +24,7 @@ const onSearch = function (onClickData) {
   }
   store.creaturesList = creaturesList
   function updateResult (query) {
-    let resultList = document.querySelector('.result')
+    const resultList = document.querySelector('.result')
     resultList.innerHTML = ''
     creaturesList.map(function (algo) {
       query.split(' ').map(function (word) {
