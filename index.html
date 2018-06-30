@@ -48,12 +48,62 @@
         <input name="cr" id= "create-cr" class="create" placeholder="CR" type="number">
         <button type="submit" id= "create-submit" class="button">Create</button>
       </form>
-      <form id="update-creature-form">
-        <input name="id" id= "update-id" class="update" placeholder="ID" type="number">
-        <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text">
-        <input name="cr" id= "update-cr" class="update" placeholder="CR" type="number">
-        <button type="submit" id= "update-submit" class="button">Update</button>
-      </form>
+      <div id="update-lab" class=workspace>
+        <form id="update-creature-form">
+          <input name="id" id= "update-id" class="update" placeholder="ID" type="number"><br>
+          <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
+          <input name="cr" id= "update-cr" class="update" placeholder="CR" type="number"><br>
+          <input name="alignment" id= "update-alignment" class="update" placeholder="Alignment" type="text"><br>
+          <input name="type" id= "update-type" class="update" placeholder="Type" type="text"><br>
+          <input name="subtype" id= "update-subtype" class="update" placeholder="Subtype" type="text"><br>
+          <input name="size" id= "update-size" class="update" placeholder="Size" type="text"><br>
+          <input name="initiative" id= "update-initiative" class="update" placeholder="Initiative" type="text"><br>
+          <input name="senses" id= "update-senses" class="update" placeholder="Senses" type="text"><br>
+          <input name="perception" id= "update-perception" class="update" placeholder="Perception" type="text"><br>
+          <input name="languages" id= "update-languages" class="update" placeholder="Languages" type="text"><br>
+          <input name="skills" id= "update-skills" class="update" placeholder="Skills" type="text"><br>
+          <input name="str" id= "update-str" class="update" placeholder="Str" type="text"><br>
+          <input name="dex" id= "update-dex" class="update" placeholder="Dex" type="text"><br>
+          <input name="con" id= "update-con" class="update" placeholder="Con" type="text"><br>
+          <input name="int" id= "update-int" class="update" placeholder="Int" type="text"><br>
+          <input name="wis" id= "update-wis" class="update" placeholder="Wis" type="text"><br>
+          <input name="cha" id= "update-cha" class="update" placeholder="Cha" type="text"><br>
+          <input name="items" id= "update-items" class="update" placeholder="Items" type="text"><br>
+          <input name="appearance" id= "update-appearance" class="update" placeholder="Appearance" type="text"><br>
+          <input name="description" id= "update-description" class="update" placeholder="Description" type="text"><br>
+          <input name="environment" id= "update-environment" class="update" placeholder="Environment" type="text"><br>
+          <input name="organization" id= "update-organization" class="update" placeholder="Organization" type="text"><br>
+          <input name="treasure" id= "update-treasure" class="update" placeholder="Treasure" type="text"><br>
+          <input name="ac" id= "update-ac" class="update" placeholder="AC" type="integer"><br>
+          <input name="touch" id= "update-touch" class="update" placeholder="Touch" type="integer"><br>
+          <input name="flat_footed" id= "update-flat_footed" class="update" placeholder="Flat-footed" type="integer"><br>
+          <input name="ac_notes" id= "update-ac_notes" class="update" placeholder="AC Breakdown" type="text"><br>
+          <input name="cmd" id= "update-cmd" class="update" placeholder="CMD" type="text"><br>
+          <input name="saves" id= "update-saves" class="update" placeholder="Saves" type="text"><br>
+          <input name="hp" id= "update-hp" class="update" placeholder="HP" type="integer"><br>
+          <input name="hd" id= "update-hd" class="update" placeholder="HD" type="text"><br>
+          <input name="dr" id= "update-dr" class="update" placeholder="DR" type="text"><br>
+          <input name="fast_healing_regen" id= "update-fast_healing_regen" class="update" placeholder="Fast Healing/Regeneration" type="text"><br>
+          <input name="immunities" id= "update-immunities" class="update" placeholder="Immunities" type="text"><br>
+          <input name="resistances" id= "update-resistances" class="update" placeholder="Resistances" type="text"><br>
+          <input name="sr" id= "update-sr" class="update" placeholder="SR" type="integer"><br>
+          <input name="weaknesses" id= "update-weaknesses" class="update" placeholder="Weaknesses" type="text"><br>
+          <input name="defensive_abilities" id= "update-defensive_abilities" class="update" placeholder="Defensive Abilities" type="text"><br>
+          <input name="speed" id= "update-speed" class="update" placeholder="Speed" type="text"><br>
+          <input name="melee" id= "update-melee" class="update" placeholder="Melee" type="text"><br>
+          <input name="ranged" id= "update-ranged" class="update" placeholder="Ranged" type="text"><br>
+          <input name="cmb" id= "update-cmb" class="update" placeholder="CMB" type="text"><br>
+          <input name="reach" id= "update-reach" class="update" placeholder="Reach" type="text"><br>
+          <input name="offense_note" id= "update-offense_note" class="update" placeholder="Offense Note (grab, etc.)" type="text"><br>
+          <input name="special_abilities" id= "update-special_abilities" class="update" placeholder="Special Abilities" type="text"><br>
+          <input name="spell_like_abilities" id= "update-spell_like_abilities" class="update" placeholder="Spell-like Abilities" type="text"><br>
+          <input name="spells_known" id= "update-spells_known" class="update" placeholder="spells_known" type="text"><br>
+          <input name="spells_prepared" id= "update-spells_prepared" class="update" placeholder="Spells Prepared" type="text"><br>
+          <input name="feats" id= "update-feats" class="update" placeholder="Feats" type="text"><br>
+          <input name="additional_special_qualities" id= "update-additional_special_qualities" class="update" placeholder="Additional Special Qualities" type="text"><br>
+          <button type="submit" id= "update-submit" class="button">Update</button>
+        </form>
+      </div>
       <form id="get-creatures-form">
         <button type="submit" id="get-creatures" class="button">Get Creatures</button>
       </form>
