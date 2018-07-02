@@ -14,7 +14,8 @@ const onSignIn = function (event) {
 
 const createCreatureObject = {
   'creature': {
-    'user_id': ''
+    'user_id': '',
+    'name': ''
   }
 }
 
@@ -77,6 +78,7 @@ const updateCreatureObject = {
 const onCreateCreature = function (event) {
   event.preventDefault()
   createCreatureObject.creature.user_id = store.user.id
+  createCreatureObject.creature.name = ''
   // console.log('the stringefy is ' + JSON.stringify(updateCreatureObject, null, 4))
 
   api.createCreature(createCreatureObject)
