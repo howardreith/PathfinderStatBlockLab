@@ -53,7 +53,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
   $('#display-cr').text('CR: ' + showCreatureResponse.creature.cr)
   $('#display-alignment').text('Alignment: ' + showCreatureResponse.creature.alignment)
   $('#display-creature_category').text('Type: ' + showCreatureResponse.creature.creature_category)
-  $('#display-subtype').text('Subtype: ' + showCreatureResponse.creature.subtype)
+  $('#display-subcategory').text('Subtype: ' + showCreatureResponse.creature.subcategory)
   $('#display-size').text('Size: ' + showCreatureResponse.creature.size)
   $('#display-initiative').text('Initiative: ' + showCreatureResponse.creature.initiative)
   $('#display-senses').text('Senses: ' + showCreatureResponse.creature.senses)
@@ -74,6 +74,9 @@ const showCreatureSuccess = function (showCreatureResponse) {
   $('#display-treasure').text('Treasure: ' + showCreatureResponse.creature.treasure)
   $('#display-source').text('Source: ' + showCreatureResponse.creature.source)
   $('#display-ac').text('AC: ' + showCreatureResponse.creature.ac)
+  $('#display-dodgeac').text('Touch: ' + showCreatureResponse.creature.dodgeac)
+  console.log('dodgeac is ' + showCreatureResponse.creature.dodgeac)
+  $('#display-flat_footed').text('Flat-Footed: ' + showCreatureResponse.creature.flat_footed)
   $('#display-ac_notes').text('AC Notes: ' + showCreatureResponse.creature.ac_notes)
   $('#display-cmd').text('CMD: ' + showCreatureResponse.creature.cmd)
   $('#display-saves').text('Saves: ' + showCreatureResponse.creature.saves)
@@ -105,7 +108,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
   document.getElementById('update-cr').value = showCreatureResponse.creature.cr
   document.getElementById('update-alignment').value = showCreatureResponse.creature.alignment
   document.getElementById('update-creature_category').value = showCreatureResponse.creature.creature_category
-  document.getElementById('update-subtype').value = showCreatureResponse.creature.subtype
+  document.getElementById('update-subcategory').value = showCreatureResponse.creature.subcategory
   document.getElementById('update-size').value = showCreatureResponse.creature.size
   document.getElementById('update-initiative').value = showCreatureResponse.creature.initiative
   document.getElementById('update-senses').value = showCreatureResponse.creature.senses
@@ -124,8 +127,9 @@ const showCreatureSuccess = function (showCreatureResponse) {
   document.getElementById('update-environment').value = showCreatureResponse.creature.environment
   document.getElementById('update-organization').value = showCreatureResponse.creature.organization
   document.getElementById('update-treasure').value = showCreatureResponse.creature.treasure
-  document.getElementById('update-source').value = showCreatureResponse.creature.source
   document.getElementById('update-ac').value = showCreatureResponse.creature.ac
+  document.getElementById('update-dodgeac').value = showCreatureResponse.creature.dodgeac
+  document.getElementById('update-flat_footed').value = showCreatureResponse.creature.flat_footed
   document.getElementById('update-ac_notes').value = showCreatureResponse.creature.ac_notes
   document.getElementById('update-cmd').value = showCreatureResponse.creature.cmd
   document.getElementById('update-saves').value = showCreatureResponse.creature.saves
@@ -139,7 +143,6 @@ const showCreatureSuccess = function (showCreatureResponse) {
   document.getElementById('update-weaknesses').value = showCreatureResponse.creature.weaknesses
   document.getElementById('update-defensive_abilities').value = showCreatureResponse.creature.defensive_abilities
   document.getElementById('update-speed').value = showCreatureResponse.creature.speed
-  document.getElementById('update-speed_note').value = showCreatureResponse.creature.speed_note
   document.getElementById('update-melee').value = showCreatureResponse.creature.melee
   document.getElementById('update-ranged').value = showCreatureResponse.creature.ranged
   document.getElementById('update-cmb').value = showCreatureResponse.creature.cmb

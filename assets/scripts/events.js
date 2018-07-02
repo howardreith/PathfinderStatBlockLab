@@ -61,7 +61,8 @@ const updateCreatureObject = {
     'cr': '',
     'user_id': '',
     'alignment': '',
-    'subtype': '',
+    'creature_category': '',
+    'subcategory': '',
     'size': '',
     'initiative': '',
     'senses': '',
@@ -133,7 +134,7 @@ const onUpdateCreature = function (event) {
   updateCreatureObject.creature.cr = data.cr
   updateCreatureObject.creature.alignment = data.alignment
   updateCreatureObject.creature.creature_category = data.creature_category
-  updateCreatureObject.creature.subtupe = data.subtupe
+  updateCreatureObject.creature.subcategory = data.subcategory
   updateCreatureObject.creature.size = data.size
   updateCreatureObject.creature.initiative = data.initiative
   updateCreatureObject.creature.senses = data.senses
