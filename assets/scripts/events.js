@@ -12,6 +12,15 @@ const onSignIn = function (event) {
     .catch(ui.signInError)
 }
 
+const onSignUp = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpError)
+}
+
 const createCreatureObject = {
   'creature': {
     'user_id': '',
@@ -191,5 +200,6 @@ module.exports = {
   onGetCreatures: onGetCreatures,
   onShowCreature: onShowCreature,
   onDeleteCreature: onDeleteCreature,
-  onShowFromSearch: onShowFromSearch
+  onShowFromSearch: onShowFromSearch,
+  onSignUp: onSignUp
 }

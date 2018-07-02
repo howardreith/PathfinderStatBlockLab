@@ -12,6 +12,14 @@ const signInError = function (error) {
   console.log('Error is ', error)
 }
 
+const signUpSuccess = function (signUpResponse) {
+  console.log('signUpResponse is ', signUpResponse)
+}
+
+const signUpFail = function (error) {
+  console.log('signUpFail is ', error)
+}
+
 const createCreatureSuccess = function (createCreatureResponse) {
   console.log('createCreatureResponse is ', createCreatureResponse)
 }
@@ -105,6 +113,8 @@ const deleteCreatureFail = function (error) {
 module.exports = {
   signInSuccess: signInSuccess,
   signInError: signInError,
+  signUpSuccess: signUpSuccess,
+  signUpFail: signUpFail,
   createCreatureSuccess: createCreatureSuccess,
   createCreatureFail: createCreatureFail,
   updateCreatureSuccess: updateCreatureSuccess,
