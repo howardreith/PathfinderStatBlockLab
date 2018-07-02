@@ -12,6 +12,11 @@ const onSignIn = function (event) {
     .catch(ui.signInError)
 }
 
+const onShowSignIn = function (event) {
+  event.preventDefault()
+  $('#sign-in-form').show()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -19,6 +24,27 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpError)
+}
+
+const onShowSignUp = function (event) {
+  event.preventDefault()
+  $('#sign-up-form').show()
+}
+
+const onGoToLab = function (event) {
+  event.preventDefault()
+  $('#update-lab').show()
+  $('.display-creature').hide()
+  $('#go-to-lab').hide()
+  $('#go-to-viewer').show()
+}
+
+const onGoToViewer = function (event) {
+  event.preventDefault()
+  $('#update-lab').hide()
+  $('.display-creature').show()
+  $('#go-to-lab').show()
+  $('#go-to-viewer').hide()
 }
 
 const createCreatureObject = {
@@ -201,5 +227,9 @@ module.exports = {
   onShowCreature: onShowCreature,
   onDeleteCreature: onDeleteCreature,
   onShowFromSearch: onShowFromSearch,
-  onSignUp: onSignUp
+  onSignUp: onSignUp,
+  onShowSignIn: onShowSignIn,
+  onShowSignUp: onShowSignUp,
+  onGoToLab: onGoToLab,
+  onGoToViewer: onGoToViewer
 }

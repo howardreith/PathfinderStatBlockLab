@@ -15,6 +15,7 @@ const onClick = function (event) {
 const onSearch = function (onClickData) {
   console.log('onClickData is ', onClickData)
   console.log('The list is ', onClickData.creatures)
+  $('#search-results').show()
   store.creatures = onClickData.creatures
   const creaturesArray = onClickData.creatures
   const creaturesList = []
@@ -54,6 +55,18 @@ const onResultClick = function (event) {
 }
 // const creaturesArray = onClickData.creatures
 // creaturesList.indexOf(event.target.innerHTML)
+
+const searchElement = document.getElementById('result-list')
+
+document.addEventListener('click', function (event) {
+  const isClickInside = searchElement.contains(event.target)
+  if (isClickInside) {
+    console.log('You clicked inside the search results')
+  } else {
+    // console.log('You clicked outside the search results')
+    $('#search-results').hide()
+  }
+})
 
 module.exports = {
   onClick: onClick,
