@@ -44,3 +44,38 @@ h1 {
   float: right;
   margin: 0;
 }
+
+h4 {
+  background-color: black;
+  color: white;
+  display:inline-block;
+}
+
+.display-creature {
+  margin-left: 10%;
+  margin-right: 5%;
+}
+
+#display-name {
+  text-align: left;
+  margin-left: 5%;
+  float: left;
+}
+
+#display-cr {
+  text-align: right;
+  margin-right: 5%;
+  float: right;
+}
+
+.roleplay-section {
+  clear: left;
+}
+
+.defenses-section {
+  margin-top: 10px;
+}
+
+.offense-section {
+  margin-top: 10px;
+}

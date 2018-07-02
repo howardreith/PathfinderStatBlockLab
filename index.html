@@ -112,60 +112,140 @@
         <button type="submit" id= "show-submit" class="button">Get Creature Stats</button>
       </form>
       <div class='display-creature'>
-        <ul>
-          <li id='display-name'>Name: </li>
-          <li id='display-cr'>CR: </li>
-          <li id='display-alignment'>Alignemt: </li>
-          <li id='display-creature_category'>Type: </li>
-          <li id='display-subcategory'>Subtype: </li>
-          <li id='display-size'>Size: </li>
-          <li id='display-initiative'>Initiative: </li>
-          <li id='display-senses'>Senses: </li>
-          <li id='display-perception'>Perception: </li>
-          <li id='display-languages'>Languages: </li>
-          <li id='display-skills'>Skills: </li>
-          <li id='display-str'>Str: </li>
-          <li id='display-dex'>Dex: </li>
-          <li id='display-con'>Con: </li>
-          <li id='display-int'>Int: </li>
-          <li id='display-wis'>Wis: </li>
-          <li id='display-cha'>Cha: </li>
-          <li id='display-items'>Items: </li>
-          <li id='display-appearance'>Appearance: </li>
-          <li id='display-description'>Description: </li>
-          <li id='display-environment'>Environment: </li>
-          <li id='display-organization'>Organization: </li>
-          <li id='display-treasure'>Treasure: </li>
-          <li id='display-source'>Source: </li>
-          <li id='display-ac'>AC: </li>
-          <li id='display-dodgeac'>Touch: </li>
-          <li id='display-flat_footed'>Flat-footed: </li>
-          <li id='display-ac_notes'>AC Notes: </li>
-          <li id='display-cmd'>CMD: </li>
-          <li id='display-saves'>Saves: </li>
-          <li id='display-hp'>HP: </li>
-          <li id='display-hd'>HD: </li>
-          <li id='display-dr'>DR: </li>
-          <li id='display-fast_healing_regen'>Healing Abilities: </li>
-          <li id='display-immunities'>Immunities: </li>
-          <li id='display-resistances'>Resistances: </li>
-          <li id='display-sr'>SR: </li>
-          <li id='display-weaknesses'>Weaknesses: </li>
-          <li id='display-defensive_abilities'>Defensive Abilities: </li>
-          <li id='display-speed'>Speed: </li>
-          <li id='display-speed_note'>Speed Note: </li>
-          <li id='display-melee'>Melee: </li>
-          <li id='display-ranged'>Ranged: </li>
-          <li id='display-cmb'>CMB: </li>
-          <li id='display-reach'>Reach: </li>
-          <li id='display-offense_note'>Offense Note: </li>
-          <li id='display-special_abilities'>Special Abilities: </li>
-          <li id='display-spell_like_abilities'>Spell-like Abilities: </li>
-          <li id='display-spells_known'>Spells Known: </li>
-          <li id='display-spells_prepared'>Spells Prepared: </li>
-          <li id='display-feats'>Feats: </li>
-          <li id='display-additional_special_qualities'>Additional Special Qualities: </li>
-        </ul>
+        <h4 id='display-name'></h4>
+        <h4 id='display-cr'></h4>
+        <div class='roleplay-section'>
+          <div class='line 2' 'line'>
+            <span id='display-alignment' class='roleplay' 'line-2'></span>
+            <span id='display-creature_category' class='roleplay' 'line-2'></span>
+            <span id='display-subcategory' class='roleplay' 'line-2'></span>
+            <span id='display-size' class='roleplay' 'line-2'></span>
+          </div>
+          <div class='line 3' 'line'>
+        <span id='display-perception' class='perception-related'></span>
+        <span id='display-senses' class='perception-related'></span>
+          </div>
+          <div class='line 4' 'line'>
+            <span id='display-initiative'></span>
+          </div>
+          <div class='line 5' 'line'>
+            <span id='display-languages'></span>
+          </div>
+          <div class='line 6' 'line'>
+            <span id='display-skills'></span>
+          </div>
+          <div class='line 7' 'line'>
+            <span id='display-str'></span>
+            <span id='display-dex'></span>
+            <span id='display-con'></span>
+            <span id='display-int'></span>
+            <span id='display-wis'></span>
+            <span id='display-cha'></span>
+          </div>
+          <div class='line 8' 'line'>
+            <span id='display-items'></span>
+          </div>
+          <button id='show-details'>Show Details</button>
+          <div class='details'>
+            <div class='line 9' 'line'>
+              <span id='display-appearance'></span>
+            </div>
+            <div class='line 10' 'line'>
+              <span id='display-description'></span>
+            </div>
+            <div class='line 11' 'line'>
+              <span id='display-environment'></span>
+            </div>
+            <div class='line 12' 'line'>
+              <span id='display-organization'></span>
+            </div>
+            <div class='line 13' 'line'>
+              <span id='display-treasure'></span>
+            </div>
+            <div class='line 14' 'line'>
+              <span id='display-source'></span>
+            </div>
+          </div>
+        </div>
+        <div class='defenses-section'>
+          <div class='line 15' 'line'>
+            <span id='display-ac'></span>
+            <span id='display-dodgeac'></span>
+            <span id='display-flat_footed'></span>
+            <span id='display-ac_notes'></span>
+          </div>
+          <div class='line 16' 'line'>
+            <span id='display-cmd'></span>
+          </div>
+          <div class='line 17' 'line'>
+            <span id='display-saves'></span>
+          </div>
+          <div class='line 18' 'line'>
+            <span id='display-hp'></span>
+            <span id='display-hd'></span>
+          </div>
+          <div class='line 19' 'line'>
+            <span id='display-dr' 'line'></span>
+          </div>
+          <div class='line 20' 'line'>
+            <span id='display-fast_healing_regen'></span>
+          </div>
+          <div class='line 21' 'line'>
+            <span id='display-immunities'></span>
+          </div>
+          <div class='line 22' 'line'>
+            <span id='display-resistances'></span>
+          </div>
+          <div class='line 23' 'line'>
+            <span id='display-sr'></span>
+          </div>
+          <div class='line 24' 'line'>
+            <span id='display-weaknesses'></span>
+          </div>
+          <div class='line 25' 'line'>
+            <span id='display-defensive_abilities'></span>
+          </div>
+          <div class='line 26' 'line'>
+            <span id='display-speed'></span>
+            <span id='display-speed_note'></span>
+          </div>
+        </div>
+        <div class='offense-section'>
+          <div class='line 27' 'line'>
+            <span id='display-melee'></span>
+          </div>
+          <div class='line 28' 'line'>
+            <span id='display-ranged'></span>
+          </div>
+          <div class='line 29' 'line'>
+            <span id='display-cmb'></span>
+          </div>
+          <div class='line 30' 'line'>
+            <span id='display-reach'></span>
+          </div>
+          <div class='line 31' 'line'>
+            <span id='display-offense_note'></span>
+          </div>
+          <div class='line 32' 'line'>
+            <span id='display-special_abilities'></span>
+          </div>
+          <div class='line 33' 'line'>
+            <span id='display-spell_like_abilities'></span>
+          </div>
+          <div class='line 34' 'line'>
+            <span id='display-spells_known'></span>
+          </div>
+          <div class='line 35' 'line'>
+            <span id='display-spells_prepared'></span>
+          </div>
+          <div class='line 36' 'line'>
+            <span id='display-feats'></span>
+          </div>
+          <div class='line 37' 'line'>
+            <span id='display-additional_special_qualities'></span>
+          </div>
+          </div>
+        </div>
       </div>
       <form id="delete-creature-form">
         <input name="id" id= "delete-id" class="delete" placeholder="ID" type="number">
