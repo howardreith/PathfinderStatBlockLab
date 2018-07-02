@@ -128,6 +128,7 @@ const onUpdateCreature = function (event) {
   const data = getFormFields(event.target)
   updateCreatureObject.creature.user_id = store.user.id
   const id = store.currentCreatureId
+  updateCreatureObject.creature.id = store.currentCreatureId
   updateCreatureObject.creature.name = data.name
   updateCreatureObject.creature.cr = data.cr
   updateCreatureObject.creature.alignment = data.alignment

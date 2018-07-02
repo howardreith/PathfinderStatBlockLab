@@ -51,6 +51,7 @@ const onResultClick = function (event) {
   // console.log('monsterIndex is ' + monsterIndex)
   // console.log('The database index is ' + store.creatures[monsterIndex].id)
   const monsterDatabaseIndex = store.creatures[monsterIndex].id
+  store.currentCreatureId = monsterDatabaseIndex
   events.onShowFromSearch(monsterDatabaseIndex)
 }
 // const creaturesArray = onClickData.creatures
