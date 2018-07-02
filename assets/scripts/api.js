@@ -73,10 +73,10 @@ const showCreature = function (data) {
   })
 }
 
-const updateCreature = function (updateCreatureObject, data) {
+const updateCreature = function (updateCreatureObject, id) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/creatures/' + data.id,
+    url: config.apiUrl + '/creatures/' + id,
     data: updateCreatureObject,
     headers: {
       Authorization: 'Token token=' + store.user.token

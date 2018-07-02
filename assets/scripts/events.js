@@ -56,6 +56,7 @@ const createCreatureObject = {
 
 const updateCreatureObject = {
   'creature': {
+    'id': '',
     'name': '',
     'cr': '',
     'user_id': '',
@@ -123,8 +124,10 @@ const onCreateCreature = function (event) {
 
 const onUpdateCreature = function (event) {
   event.preventDefault()
+  console.log('store.currentCreatureId in onUpdateCreature is ' + store.currentCreatureId)
   const data = getFormFields(event.target)
   updateCreatureObject.creature.user_id = store.user.id
+  const id = store.currentCreatureId
   updateCreatureObject.creature.name = data.name
   updateCreatureObject.creature.cr = data.cr
   updateCreatureObject.creature.alignment = data.alignment
@@ -177,7 +180,7 @@ const onUpdateCreature = function (event) {
   updateCreatureObject.creature.feats = data.feats
   updateCreatureObject.creature.additional_special_qualities = data.additional_special_qualities
 
-  api.updateCreature(updateCreatureObject, data)
+  api.updateCreature(updateCreatureObject, id)
     .then(ui.updateCreatureSuccess)
     .catch(ui.updateCreatureFail)
 }
