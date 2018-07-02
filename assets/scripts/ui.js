@@ -20,10 +20,19 @@ const signUpFail = function (error) {
   console.log('signUpFail is ', error)
 }
 
+const changePasswordSuccess = function (changePasswordResponse) {
+  console.log('changePasswordResponse is ', changePasswordResponse)
+}
+
+const changePasswordFail = function (error) {
+  console.log('changePasswordFail is ', error)
+}
+
 const createCreatureSuccess = function (createCreatureResponse) {
   console.log('createCreatureResponse is ', createCreatureResponse)
   store.currentCreatureId = createCreatureResponse.creature.id
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
+  document.getElementById('update-creature-form').reset()
 }
 
 const createCreatureFail = function (error) {
@@ -48,6 +57,7 @@ const getCreaturesFail = function (error) {
 
 const showCreatureSuccess = function (showCreatureResponse) {
   console.log('showCreatureResponse is ', showCreatureResponse)
+  $('.display-creature').show()
   store.currentCreatureId = showCreatureResponse.creature.id
   $('#display-name').text('Name: ' + showCreatureResponse.creature.name)
   $('#display-cr').text('CR: ' + showCreatureResponse.creature.cr)
@@ -182,5 +192,7 @@ module.exports = {
   showCreatureSuccess: showCreatureSuccess,
   showCreatureFail: showCreatureFail,
   deleteCreatureSuccess: deleteCreatureSuccess,
-  deleteCreatureFail: deleteCreatureFail
+  deleteCreatureFail: deleteCreatureFail,
+  changePasswordSuccess: changePasswordSuccess,
+  changePasswordFail: changePasswordFail
 }

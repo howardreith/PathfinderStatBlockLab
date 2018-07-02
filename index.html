@@ -33,6 +33,11 @@
           <input name="credentials[password_confirmation]" class = "sign-up-password-confirm" placeholder="Confirm Password" type="password">
           <button type="submit" id= "sign-up-submit" class="button">Sign Up</button>
         </form>
+        <form id='change-password-form'>
+          <input name='passwords[new]' class='change-password-new' placeholder='New Password' type='password'>
+          <input name='passwords[old]' class='change-password-old' placeholder='Old Password' type='password'>
+          <button type='submit' id='change-password-button' class='button'>Change Password</button>
+        </form>
       </nav>
 
       <div class="search-results" id="search-results">
@@ -45,10 +50,10 @@
       <button id="go-to-lab">Make Creature</button>
       <button id="go-to-viewer">View Creatures</button>
 
-      <form id="create-creature-form">
-        <button type="submit" id= "create-submit" class="button">Create Creature</button>
-      </form>
       <div id="update-lab" class=workspace>
+        <form id="create-creature-form">
+          <button type="submit" id= "create-submit" class="button">Create Creature</button>
+        </form>
         <form id="update-creature-form">
           <p id='update-id'>Creature ID: </p>
           <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
@@ -104,13 +109,13 @@
           <button type="submit" id= "update-submit" class="button">Update</button>
         </form>
       </div>
-      <form id="get-creatures-form">
+      <!-- <form id="get-creatures-form">
         <button type="submit" id="get-creatures" class="button">Get Creatures</button>
-      </form>
-      <form id="show-creature-form">
+      </form> -->
+      <!-- <form id="show-creature-form">
         <input name="id" id= "show-id" class="show" placeholder="ID" type="number">
         <button type="submit" id= "show-submit" class="button">Get Creature Stats</button>
-      </form>
+      </form> -->
       <div class='display-creature'>
         <h4 id='display-name'></h4>
         <h4 id='display-cr'></h4>
@@ -145,7 +150,10 @@
           <div class='line 8' 'line'>
             <span id='display-items'></span>
           </div>
-          <button id='show-details'>Show Details</button>
+          <div class='show-details-link'>
+            <a href='#' id='show-details'>Details (click to view/hide):</a>
+            <!-- <span id='show-details'>Details</span> -->
+          </div>
           <div class='details'>
             <div class='line 9' 'line'>
               <span id='display-appearance'></span>

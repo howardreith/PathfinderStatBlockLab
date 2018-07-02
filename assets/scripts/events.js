@@ -31,6 +31,15 @@ const onShowSignUp = function (event) {
   $('#sign-up-form').show()
 }
 
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFail)
+}
+
 const onGoToLab = function (event) {
   event.preventDefault()
   $('#update-lab').show()
@@ -236,5 +245,6 @@ module.exports = {
   onShowSignIn: onShowSignIn,
   onShowSignUp: onShowSignUp,
   onGoToLab: onGoToLab,
-  onGoToViewer: onGoToViewer
+  onGoToViewer: onGoToViewer,
+  onChangePassword: onChangePassword
 }

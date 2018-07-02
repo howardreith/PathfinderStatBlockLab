@@ -53,9 +53,13 @@ const onResultClick = function (event) {
   const monsterDatabaseIndex = store.creatures[monsterIndex].id
   store.currentCreatureId = monsterDatabaseIndex
   events.onShowFromSearch(monsterDatabaseIndex)
+  $('.details').hide()
 }
-// const creaturesArray = onClickData.creatures
-// creaturesList.indexOf(event.target.innerHTML)
+
+const onShowDetails = function (event) {
+  event.preventDefault()
+  $('.details').toggle()
+}
 
 const searchElement = document.getElementById('result-list')
 
@@ -71,5 +75,6 @@ document.addEventListener('click', function (event) {
 
 module.exports = {
   onClick: onClick,
-  onResultClick: onResultClick
+  onResultClick: onResultClick,
+  onShowDetails: onShowDetails
 }
