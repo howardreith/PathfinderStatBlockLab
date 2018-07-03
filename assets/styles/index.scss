@@ -90,6 +90,56 @@ body {
   margin: auto;
 }
 
+#lab-instructions-wrapper {
+  text-align: center;
+  margin: auto;
+}
+
+// Begins instructions modal
+
+#instructions-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    margin-top: 10%;
+    margin: auto;
+    width: 60%;
+    height: 30%;
+    overflow: auto;
+    background-color: white;
+    text-align: center;
+}
+
+// Modal content
+.modal-content {
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px;
+    border: 2px solid #888;
+    width: 90%;
+    font-family: 'Markazi Text';
+    font-size: 20px;
+    text-align: center
+}
+
+// Close button
+.close {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+  padding:10px;
+  right: 7px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+// End instructions modal
+
 span {
   font-family: 'Markazi Text';
   font-size: 30px;

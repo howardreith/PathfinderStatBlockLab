@@ -15,9 +15,9 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <div class="search-nav collapse navbar-collapse" id="navbarSupportedContent">
-            <form id='search' class="form-inline my-2 my-lg-0">
+            <div id='search' class="form-inline my-2 my-lg-0">
               <input id = 'search-input' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
+            </div>
           </div>
         </div>
         <button id= 'show-sign-in' class='auth'>Sign In</button>
@@ -53,11 +53,30 @@
     </div>
 
       <h1>Pathfinder Stat Block Lab</h1>
-      <div id='go-to-lab-wrapper'>
-      <button id="go-to-lab">Create/Update Creature</button>
+      <div id='lab-instructions-wrapper'>
+      <button id="lab-instructions-button">Instructions (Read Me!)</button>
       </div>
+
+      <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">close &times;</span>
+          <h3>Instructions</h3>
+          <p>To create a creature, input the name of your creature and click "Create Creature."</p>
+          <p>The name is the only required field (for searching later).</p>
+          <p>To save your work, click the "Save Creature" button at the top or bottom
+            of the work space.</p>
+          <p>The fields will clear when you save your work, so make sure you've
+            filled in everything you need!</p>
+          <p>The fields can be re-populated by searching your creature in the search bar.</p>
+        </div>
+      </div>
+
+      <div id='go-to-lab-wrapper'>
+      <button id="go-to-lab">Go to the creature creator!</button>
+      </div>
+
       <div id='go-to-viewer-wrapper'>
-      <button id="go-to-viewer">View Creatures</button>
+      <button id="go-to-viewer">Back to Stat Block Viewer</button>
       </div>
 
       <div id="update-lab" class=workspace>

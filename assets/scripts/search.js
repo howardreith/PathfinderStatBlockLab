@@ -54,7 +54,7 @@ const onResultClick = function (event) {
   store.currentCreatureId = monsterDatabaseIndex
   events.onShowFromSearch(monsterDatabaseIndex)
   $('.details').hide()
-  document.getElementById('search').reset()
+  document.getElementById('search-input').value = ''
 }
 
 const onShowDetails = function (event) {

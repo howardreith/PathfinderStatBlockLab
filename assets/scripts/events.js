@@ -106,6 +106,7 @@ const onGoToLab = function (event) {
   $('#go-to-lab').hide()
   $('#go-to-viewer').show()
   $('#delete-creature-form').show()
+  $('#lab-instructions-wrapper').show()
 }
 
 const onGoToViewer = function (event) {
@@ -117,6 +118,7 @@ const onGoToViewer = function (event) {
   $('#go-to-lab').show()
   $('#go-to-viewer').hide()
   $('#delete-creature-form').hide()
+  $('#lab-instructions-wrapper').hide()
 
   const id = store.currentCreatureId
   onShowFromSearch(id)
@@ -296,6 +298,24 @@ const onDeleteCreature = function (event) {
   api.deleteCreature(id)
     .then(ui.deleteCreatureSuccess)
     .catch(ui.deleteCreatureFail)
+}
+
+const instructionsModal = document.getElementById('instructions-modal')
+const labInstructionsButton = document.getElementById('lab-instructions-button')
+const closeModal = document.getElementsByClassName('close')[0]
+
+labInstructionsButton.onclick = function () {
+  instructionsModal.style.display = 'block'
+}
+
+closeModal.onclick = function () {
+  instructionsModal.style.display = 'none'
+}
+
+window.onclick = function (event) {
+  if (event.target === instructionsModal) {
+    instructionsModal.style.display = 'none'
+  }
 }
 
 module.exports = {

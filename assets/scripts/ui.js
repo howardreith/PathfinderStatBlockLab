@@ -85,7 +85,6 @@ const changePasswordSuccess = function (changePasswordResponse) {
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
-  document.getElementById('search').reset()
 }
 
 const changePasswordFail = function (error) {
@@ -96,7 +95,6 @@ const changePasswordFail = function (error) {
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
-  document.getElementById('search').reset()
 }
 
 const signOutSuccess = function (signOutResponse) {
@@ -117,7 +115,6 @@ const signOutSuccess = function (signOutResponse) {
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
-  document.getElementById('search').reset()
 }
 
 const signOutFail = function (error) {
@@ -128,7 +125,6 @@ const signOutFail = function (error) {
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
-  document.getElementById('search').reset()
 }
 
 const createCreatureSuccess = function (createCreatureResponse) {
@@ -139,7 +135,6 @@ const createCreatureSuccess = function (createCreatureResponse) {
   $('#create-new-creature-notifier').text('Creature created!')
   $('#create-new-creature-notifier').show()
   $('#create-new-creature-notifier').delay(1000).fadeOut('fast')
-  document.getElementById('search').reset()
 }
 
 const createCreatureFail = function (error) {
@@ -147,7 +142,6 @@ const createCreatureFail = function (error) {
   $('#create-new-creature-notifier').text('Create creature failed.')
   $('#create-new-creature-notifier').show()
   $('#create-new-creature-notifier').delay(3000).fadeOut('fast')
-  document.getElementById('search').reset()
 }
 
 const updateCreatureSuccess = function (updateCreatureResponse) {
@@ -160,7 +154,6 @@ const updateCreatureSuccess = function (updateCreatureResponse) {
   $('#update-creature-notifier').delay(1000).fadeOut('fast')
   $('#update-creature-notifier-2').show()
   $('#update-creature-notifier-2').delay(1000).fadeOut('fast')
-  document.getElementById('search').reset()
   document.getElementById('update-creature-form').reset()
 }
 
@@ -172,7 +165,6 @@ const updateCreatureFail = function (error) {
   $('#update-creature-notifier').delay(2500).fadeOut('fast')
   $('#update-creature-notifier-2').show()
   $('#update-creature-notifier-2').delay(2500).fadeOut('fast')
-  document.getElementById('search').reset()
   document.getElementById('update-creature-form').reset()
 }
 
@@ -252,6 +244,13 @@ const showCreatureSuccess = function (showCreatureResponse) {
       $('#' + creatureDisplayList[i]).show()
     }
   }
+  // for (let i = 0; i < creatureDisplayList.length; i++) {
+  //   if (document.getElementById(creatureDisplayList[i]).innerHTML === ('')) {
+  //     $('#' + creatureDisplayList[i]).hide()
+  //   } else {
+  //     $('#' + creatureDisplayList[i]).show()
+  //   }
+  // }
   console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
   if ((document.getElementById('display-appearance').innerHTML.includes('null')) &&
     (document.getElementById('display-description').innerHTML.includes('null')) &&
