@@ -116,6 +116,7 @@ const onGoToViewer = function (event) {
   $('.display-creature').show()
   $('#go-to-lab').show()
   $('#go-to-viewer').hide()
+  $('#delete-creature-form').hide()
 
   const id = store.currentCreatureId
   onShowFromSearch(id)

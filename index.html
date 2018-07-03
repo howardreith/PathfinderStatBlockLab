@@ -64,8 +64,10 @@
         <form id="create-creature-form">
           <button type="submit" id= "create-submit" class="button">Create New Creature</button>
         </form>
+        <p id='create-new-creature-notifier' class= 'notifier'>New creature created!</p>
         <form id="update-creature-form">
           <button type="submit" class= "update-submit">Save Creature</button>
+          <p id='update-creature-notifier' class= 'notifier'>Creature saved!</p>
           <p id='update-id'>Creature ID: </p>
           <span>Name: </span>
           <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
@@ -168,6 +170,7 @@
           <span>Additional Special Qualities: </span>
           <input name="additional_special_qualities" id= "update-additional_special_qualities" class="update" placeholder="Additional Special Qualities" type="text"><br>
           <button type="submit" class= "update-submit">Save Creature</button>
+          <p id='update-creature-notifier-2' class= 'notifier'>Creature saved!</p>
         </form>
       </div>
       <!-- <form id="get-creatures-form">
@@ -319,6 +322,7 @@
           </div>
           </div>
         </div>
+      <p id='delete-creature-notifier' class= 'notifier'>Creature deleted!</p>
       <form id="delete-creature-form">
         <button type="submit" id= "delete-submit" class="button">Delete This Creature</button>
       </form>

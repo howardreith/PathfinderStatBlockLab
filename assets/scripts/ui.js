@@ -33,6 +33,7 @@ const signInSuccess = function (signInResponse) {
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
   $('#search').show()
+  $('#go-to-lab').show()
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
@@ -84,6 +85,7 @@ const changePasswordSuccess = function (changePasswordResponse) {
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
+  document.getElementById('search').reset()
 }
 
 const changePasswordFail = function (error) {
@@ -94,6 +96,7 @@ const changePasswordFail = function (error) {
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
+  document.getElementById('search').reset()
 }
 
 const signOutSuccess = function (signOutResponse) {
@@ -106,9 +109,15 @@ const signOutSuccess = function (signOutResponse) {
   $('#auth-notifier').text('You have signed out.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
+  $('.display-creature').hide()
+  $('#update-lab').hide()
+  $('#delete-submit').hide()
+  $('#go-to-lab').hide()
+  $('#go-to-viewer').hide()
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
+  document.getElementById('search').reset()
 }
 
 const signOutFail = function (error) {
@@ -119,6 +128,7 @@ const signOutFail = function (error) {
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
+  document.getElementById('search').reset()
 }
 
 const createCreatureSuccess = function (createCreatureResponse) {
@@ -126,20 +136,44 @@ const createCreatureSuccess = function (createCreatureResponse) {
   store.currentCreatureId = createCreatureResponse.creature.id
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
   document.getElementById('update-creature-form').reset()
+  $('#create-new-creature-notifier').text('Creature created!')
+  $('#create-new-creature-notifier').show()
+  $('#create-new-creature-notifier').delay(1000).fadeOut('fast')
+  document.getElementById('search').reset()
 }
 
 const createCreatureFail = function (error) {
   console.log('createCreatureError is ', error)
+  $('#create-new-creature-notifier').text('Create creature failed.')
+  $('#create-new-creature-notifier').show()
+  $('#create-new-creature-notifier').delay(3000).fadeOut('fast')
+  document.getElementById('search').reset()
 }
 
 const updateCreatureSuccess = function (updateCreatureResponse) {
   console.log('updateCreatureResponse is ', updateCreatureResponse)
   store.currentCreatureId = updateCreatureResponse.creature.id
   console.log('store.currentCreatureId is ' + store.currentCreatureId)
+  $('#update-creature-notifier').text('Creature saved!')
+  $('#update-creature-notifier-2').text('Creature saved!')
+  $('#update-creature-notifier').show()
+  $('#update-creature-notifier').delay(1000).fadeOut('fast')
+  $('#update-creature-notifier-2').show()
+  $('#update-creature-notifier-2').delay(1000).fadeOut('fast')
+  document.getElementById('search').reset()
+  document.getElementById('update-creature-form').reset()
 }
 
 const updateCreatureFail = function (error) {
   console.log('updateCreatureError is ', error)
+  $('#update-creature-notifier').text('Save creature failed. Please create or select a creature.')
+  $('#update-creature-notifier-2').text('Save creature failed. Please create or select a creature.')
+  $('#update-creature-notifier').show()
+  $('#update-creature-notifier').delay(2500).fadeOut('fast')
+  $('#update-creature-notifier-2').show()
+  $('#update-creature-notifier-2').delay(2500).fadeOut('fast')
+  document.getElementById('search').reset()
+  document.getElementById('update-creature-form').reset()
 }
 
 const getCreaturesSuccess = function (getCreaturesResponse) {
@@ -288,10 +322,16 @@ const showCreatureFail = function (error) {
 
 const deleteCreatureSuccess = function (deleteCreatureResponse) {
   console.log('deleteCreatureResponse is ', deleteCreatureResponse)
+  $('#delete-creature-notifier').text('Creature deleted!')
+  $('#delete-creature-notifier').show()
+  $('#delete-creature-notifier').delay(2000).fadeOut('fast')
 }
 
 const deleteCreatureFail = function (error) {
   console.log('deleteCreatureFail is ', error)
+  $('#delete-creature-notifier').text('Failed to delete creature. It was probably already deleted.')
+  $('#delete-creature-notifier').show()
+  $('#delete-creature-notifier').delay(3000).fadeOut('fast')
 }
 
 module.exports = {
