@@ -42,7 +42,8 @@ body {
 .roleplay-section {
 }
 
-#update-lab {
+#create-lab {
+  font-family: 'Markazi Text';
   background-size: cover;
   background-color: black;
   color: white;
@@ -54,6 +55,27 @@ body {
   margin-right: 10%;
   text-align: center;
   margin-top: 6px;
+}
+
+#create-lab input {
+  background-color: black;
+  color: white;
+  height: 30px;
+  font-size: 27px;
+}
+
+#update-lab {
+  background-size: cover;
+  background-color: black;
+  color: white;
+  border-color: #FFD700;
+  border-width: 10px;
+  border: solid;
+  border-style: ridge;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  margin-top: 15px;
 }
 
 #update-lab input {
@@ -69,14 +91,16 @@ body {
 }
 
 #create-submit {
-  margin-top: 5px;
+  margin-top: 10px;
   color: black;
+  margin-bottom: 10px;
 }
 
 .update-submit {
   margin-bottom: 5px;
   margin-top: 3px;
   color: black;
+  clear: both;
 }
 
 #go-to-lab-wrapper {
@@ -191,7 +215,7 @@ h1 {
 }
 
 #create-new-creature-notifier {
-  font-size: 10px;
+  font-size: 20px;
   color: gold;
 }
 

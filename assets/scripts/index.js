@@ -21,6 +21,7 @@ $(() => {
   $('#show-sign-up').on('click', events.onShowSignUp)
   $('#search-results').hide()
   $('#update-lab').hide()
+  $('#create-lab').hide()
   $('#go-to-lab').on('click', events.onGoToLab)
   $('#go-to-viewer').hide()
   $('#go-to-viewer').on('click', events.onGoToViewer)

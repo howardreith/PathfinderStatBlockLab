@@ -102,6 +102,7 @@ const onGoToLab = function (event) {
   viewState = 1
   store.viewState = 1
   $('#update-lab').show()
+  $('#create-lab').show()
   $('.display-creature').hide()
   $('#go-to-lab').hide()
   $('#go-to-viewer').show()
@@ -114,6 +115,7 @@ const onGoToViewer = function (event) {
   viewState = 0
   store.viewState = 0
   $('#update-lab').hide()
+  $('#create-lab').hide()
   $('.display-creature').show()
   $('#go-to-lab').show()
   $('#go-to-viewer').hide()
@@ -189,11 +191,28 @@ const updateCreatureObject = {
   }
 }
 
+function UserException (message) {
+  this.message = message
+  this.name = 'UserException'
+}
+
+UserException.prototype.toString = function () {
+  return this.name + ': "' + this.message + '"'
+}
+
 const onCreateCreature = function (event) {
   event.preventDefault()
   createCreatureObject.creature.user_id = store.user.id
-  createCreatureObject.creature.name = ''
-  // console.log('the stringefy is ' + JSON.stringify(updateCreatureObject, null, 4))
+  const data = getFormFields(event.target)
+  if (data.name === '') {
+    $('#create-new-creature-notifier').text('Please enter a name.')
+    $('#create-new-creature-notifier').show()
+    $('#create-new-creature-notifier').delay(3000).fadeOut('fast')
+    throw new UserException('Please enter a name')
+  }
+  createCreatureObject.creature.name = data.name
+  console.log('data.name is ' + data.name)
+  console.log('the stringefy is ' + JSON.stringify(createCreatureObject, null, 4))
 
   api.createCreature(createCreatureObject)
     .then(ui.createCreatureSuccess)

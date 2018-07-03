@@ -131,7 +131,8 @@ const createCreatureSuccess = function (createCreatureResponse) {
   console.log('createCreatureResponse is ', createCreatureResponse)
   store.currentCreatureId = createCreatureResponse.creature.id
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
-  document.getElementById('update-creature-form').reset()
+  console.log('createCreatureResponse.creature.name is ' + createCreatureResponse.creature.name)
+  document.getElementById('update-name').value = createCreatureResponse.creature.name
   $('#create-new-creature-notifier').text('Creature created!')
   $('#create-new-creature-notifier').show()
   $('#create-new-creature-notifier').delay(1000).fadeOut('fast')

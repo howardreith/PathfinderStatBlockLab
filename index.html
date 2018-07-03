@@ -79,15 +79,21 @@
       <button id="go-to-viewer">Back to Stat Block Viewer</button>
       </div>
 
-      <div id="update-lab" class=workspace>
+      <div id='create-lab' class=workspace>
+        <h2>Create New Creature</h2>
         <form id="create-creature-form">
+          <span>Name: </span>
+          <input name="name" id= "create-name" placeholder="Creature Name" type="text"><br>
           <button type="submit" id= "create-submit" class="button">Create New Creature</button>
         </form>
         <p id='create-new-creature-notifier' class= 'notifier'>New creature created!</p>
+      </div>
+
+      <div id="update-lab" class=workspace>
         <form id="update-creature-form">
-          <button type="submit" class= "update-submit">Save Creature</button>
-          <p id='update-creature-notifier' class= 'notifier'>Creature saved!</p>
           <p id='update-id'>Creature ID: </p>
+          <button type="submit" class= "update-submit">Save Creature</button><br>
+          <p id='update-creature-notifier' class= 'notifier'>Creature saved!</p>
           <span>Name: </span>
           <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
           <span>CR: </span>
