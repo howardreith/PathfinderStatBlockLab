@@ -53,66 +53,121 @@
     </div>
 
       <h1>Pathfinder Stat Block Lab</h1>
-      <button id="go-to-lab">Make Creature</button>
+      <div id='go-to-lab-wrapper'>
+      <button id="go-to-lab">Create/Update Creature</button>
+      </div>
+      <div id='go-to-viewer-wrapper'>
       <button id="go-to-viewer">View Creatures</button>
+      </div>
 
       <div id="update-lab" class=workspace>
         <form id="create-creature-form">
-          <button type="submit" id= "create-submit" class="button">Create Creature</button>
+          <button type="submit" id= "create-submit" class="button">Create New Creature</button>
         </form>
         <form id="update-creature-form">
+          <button type="submit" class= "update-submit">Save Creature</button>
           <p id='update-id'>Creature ID: </p>
+          <span>Name: </span>
           <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
+          <span>CR: </span>
           <input name="cr" id= "update-cr" class="update" placeholder="CR" type="number"><br>
+          <span>Alignment: </span>
           <input name="alignment" id= "update-alignment" class="update" placeholder="Alignment" type="text"><br>
+          <span>Type: </span>
           <input name="creature_category" id= "update-creature_category" class="update" placeholder="Type" type="text"><br>
+          <span>Subtype: </span>
           <input name="subcategory" id= "update-subcategory" class="update" placeholder="Subtype" type="text"><br>
+          <span>Size: </span>
           <input name="size" id= "update-size" class="update" placeholder="Size" type="text"><br>
+          <span>Initiative: </span>
           <input name="initiative" id= "update-initiative" class="update" placeholder="Initiative" type="text"><br>
+          <span>Senses: </span>
           <input name="senses" id= "update-senses" class="update" placeholder="Senses" type="text"><br>
+          <span>Perception: </span>
           <input name="perception" id= "update-perception" class="update" placeholder="Perception" type="text"><br>
+          <span>Languages: </span>
           <input name="languages" id= "update-languages" class="update" placeholder="Languages" type="text"><br>
+          <span>Skills: </span>
           <input name="skills" id= "update-skills" class="update" placeholder="Skills" type="text"><br>
+          <span>Strength: </span>
           <input name="str" id= "update-str" class="update" placeholder="Str" type="text"><br>
+          <span>Dexterity: </span>
           <input name="dex" id= "update-dex" class="update" placeholder="Dex" type="text"><br>
+          <span>Constitution: </span>
           <input name="con" id= "update-con" class="update" placeholder="Con" type="text"><br>
+          <span>Intelligence: </span>
           <input name="int" id= "update-int" class="update" placeholder="Int" type="text"><br>
+          <span>Wisdom: </span>
           <input name="wis" id= "update-wis" class="update" placeholder="Wis" type="text"><br>
+          <span>Charisma: </span>
           <input name="cha" id= "update-cha" class="update" placeholder="Cha" type="text"><br>
+          <span>Items: </span>
           <input name="items" id= "update-items" class="update" placeholder="Items" type="text"><br>
+          <span>Appearance: </span>
           <input name="appearance" id= "update-appearance" class="update" placeholder="Appearance" type="text"><br>
+          <span>Description: </span>
           <input name="description" id= "update-description" class="update" placeholder="Description" type="text"><br>
+          <span>Environment: </span>
           <input name="environment" id= "update-environment" class="update" placeholder="Environment" type="text"><br>
+          <span>Organization: </span>
           <input name="organization" id= "update-organization" class="update" placeholder="Organization" type="text"><br>
+          <span>Treasure: </span>
           <input name="treasure" id= "update-treasure" class="update" placeholder="Treasure" type="text"><br>
+          <span>Armor Class: </span>
           <input name="ac" id= "update-ac" class="update" placeholder="AC" type="integer"><br>
+          <span>Touch AC: </span>
           <input name="dodgeac" id= "update-dodgeac" class="update" placeholder="Touch" type="integer"><br>
+          <span>Flat-Footed AC: </span>
           <input name="flat_footed" id= "update-flat_footed" class="update" placeholder="Flat-footed" type="integer"><br>
+          <span>AC Breakdown: </span>
           <input name="ac_notes" id= "update-ac_notes" class="update" placeholder="AC Breakdown" type="text"><br>
+          <span>Combat Maneuver Defense: </span>
           <input name="cmd" id= "update-cmd" class="update" placeholder="CMD" type="text"><br>
+          <span>Saves (Fort, Ref, Will): </span>
           <input name="saves" id= "update-saves" class="update" placeholder="Saves" type="text"><br>
+          <span>Hit Points: </span>
           <input name="hp" id= "update-hp" class="update" placeholder="HP" type="integer"><br>
+          <span>Hit Dice: </span>
           <input name="hd" id= "update-hd" class="update" placeholder="HD" type="text"><br>
+          <span>Damage Reduction: </span>
           <input name="dr" id= "update-dr" class="update" placeholder="DR" type="text"><br>
+          <span>Fast Healing/Regeneration: </span>
           <input name="fast_healing_regen" id= "update-fast_healing_regen" class="update" placeholder="Fast Healing/Regeneration" type="text"><br>
+          <span>Immunities: </span>
           <input name="immunities" id= "update-immunities" class="update" placeholder="Immunities" type="text"><br>
+          <span>Resistances: </span>
           <input name="resistances" id= "update-resistances" class="update" placeholder="Resistances" type="text"><br>
+          <span>Spell Resistance: </span>
           <input name="sr" id= "update-sr" class="update" placeholder="SR" type="integer"><br>
+          <span>Weaknesses: </span>
           <input name="weaknesses" id= "update-weaknesses" class="update" placeholder="Weaknesses" type="text"><br>
+          <span>Defensive Abilities: </span>
           <input name="defensive_abilities" id= "update-defensive_abilities" class="update" placeholder="Defensive Abilities" type="text"><br>
+          <span>Speed: </span>
           <input name="speed" id= "update-speed" class="update" placeholder="Speed" type="text"><br>
+          <span>Melee: </span>
           <input name="melee" id= "update-melee" class="update" placeholder="Melee" type="text"><br>
+          <span>Ranged: </span>
           <input name="ranged" id= "update-ranged" class="update" placeholder="Ranged" type="text"><br>
+          <span>Combat Maneuver Bonus: </span>
           <input name="cmb" id= "update-cmb" class="update" placeholder="CMB" type="text"><br>
+          <span>Reach: </span>
           <input name="reach" id= "update-reach" class="update" placeholder="Reach" type="text"><br>
+          <span>Offense Note: </span>
           <input name="offense_note" id= "update-offense_note" class="update" placeholder="Offense Note (grab, etc.)" type="text"><br>
+          <span>Special Abilities: </span>
           <input name="special_abilities" id= "update-special_abilities" class="update" placeholder="Special Abilities" type="text"><br>
+          <span>Spell-like Abilities: </span>
           <input name="spell_like_abilities" id= "update-spell_like_abilities" class="update" placeholder="Spell-like Abilities" type="text"><br>
+          <span>Spells Known: </span>
           <input name="spells_known" id= "update-spells_known" class="update" placeholder="spells_known" type="text"><br>
+          <span>Spells Prepared: </span>
           <input name="spells_prepared" id= "update-spells_prepared" class="update" placeholder="Spells Prepared" type="text"><br>
+          <span>Feats: </span>
           <input name="feats" id= "update-feats" class="update" placeholder="Feats" type="text"><br>
+          <span>Additional Special Qualities: </span>
           <input name="additional_special_qualities" id= "update-additional_special_qualities" class="update" placeholder="Additional Special Qualities" type="text"><br>
-          <button type="submit" id= "update-submit" class="button">Update</button>
+          <button type="submit" class= "update-submit">Save Creature</button>
         </form>
       </div>
       <!-- <form id="get-creatures-form">
@@ -160,7 +215,7 @@
           <div class='line 8' 'line'>
             <span id='display-items'></span>
           </div>
-          <div class='show-details-link'>
+          <div class='show-details-link' id='show-details-div'>
             <a href='#' id='show-details'>Details (click to view/hide):</a>
             <!-- <span id='show-details'>Details</span> -->
           </div>
@@ -265,8 +320,7 @@
           </div>
         </div>
       <form id="delete-creature-form">
-        <input name="id" id= "delete-id" class="delete" placeholder="ID" type="number">
-        <button type="submit" id= "delete-submit" class="button">Delete Creature</button>
+        <button type="submit" id= "delete-submit" class="button">Delete This Creature</button>
       </form>
     </body>
 </html>

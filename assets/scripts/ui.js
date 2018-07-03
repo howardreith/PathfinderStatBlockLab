@@ -1,6 +1,23 @@
 'use strict'
 const store = require('./store')
 
+const creatureDisplayList = [ 'display-name', 'display-cr', 'display-alignment',
+  'display-creature_category', 'display-subcategory', 'display-size',
+  'display-initiative', 'display-senses', 'display-perception',
+  'display-languages', 'display-skills', 'display-str', 'display-dex',
+  'display-con', 'display-int', 'display-wis', 'display-cha', 'display-items',
+  'display-appearance', 'display-description', 'display-environment',
+  'display-organization', 'display-treasure', 'display-source', 'display-ac',
+  'display-dodgeac', 'display-flat_footed', 'display-ac_notes', 'display-cmd',
+  'display-saves', 'display-hp', 'display-hd', 'display-dr',
+  'display-fast_healing_regen', 'display-immunities', 'display-resistances',
+  'display-sr', 'display-weaknesses', 'display-defensive_abilities',
+  'display-speed', 'display-speed_note', 'display-melee', 'display-ranged',
+  'display-cmb', 'display-reach', 'display-offense_note',
+  'display-special_abilities', 'display-spell_like_abilities',
+  'display-spells_known', 'display-spells_prepared', 'display-feats',
+  'display-additional_special_qualities' ]
+
 const signInSuccess = function (signInResponse) {
   console.log('signInResponse is', signInResponse)
   store.user = signInResponse.user
@@ -117,6 +134,8 @@ const createCreatureFail = function (error) {
 
 const updateCreatureSuccess = function (updateCreatureResponse) {
   console.log('updateCreatureResponse is ', updateCreatureResponse)
+  store.currentCreatureId = updateCreatureResponse.creature.id
+  console.log('store.currentCreatureId is ' + store.currentCreatureId)
 }
 
 const updateCreatureFail = function (error) {
@@ -133,7 +152,9 @@ const getCreaturesFail = function (error) {
 
 const showCreatureSuccess = function (showCreatureResponse) {
   console.log('showCreatureResponse is ', showCreatureResponse)
-  $('.display-creature').show()
+  if (store.viewState === 0) {
+    $('.display-creature').show()
+  }
   store.currentCreatureId = showCreatureResponse.creature.id
   $('#display-name').text('Name: ' + showCreatureResponse.creature.name)
   $('#display-cr').text('CR: ' + showCreatureResponse.creature.cr)
@@ -161,7 +182,6 @@ const showCreatureSuccess = function (showCreatureResponse) {
   $('#display-source').text('Source: ' + showCreatureResponse.creature.source)
   $('#display-ac').text('AC: ' + showCreatureResponse.creature.ac)
   $('#display-dodgeac').text('Touch: ' + showCreatureResponse.creature.dodgeac)
-  console.log('dodgeac is ' + showCreatureResponse.creature.dodgeac)
   $('#display-flat_footed').text('Flat-Footed: ' + showCreatureResponse.creature.flat_footed)
   $('#display-ac_notes').text('AC Notes: ' + showCreatureResponse.creature.ac_notes)
   $('#display-cmd').text('CMD: ' + showCreatureResponse.creature.cmd)
@@ -188,6 +208,26 @@ const showCreatureSuccess = function (showCreatureResponse) {
   $('#display-spells_prepared').text('Spells Prepared: ' + showCreatureResponse.creature.spells_prepared)
   $('#display-feats').text('Feats: ' + showCreatureResponse.creature.feats)
   $('#display-additional_special_qualities').text('Additional Special Qualities: ' + showCreatureResponse.creature.additional_special_qualities)
+  for (let i = 0; i < creatureDisplayList.length; i++) {
+    // console.log(creatureDisplayList[i])
+    // console.log(document.getElementById(creatureDisplayList[i]).innerHTML)
+    // console.log('#' + creatureDisplayList[i])
+    if (document.getElementById(creatureDisplayList[i]).innerHTML.includes('null')) {
+      $('#' + creatureDisplayList[i]).hide()
+    } else {
+      $('#' + creatureDisplayList[i]).show()
+    }
+  }
+  console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
+  if ((document.getElementById('display-appearance').innerHTML.includes('null')) &&
+    (document.getElementById('display-description').innerHTML.includes('null')) &&
+    (document.getElementById('display-environment').innerHTML.includes('null')) &&
+    (document.getElementById('display-organization').innerHTML.includes('null')) &&
+    (document.getElementById('display-treasure').innerHTML.includes('null'))) {
+    $('show-details-div').hide()
+  } else {
+    $('show-details-div').show()
+  }
   // This section begins the update lab portion
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
   document.getElementById('update-name').value = showCreatureResponse.creature.name

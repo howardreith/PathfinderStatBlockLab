@@ -42,6 +42,54 @@ body {
 .roleplay-section {
 }
 
+#update-lab {
+  background-size: cover;
+  background-color: black;
+  color: white;
+  border-color: #FFD700;
+  border-width: 10px;
+  border: solid;
+  border-style: ridge;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  margin-top: 6px;
+}
+
+#update-lab input {
+  background-color: black;
+  color: white;
+  height: 30px;
+  font-size: 27px;
+}
+
+#update-lab p {
+  font-family: 'Markazi Text';
+  font-size: 30px;
+}
+
+#create-submit {
+  margin-top: 5px;
+  color: black;
+}
+
+.update-submit {
+  margin-bottom: 5px;
+  margin-top: 3px;
+  color: black;
+}
+
+#go-to-lab-wrapper {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+#go-to-viewer-wrapper {
+  text-align: center;
+  margin: auto;
+}
+
 span {
   font-family: 'Markazi Text';
   font-size: 30px;
@@ -102,4 +150,10 @@ h1 {
 
 .offense-section {
   margin-top: 10px;
+}
+
+#delete-creature-form {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 20px;
 }

@@ -84,10 +84,10 @@ const updateCreature = function (updateCreatureObject, id) {
   })
 }
 
-const deleteCreature = function (data) {
+const deleteCreature = function (id) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/creatures/' + data.id,
+    url: config.apiUrl + '/creatures/' + id,
     headers: {
       authorization: 'Token token=' + store.user.token
     }

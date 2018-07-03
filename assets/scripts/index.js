@@ -12,6 +12,7 @@ $(() => {
   $('#get-creatures-form').on('submit', events.onGetCreatures)
   $('#show-creature-form').on('submit', events.onShowCreature)
   $('#delete-creature-form').on('submit', events.onDeleteCreature)
+  $('#delete-creature-form').hide()
   $('#search').on('click', search.onClick)
   $('#result-list').on('click', search.onResultClick)
   $('#sign-in-form').hide()

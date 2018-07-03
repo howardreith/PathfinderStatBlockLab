@@ -3,6 +3,9 @@ const ui = require('./ui.js')
 const api = require('./api.js')
 const store = require('./store.js')
 
+let viewState = 0
+store.viewState = viewState
+
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -96,18 +99,26 @@ const onSignOut = function (event) {
 
 const onGoToLab = function (event) {
   event.preventDefault()
+  viewState = 1
+  store.viewState = 1
   $('#update-lab').show()
   $('.display-creature').hide()
   $('#go-to-lab').hide()
   $('#go-to-viewer').show()
+  $('#delete-creature-form').show()
 }
 
 const onGoToViewer = function (event) {
   event.preventDefault()
+  viewState = 0
+  store.viewState = 0
   $('#update-lab').hide()
   $('.display-creature').show()
   $('#go-to-lab').show()
   $('#go-to-viewer').hide()
+
+  const id = store.currentCreatureId
+  onShowFromSearch(id)
 }
 
 const createCreatureObject = {
@@ -279,9 +290,9 @@ const onShowFromSearch = function (searchResult) {
 
 const onDeleteCreature = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const id = store.currentCreatureId
 
-  api.deleteCreature(data)
+  api.deleteCreature(id)
     .then(ui.deleteCreatureSuccess)
     .catch(ui.deleteCreatureFail)
 }
@@ -305,5 +316,6 @@ module.exports = {
   onShowSignUpBack: onShowSignUpBack,
   onShowChangePassword: onShowChangePassword,
   onShowChangePasswordBack: onShowChangePasswordBack,
-  onSignOut: onSignOut
+  onSignOut: onSignOut,
+  viewState: viewState
 }
