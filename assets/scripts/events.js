@@ -15,6 +15,17 @@ const onSignIn = function (event) {
 const onShowSignIn = function (event) {
   event.preventDefault()
   $('#sign-in-form').show()
+  $('#show-sign-in').hide()
+  $('#show-sign-up').hide()
+  $('#show-sign-in-back').show()
+}
+
+const onShowSignInBack = function (event) {
+  event.preventDefault()
+  $('#sign-in-form').hide()
+  $('#show-sign-in').show()
+  $('#show-sign-up').show()
+  $('#show-sign-in-back').hide()
 }
 
 const onSignUp = function (event) {
@@ -29,6 +40,17 @@ const onSignUp = function (event) {
 const onShowSignUp = function (event) {
   event.preventDefault()
   $('#sign-up-form').show()
+  $('#show-sign-up').hide()
+  $('#show-sign-in').hide()
+  $('#show-sign-up-back').show()
+}
+
+const onShowSignUpBack = function (event) {
+  event.preventDefault()
+  $('#sign-up-form').hide()
+  $('#show-sign-up').show()
+  $('#show-sign-in').show()
+  $('#show-sign-up-back').hide()
 }
 
 const onChangePassword = function (event) {
@@ -246,5 +268,7 @@ module.exports = {
   onShowSignUp: onShowSignUp,
   onGoToLab: onGoToLab,
   onGoToViewer: onGoToViewer,
-  onChangePassword: onChangePassword
+  onChangePassword: onChangePassword,
+  onShowSignInBack: onShowSignInBack,
+  onShowSignUpBack: onShowSignUpBack
 }

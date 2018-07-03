@@ -6,13 +6,49 @@ body {
   background-size: cover;
 }
 
+.display-creature {
+  background-size: cover;
+  background-color: black;
+  color: white;
+  border-color: #FFD700;
+  border-width: 10px;
+  border: solid;
+  border-style: ridge;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#heading-wrapper {
+  background-color: white;
+}
+
+#heading-section {
+  width: 100%;
+  background-color: white;
+  color: black;
+  clear: both;
+  height: 40px;
+}
+
+#display-name {
+  float: left;
+}
+
+#display-cr {
+  float: right;
+}
+
+.roleplay-section {
+}
+
 span {
   font-family: 'Markazi Text';
-  font-size: 25px;
+  font-size: 30px;
 }
+
 a {
   font-family: 'Markazi Text';
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .navbar {
@@ -49,31 +85,24 @@ h1 {
   margin-top: 0;
 }
 
+#sign-in-form {
+  float: right;
+}
+
 #show-sign-up {
   float: right;
   margin: 0;
 }
 
-h4 {
-  background-color: black;
-  color: white;
-  display:inline-block;
+#sign-up-form {
+  float: right;
 }
 
-.display-creature {
-  margin-left: 10%;
-  margin-right: 5%;
+#show-sign-in-back {
+  float: right;
 }
 
-#display-name {
-  text-align: left;
-  margin-left: 5%;
-  float: left;
-}
-
-#display-cr {
-  text-align: right;
-  margin-right: 5%;
+#show-sign-up-back {
   float: right;
 }
 

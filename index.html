@@ -20,8 +20,10 @@
             </form>
           </div>
         </div>
-        <button id = 'show-sign-in'>Sign In</button>
-        <button id = 'show-sign-up'>Sign Up</button>
+        <button id= 'show-sign-in'>Sign In</button>
+        <button id= 'show-sign-up'>Sign Up</button>
+        <button id= 'show-sign-in-back'>Back</button>
+        <button id= 'show-sign-up-back'>Back</button>
         <form id="sign-in-form">
           <input name="credentials[email]" class = "sign-in-email" placeholder="Sign In - Email " type="email">
           <input name="credentials[password]" class = "sign-in-password" placeholder="Password" type="password">
@@ -117,8 +119,12 @@
         <button type="submit" id= "show-submit" class="button">Get Creature Stats</button>
       </form> -->
       <div class='display-creature'>
-        <h4 id='display-name'></h4>
-        <h4 id='display-cr'></h4>
+        <div id='heading-wrapper'>
+          <div id='heading-section'>
+            <span id='display-name'></span>
+            <span id='display-cr'></span>
+        </div>
+      </div>
         <div class='roleplay-section'>
           <div class='line 2' 'line'>
             <span id='display-alignment' class='roleplay' 'line-2'></span>
@@ -254,7 +260,6 @@
           </div>
           </div>
         </div>
-      </div>
       <form id="delete-creature-form">
         <input name="id" id= "delete-id" class="delete" placeholder="ID" type="number">
         <button type="submit" id= "delete-submit" class="button">Delete Creature</button>
