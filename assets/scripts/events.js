@@ -26,6 +26,9 @@ const onShowSignInBack = function (event) {
   $('#show-sign-in').show()
   $('#show-sign-up').show()
   $('#show-sign-in-back').hide()
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const onSignUp = function (event) {
@@ -34,7 +37,7 @@ const onSignUp = function (event) {
 
   api.signUp(data)
     .then(ui.signUpSuccess)
-    .catch(ui.signUpError)
+    .catch(ui.signUpFail)
 }
 
 const onShowSignUp = function (event) {
@@ -51,6 +54,9 @@ const onShowSignUpBack = function (event) {
   $('#show-sign-up').show()
   $('#show-sign-in').show()
   $('#show-sign-up-back').hide()
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const onChangePassword = function (event) {
@@ -60,6 +66,32 @@ const onChangePassword = function (event) {
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFail)
+}
+
+const onShowChangePassword = function (event) {
+  event.preventDefault()
+  $('#change-password-form').show()
+  $('#show-change-password-back').show()
+  $('#sign-out-button').hide()
+  $('#show-change-password').hide()
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
+}
+
+const onShowChangePasswordBack = function (event) {
+  event.preventDefault()
+  $('#change-password-form').hide()
+  $('#show-change-password-back').hide()
+  $('#sign-out-button').show()
+  $('#show-change-password').show()
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signoutFail)
 }
 
 const onGoToLab = function (event) {
@@ -270,5 +302,8 @@ module.exports = {
   onGoToViewer: onGoToViewer,
   onChangePassword: onChangePassword,
   onShowSignInBack: onShowSignInBack,
-  onShowSignUpBack: onShowSignUpBack
+  onShowSignUpBack: onShowSignUpBack,
+  onShowChangePassword: onShowChangePassword,
+  onShowChangePasswordBack: onShowChangePasswordBack,
+  onSignOut: onSignOut
 }

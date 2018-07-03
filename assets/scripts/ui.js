@@ -4,28 +4,104 @@ const store = require('./store')
 const signInSuccess = function (signInResponse) {
   console.log('signInResponse is', signInResponse)
   store.user = signInResponse.user
-  // console.log('store.user is' + store.user)
-  // console.log('store.user.id is' + store.user.id)
+  $('#sign-in-form').hide()
+  $('#show-sign-in').hide()
+  $('#show-sign-in-back').hide()
+  $('#sign-up-form').hide()
+  $('#show-sign-up').hide()
+  $('#show-sign-up-back').hide()
+  $('#show-change-password').show()
+  $('#sign-out-button').show()
+  $('#auth-notifier').text('You are signed in!')
+  $('#auth-notifier').show()
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  $('#search').show()
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const signInError = function (error) {
   console.log('Error is ', error)
+  $('#auth-notifier').text('Please check username and password.')
+  $('#auth-notifier').show()
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const signUpSuccess = function (signUpResponse) {
   console.log('signUpResponse is ', signUpResponse)
+  $('#auth-notifier').text('You are signed up! Please sign in.')
+  $('#auth-notifier').show()
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  $('#sign-up-form').hide()
+  $('#show-sign-up-back').hide()
+  $('#show-sign-in').show()
+  $('#show-sign-up').show()
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const signUpFail = function (error) {
   console.log('signUpFail is ', error)
+  $('#auth-notifier').show()
+  if (error.responseText === '{"email":["has already been taken"]}') {
+    document.getElementById('auth-notifier').innerHTML = ('This email has been taken.')
+  } else {
+    document.getElementById('auth-notifier').innerHTML = ('Please check email and password values.')
+  }
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const changePasswordSuccess = function (changePasswordResponse) {
   console.log('changePasswordResponse is ', changePasswordResponse)
+  $('#auth-notifier').text('Your password has been changed.')
+  $('#auth-notifier').show()
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const changePasswordFail = function (error) {
   console.log('changePasswordFail is ', error)
+  $('#auth-notifier').text('Please check your password inputs.')
+  $('#auth-notifier').show()
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
+}
+
+const signOutSuccess = function (signOutResponse) {
+  console.log('signOutSuccess is ', signOutResponse)
+  $('#sign-out-button').hide()
+  $('#show-change-password').hide()
+  $('#show-sign-in').show()
+  $('#show-sign-up').show()
+  $('#search').hide()
+  $('#auth-notifier').text('You have signed out.')
+  $('#auth-notifier').show()
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
+}
+
+const signOutFail = function (error) {
+  console.log('signOutFail is ', error)
+  $('#auth-notifier').text('Somehow you failed to sign out.')
+  $('#auth-notifier').show()
+  $('#auth-notifier').delay(4000).fadeOut('fast')
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('change-password-form').reset()
 }
 
 const createCreatureSuccess = function (createCreatureResponse) {
@@ -194,5 +270,7 @@ module.exports = {
   deleteCreatureSuccess: deleteCreatureSuccess,
   deleteCreatureFail: deleteCreatureFail,
   changePasswordSuccess: changePasswordSuccess,
-  changePasswordFail: changePasswordFail
+  changePasswordFail: changePasswordFail,
+  signOutSuccess: signOutSuccess,
+  signOutFail: signOutFail
 }

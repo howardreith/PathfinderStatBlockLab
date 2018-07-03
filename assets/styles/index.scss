@@ -16,6 +16,7 @@ body {
   border-style: ridge;
   margin-left: 10%;
   margin-right: 10%;
+  text-indent: 3em;
 }
 
 #heading-wrapper {
@@ -80,30 +81,15 @@ h1 {
   text-align: center;
 }
 
-#show-sign-in {
-  float: right;
-  margin-top: 0;
-}
-
-#sign-in-form {
+.auth {
   float: right;
 }
 
-#show-sign-up {
-  float: right;
-  margin: 0;
-}
-
-#sign-up-form {
-  float: right;
-}
-
-#show-sign-in-back {
-  float: right;
-}
-
-#show-sign-up-back {
-  float: right;
+#auth-notifier {
+  color: gold;
+  font-size: 20px;
+  margin-right: 3px;
+  clear: right;
 }
 
 .roleplay-section {
