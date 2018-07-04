@@ -55,14 +55,10 @@ The application would primarily serve as a quick reference tool with a
 "lab" element available for any monsters not already in the database. Due to
 time constraints this was not possible.
 
-In the present version of the application the "Update Creature" part of the
-form clears upon saving the creature. This makes for a poor user experience
-as there is a large number of fields to populate and it makes sense to want
-to save along the way, especially given how lengthy some of the descriptions
-in the fields can be. Clearing all fields after submission was a requirement
-for this project to demonstrate competence in this area and I have adhered to
-that requirement. Should I return to this project in the future, this behavior
-will be adjusted.
+the overall organization of the stat block is not quite what I hoped. I would
+like to tweak some minor aspects in the future, mostly in regard to removing
+some labels that are implicit in their location on the form to make it a bit
+less cluttered.
 
 The Process
 
