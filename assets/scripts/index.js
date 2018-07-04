@@ -27,7 +27,7 @@ $(() => {
   $('#go-to-viewer').on('click', events.onGoToViewer)
   // $('#show-creature-form').hide()
   $('.display-creature').hide()
-  $('#show-details').on('click', search.onShowDetails)
+  // $('#show-details').on('click', search.onShowDetails)
   $('#change-password-form').hide()
   $('#show-sign-up-back').hide()
   $('#show-sign-up-back').on('click', events.onShowSignUpBack)

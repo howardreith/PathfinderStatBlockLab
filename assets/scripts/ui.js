@@ -18,6 +18,17 @@ const creatureDisplayList = [ 'display-name', 'display-cr', 'display-alignment',
   'display-spells_known', 'display-spells_prepared', 'display-feats',
   'display-additional_special_qualities' ]
 
+const emptyArrayList = [ 'Name:', 'CR:', 'Alignment: ', 'Type: ', '()', 'Size: ',
+  'Initiative: +null', 'Senses: ', 'Perception: ', 'Languages: ', 'Skills: ',
+  'Str: ', 'Dex: ', 'Con: ', 'Int: ', 'Wis: ', 'Cha: ', 'Items: ', 'Appearance: ',
+  'Description: ', 'Environment: ', 'Organization: ', 'Treasure: ', 'Source: null',
+  'AC: ', 'Touch: null', 'Flat-Footed: null', 'AC Notes: ', 'CMD: ', 'Saves: ',
+  'HP: null', 'HD: ', 'DR: ', 'Healing Abilities: ', 'Immunities: ', 'Resistances: ',
+  'SR: null', 'Weaknesses: ', 'Defensive Abilities: ', 'Speed: ', 'Speed Note: null',
+  'Melee: ', 'Ranged: ', 'CMB: ', 'Reach: ', 'Offense Note: ', 'Special Abilities: ',
+  'Spell-like Abilities: ', 'Spells Known: ', 'Spells Prepared: ', 'Feats: ',
+  'Additional Special Qualities: ' ]
+
 const signInSuccess = function (signInResponse) {
   console.log('signInResponse is', signInResponse)
   store.user = signInResponse.user
@@ -132,6 +143,7 @@ const createCreatureSuccess = function (createCreatureResponse) {
   store.currentCreatureId = createCreatureResponse.creature.id
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
   console.log('createCreatureResponse.creature.name is ' + createCreatureResponse.creature.name)
+  document.getElementById('update-creature-form').reset()
   document.getElementById('update-name').value = createCreatureResponse.creature.name
   $('#create-new-creature-notifier').text('Creature created!')
   $('#create-new-creature-notifier').show()
@@ -245,6 +257,17 @@ const showCreatureSuccess = function (showCreatureResponse) {
       $('#' + creatureDisplayList[i]).show()
     }
   }
+  for (let i = 0; i < creatureDisplayList.length; i++) {
+    // console.log(creatureDisplayList[i])
+    console.log('creatureDisplayList: ' + document.getElementById(creatureDisplayList[i]).innerHTML)
+    console.log('emptyArrayList: ' + emptyArrayList[i])
+    // console.log('#' + creatureDisplayList[i])
+    if (document.getElementById(creatureDisplayList[i]).innerHTML === emptyArrayList[i]) {
+      $('#' + creatureDisplayList[i]).hide()
+    } else {
+      $('#' + creatureDisplayList[i]).show()
+    }
+  }
   // for (let i = 0; i < creatureDisplayList.length; i++) {
   //   if (document.getElementById(creatureDisplayList[i]).innerHTML === ('')) {
   //     $('#' + creatureDisplayList[i]).hide()
@@ -252,16 +275,16 @@ const showCreatureSuccess = function (showCreatureResponse) {
   //     $('#' + creatureDisplayList[i]).show()
   //   }
   // }
-  console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
-  if ((document.getElementById('display-appearance').innerHTML.includes('null')) &&
-    (document.getElementById('display-description').innerHTML.includes('null')) &&
-    (document.getElementById('display-environment').innerHTML.includes('null')) &&
-    (document.getElementById('display-organization').innerHTML.includes('null')) &&
-    (document.getElementById('display-treasure').innerHTML.includes('null'))) {
-    $('show-details-div').hide()
-  } else {
-    $('show-details-div').show()
-  }
+  // console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
+  // if ((document.getElementById('display-appearance').innerHTML.includes('null')) &&
+  //   (document.getElementById('display-description').innerHTML.includes('null')) &&
+  //   (document.getElementById('display-environment').innerHTML.includes('null')) &&
+  //   (document.getElementById('display-organization').innerHTML.includes('null')) &&
+  //   (document.getElementById('display-treasure').innerHTML.includes('null'))) {
+  //   $('show-details-div').hide()
+  // } else {
+  //   $('show-details-div').show()
+  // }
   // This section begins the update lab portion
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
   document.getElementById('update-name').value = showCreatureResponse.creature.name
