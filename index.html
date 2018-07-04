@@ -20,28 +20,28 @@
             </div>
           </div>
         </div>
-        <button id= 'show-sign-in' class='auth'>Sign In</button>
-        <button id= 'show-sign-up' class='auth'>Sign Up</button>
-        <button id= 'show-sign-in-back' class='auth'>Back</button>
-        <button id= 'show-sign-up-back' class='auth'>Back</button>
+        <button id= 'show-sign-in' class='auth auth-button'>Sign In</button>
+        <button id= 'show-sign-up' class='auth auth-button'>Sign Up</button>
+        <button id= 'show-sign-in-back' class='auth auth-button'>Back</button>
+        <button id= 'show-sign-up-back' class='auth auth-button'>Back</button>
         <form id="sign-in-form" class='auth'>
           <input name="credentials[email]" class = "sign-in-email" placeholder="Sign In - Email " type="email">
           <input name="credentials[password]" class = "sign-in-password" placeholder="Password" type="password">
-          <button type="submit" id= "sign-in-submit" class="button">Sign In</button>
+          <button type="submit" class='auth-button' id= "sign-in-submit">Sign In</button>
         </form>
         <form id="sign-up-form" class='auth'>
           <input name="credentials[email]" class = "sign-up-email" placeholder="Sign Up - Email " type="email">
           <input name="credentials[password]" class = "sign-up-password" placeholder="Password" type="password">
           <input name="credentials[password_confirmation]" class = "sign-up-password-confirm" placeholder="Confirm Password" type="password">
-          <button type="submit" id= "sign-up-submit" class="button">Sign Up</button>
+          <button type="submit" class='auth-button' id= "sign-up-submit">Sign Up</button>
         </form>
-        <button id= 'sign-out-button' class='auth'>Sign Out</button>
-        <button id= 'show-change-password' class='auth'>Change Password</button>
-        <button id= 'show-change-password-back' class='auth'>Back</button>
+        <button id= 'sign-out-button' class='auth auth-button'>Sign Out</button>
+        <button id= 'show-change-password' class='auth auth-button'>Change Password</button>
+        <button id= 'show-change-password-back' class='auth auth-button'>Back</button>
         <form id='change-password-form' class='auth'>
           <input name='passwords[old]' class='change-password-old' placeholder='Old Password' type='password'>
           <input name='passwords[new]' class='change-password-new' placeholder='New Password' type='password'>
-          <button type='submit' id='change-password-button' class='button'>Change Password</button>
+          <button type='submit' id='change-password-button' class='auth-button'>Change Password</button>
         </form>
         <p id='auth-notifier' class='auth'></p>
       </nav>
@@ -51,10 +51,8 @@
         <li class='list-group-item'></li>
       </ul>
     </div>
-
-      <h1>Pathfinder Stat Block Lab</h1>
-      <div id='lab-instructions-wrapper'>
-      <button id="lab-instructions-button">Lab Instructions (Read Me!)</button>
+      <div id='logo-wrapper'>
+        <img id='logo' src=/assets/images/PathfinderLogo.png alt='Pathfinder Stat Block Lab'>
       </div>
 
       <div id="instructions-modal" class="modal">
@@ -71,10 +69,6 @@
         </div>
       </div>
 
-      <div id='viewer-instructions-wrapper'>
-      <button id="viewer-instructions-button">Viewer Instructions (Read Me!)</button>
-      </div>
-
       <div id="viewer-instructions-modal" class="modal">
         <div class="modal-content">
           <span class="close">close &times;</span><br>
@@ -85,13 +79,22 @@
         </div>
       </div>
 
+      <div id='outside-buttons-wrapper'>
+        <div id='lab-instructions-wrapper'>
+          <button id="lab-instructions-button" class='outside-button'>Lab Instructions (Read Me!)</button>
+        </div>
 
-      <div id='go-to-lab-wrapper'>
-      <button id="go-to-lab">Go to Lab!</button>
-      </div>
+        <div id='viewer-instructions-wrapper'>
+          <button id="viewer-instructions-button" class='outside-button'>Viewer Instructions (Read Me!)</button>
+        </div>
 
-      <div id='go-to-viewer-wrapper'>
-      <button id="go-to-viewer">Back to Stat Block Viewer</button>
+        <div id='go-to-lab-wrapper'>
+          <button id="go-to-lab" class='outside-button'>Go to Lab!</button>
+        </div>
+
+        <div id='go-to-viewer-wrapper'>
+          <button id="go-to-viewer" class='outside-button'>Stat Block Viewer</button>
+        </div>
       </div>
 
       <div id='create-lab' class=workspace>
@@ -99,7 +102,7 @@
         <form id="create-creature-form">
           <span>Name: </span>
           <input name="name" id= "create-name" placeholder="Creature Name" type="text"><br>
-          <button type="submit" id= "create-submit" class="button">Create New Creature</button>
+          <button type="submit" id= "create-submit" class="form-button">Create New Creature</button>
         </form>
         <p id='create-new-creature-notifier' class= 'notifier'>New creature created!</p>
       </div>
@@ -108,7 +111,7 @@
         <h2>Update Creature</h2>
         <form id="update-creature-form">
           <p id='update-id'>Creature ID: </p>
-          <button type="submit" class= "update-submit">Save Creature</button><br>
+          <button type="submit" id='update-submit-top' class= "update-submit form-button">Save Creature</button><br>
           <p id='update-creature-notifier' class= 'notifier'>Creature saved!</p>
           <span>Name: </span>
           <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
@@ -210,7 +213,7 @@
           <input name="feats" id= "update-feats" class="update" placeholder="Feats" type="text"><br>
           <span>Additional Special Qualities: </span>
           <input name="additional_special_qualities" id= "update-additional_special_qualities" class="update" placeholder="Additional Special Qualities" type="text"><br>
-          <button type="submit" class= "update-submit">Save Creature</button>
+          <button type="submit" id='update-submit-bottom' class= "update-submit form-button">Save Creature</button>
           <p id='update-creature-notifier-2' class= 'notifier'>Creature saved!</p>
         </form>
       </div>
@@ -364,7 +367,7 @@
         </div>
       <p id='delete-creature-notifier' class= 'notifier'>Creature deleted!</p>
       <form id="delete-creature-form">
-        <button type="submit" id= "delete-submit" class="button">Delete This Creature</button>
+        <button type="submit" id= "delete-submit" class="outside-button">Delete This Creature</button>
       </form>
     </body>
 </html>

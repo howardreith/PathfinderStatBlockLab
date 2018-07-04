@@ -121,7 +121,7 @@ const signOutSuccess = function (signOutResponse) {
   $('#auth-notifier').delay(4000).fadeOut('fast')
   $('.display-creature').hide()
   $('#update-lab').hide()
-  $('#delete-submit').hide()
+  $('#delete-creature-form').hide()
   $('#go-to-lab').hide()
   $('#go-to-viewer').hide()
   $('#viewer-instructions-wrapper').hide()
@@ -262,16 +262,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
     // console.log('#' + creatureDisplayList[i])
     if (document.getElementById(creatureDisplayList[i]).innerHTML.includes('null')) {
       $('#' + creatureDisplayList[i]).hide()
-    } else {
-      $('#' + creatureDisplayList[i]).show()
-    }
-  }
-  for (let i = 0; i < creatureDisplayList.length; i++) {
-    // console.log(creatureDisplayList[i])
-    // console.log('creatureDisplayList: ' + document.getElementById(creatureDisplayList[i]).innerHTML)
-    // console.log('emptyArrayList: ' + emptyArrayList[i])
-    // console.log('#' + creatureDisplayList[i])
-    if (document.getElementById(creatureDisplayList[i]).innerHTML === emptyArrayList[i]) {
+    } else if (document.getElementById(creatureDisplayList[i]).innerHTML === emptyArrayList[i]) {
       $('#' + creatureDisplayList[i]).hide()
     } else {
       $('#' + creatureDisplayList[i]).show()
@@ -350,6 +341,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
 
 const showCreatureFail = function (error) {
   console.log('showCreatureFail is ', error)
+  $('.display-creature').hide()
 }
 
 const deleteCreatureSuccess = function (deleteCreatureResponse) {
