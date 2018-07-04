@@ -229,6 +229,12 @@ const onUpdateCreature = function (event) {
   event.preventDefault()
   console.log('store.currentCreatureId in onUpdateCreature is ' + store.currentCreatureId)
   const data = getFormFields(event.target)
+  if (data.name === '') {
+    $('#update-creature-notifier').text('Please enter a name.')
+    $('#update-creature-notifier').show()
+    $('#update-creature-notifier').delay(3000).fadeOut('fast')
+    throw new UserException('Please enter a name')
+  }
   updateCreatureObject.creature.user_id = store.user.id
   const id = store.currentCreatureId
   updateCreatureObject.creature.id = store.currentCreatureId
