@@ -116,6 +116,7 @@ const signOutSuccess = function (signOutResponse) {
   $('#show-sign-in').show()
   $('#show-sign-up').show()
   $('#search').hide()
+  document.getElementById('update-id').innerHTML = 'Creature ID:'
   $('#auth-notifier').text('You have signed out.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
@@ -176,11 +177,13 @@ const updateCreatureSuccess = function (updateCreatureResponse) {
   $('#update-creature-notifier').delay(1000).fadeOut('fast')
   $('#update-creature-notifier-2').show()
   $('#update-creature-notifier-2').delay(1000).fadeOut('fast')
+  document.getElementById('update-id').innerHTML = 'Creature ID:'
   document.getElementById('update-creature-form').reset()
 }
 
 const updateCreatureFail = function () {
   // console.log('updateCreatureError is ', error)
+  document.getElementById('update-id').innerHTML = 'Creature ID:'
   $('#update-creature-notifier').text('Save creature failed. Please create or select a creature.')
   $('#update-creature-notifier-2').text('Save creature failed. Please create or select a creature.')
   $('#update-creature-notifier').show()
@@ -347,6 +350,7 @@ const showCreatureFail = function () {
 const deleteCreatureSuccess = function (deleteCreatureResponse) {
   // console.log('deleteCreatureResponse is ', deleteCreatureResponse)
   $('#delete-creature-notifier').text('Creature deleted!')
+  document.getElementById('update-id').innerHTML = 'Creature ID:'
   $('#delete-creature-notifier').show()
   $('#delete-creature-notifier').delay(2000).fadeOut('fast')
   document.getElementById('update-creature-form').reset()
