@@ -236,9 +236,15 @@ a {
   bottom: 99%;
 }
 
+#search-notifier {
+  position: fixed;
+  margin-left: 225px;
+  color: gold;
+  font-size: 20px;
+}
+
 .search-nav {
   position: fixed;
-  margin: auto;
   width: 250px;
   margin: 0;
 }

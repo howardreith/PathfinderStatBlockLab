@@ -18,6 +18,12 @@ const onSearch = function (onClickData) {
   $('#search-results').show()
   store.creatures = onClickData.creatures
   const creaturesArray = onClickData.creatures
+  if (creaturesArray.length === 0) {
+    $('#search-notifier').show()
+    $('#search-notifier').delay(2000).fadeOut('fast')
+    // console.log('Its ZERO!')
+  }
+  // console.log('creaturesArray length is ' + creaturesArray.length)
   const creaturesList = []
   for (let i = 0; i < creaturesArray.length; i++) {
     creaturesList.push(creaturesArray[i].name)

@@ -349,6 +349,8 @@ const deleteCreatureSuccess = function (deleteCreatureResponse) {
   $('#delete-creature-notifier').text('Creature deleted!')
   $('#delete-creature-notifier').show()
   $('#delete-creature-notifier').delay(2000).fadeOut('fast')
+  document.getElementById('update-creature-form').reset()
+  document.getElementById('create-creature-form').reset()
 }
 
 const deleteCreatureFail = function (error) {
