@@ -45,6 +45,7 @@ const signInSuccess = function (signInResponse) {
   $('#auth-notifier').delay(4000).fadeOut('fast')
   $('#search').show()
   $('#go-to-lab').show()
+  $('#viewer-instructions-wrapper').show()
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
@@ -123,9 +124,16 @@ const signOutSuccess = function (signOutResponse) {
   $('#delete-submit').hide()
   $('#go-to-lab').hide()
   $('#go-to-viewer').hide()
+  $('#viewer-instructions-wrapper').hide()
+  $('#instructions-modal').hide()
+  $('#viewer-instructions-modal').hide()
+  $('#create-lab').hide()
+  $('#lab-instructions-wrapper').hide()
   document.getElementById('sign-in-form').reset()
   document.getElementById('sign-up-form').reset()
   document.getElementById('change-password-form').reset()
+  document.getElementById('update-creature-form').reset()
+  document.getElementById('create-creature-form').reset()
 }
 
 const signOutFail = function (error) {
@@ -148,6 +156,7 @@ const createCreatureSuccess = function (createCreatureResponse) {
   $('#create-new-creature-notifier').text('Creature created!')
   $('#create-new-creature-notifier').show()
   $('#create-new-creature-notifier').delay(1000).fadeOut('fast')
+  document.getElementById('create-creature-form').reset()
 }
 
 const createCreatureFail = function (error) {
@@ -259,8 +268,8 @@ const showCreatureSuccess = function (showCreatureResponse) {
   }
   for (let i = 0; i < creatureDisplayList.length; i++) {
     // console.log(creatureDisplayList[i])
-    console.log('creatureDisplayList: ' + document.getElementById(creatureDisplayList[i]).innerHTML)
-    console.log('emptyArrayList: ' + emptyArrayList[i])
+    // console.log('creatureDisplayList: ' + document.getElementById(creatureDisplayList[i]).innerHTML)
+    // console.log('emptyArrayList: ' + emptyArrayList[i])
     // console.log('#' + creatureDisplayList[i])
     if (document.getElementById(creatureDisplayList[i]).innerHTML === emptyArrayList[i]) {
       $('#' + creatureDisplayList[i]).hide()

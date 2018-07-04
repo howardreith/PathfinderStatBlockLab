@@ -37,6 +37,7 @@ body {
 
 #display-cr {
   float: right;
+  padding-right: 30px;
 }
 
 .roleplay-section {
@@ -119,13 +120,30 @@ body {
   margin: auto;
 }
 
+#viewer-instructions-wrapper {
+  text-align: center;
+  margin: auto;
+}
 // Begins instructions modal
 
 #instructions-modal {
     display: none;
     position: fixed;
     z-index: 1;
-    margin-top: 10%;
+    margin-top: 30%;
+    margin: auto;
+    width: 60%;
+    height: 58%;
+    overflow: auto;
+    background-color: white;
+    text-align: center;
+}
+
+#viewer-instructions-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    margin-top: 20%;
     margin: auto;
     width: 60%;
     height: 30%;
@@ -140,7 +158,7 @@ body {
     margin-top: 15px;
     padding: 5px;
     border: 2px solid #888;
-    width: 90%;
+    width: 96%;
     font-family: 'Markazi Text';
     font-size: 20px;
     text-align: center
@@ -186,14 +204,14 @@ a {
 
 .search-nav {
   position: fixed;
-  left: 35%;
+  margin: auto;
   width: 250px;
   margin: 0;
 }
 
 .search-results {
   position: fixed;
-  left: 35%;
+  margin: auto;
   width: 230px;
   top: 35px;
 }

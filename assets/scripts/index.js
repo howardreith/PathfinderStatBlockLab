@@ -46,4 +46,5 @@ $(() => {
   $('#update-creature-notifier-2').hide()
   $('#delete-creature-notifier').hide()
   $('#lab-instructions-wrapper').hide()
+  $('#viewer-instructions-wrapper').hide()
 })

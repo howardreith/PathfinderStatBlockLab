@@ -54,25 +54,40 @@
 
       <h1>Pathfinder Stat Block Lab</h1>
       <div id='lab-instructions-wrapper'>
-      <button id="lab-instructions-button">Instructions (Read Me!)</button>
+      <button id="lab-instructions-button">Lab Instructions (Read Me!)</button>
       </div>
 
       <div id="instructions-modal" class="modal">
         <div class="modal-content">
-          <span class="close">close &times;</span>
-          <h3>Instructions</h3>
-          <p>To create a creature, input the name of your creature and click "Create Creature."</p>
-          <p>The name is the only required field (for searching later).</p>
-          <p>To save your work, click the "Save Creature" button at the top or bottom
-            of the work space.</p>
-          <p>The fields will clear when you save your work, so make sure you've
-            filled in everything you need!</p>
-          <p>The fields can be re-populated by searching your creature in the search bar.</p>
+          <span class="close">close &times;</span><br>
+          <h3><b>Lab Instructions</b></h3>
+          <p>To create a new creature, input the name of your creature in the "Create New Creature" form and click the "Create New Creature" button.</p>
+          <p>The name is used for our search tool and is the only required field. The name will be added to the "Update Creature" form below automatically.</p>
+          <p>To update an existing creature, search for the creature's name in the search bar and click on its result. Its information will be added to all known fields.</p>
+          <p>To save your work, click the "Save Creature" button at the top of bottom of the form.
+          <p>All fields will clear when you save your work, so make sure you've filled in everything you need!</p>
+          <p>Fields can be re-populated by once again searching for your creature in the search bar.</p>
+          <p>To delete a creature, load the creature you wish to delete using the search bar and click the "Delete Creature" button just below the "Update Creature" form.</p>
         </div>
       </div>
 
+      <div id='viewer-instructions-wrapper'>
+      <button id="viewer-instructions-button">Viewer Instructions (Read Me!)</button>
+      </div>
+
+      <div id="viewer-instructions-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">close &times;</span><br>
+          <h3><b>Viewer Instructions</b></h3>
+          <p>To view a creature, type the creature's name into the search bar in the upper-left corner of your screen.</p>
+          <p>If you do not have any creatures, you will need to create one!</p>
+          <p>To create or modify a creature, click the "Go to Lab" button.</p>
+        </div>
+      </div>
+
+
       <div id='go-to-lab-wrapper'>
-      <button id="go-to-lab">Go to the creature creator!</button>
+      <button id="go-to-lab">Go to Lab!</button>
       </div>
 
       <div id='go-to-viewer-wrapper'>

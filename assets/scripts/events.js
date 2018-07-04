@@ -108,6 +108,9 @@ const onGoToLab = function (event) {
   $('#go-to-viewer').show()
   $('#delete-creature-form').show()
   $('#lab-instructions-wrapper').show()
+  $('#viewer-instructions-wrapper').hide()
+  $('#instructions-modal').hide()
+  $('#viewer-instructions-modal').hide()
 }
 
 const onGoToViewer = function (event) {
@@ -121,6 +124,9 @@ const onGoToViewer = function (event) {
   $('#go-to-viewer').hide()
   $('#delete-creature-form').hide()
   $('#lab-instructions-wrapper').hide()
+  $('#viewer-instructions-wrapper').show()
+  $('#instructions-modal').hide()
+  $('#viewer-instructions-modal').hide()
 
   const id = store.currentCreatureId
   onShowFromSearch(id)
@@ -334,6 +340,24 @@ closeModal.onclick = function () {
 window.onclick = function (event) {
   if (event.target === instructionsModal) {
     instructionsModal.style.display = 'none'
+  }
+}
+
+const viewerInstructionsModal = document.getElementById('viewer-instructions-modal')
+const viewerInstructionsButton = document.getElementById('viewer-instructions-button')
+const closeViewerModal = document.getElementsByClassName('close')[1]
+
+viewerInstructionsButton.onclick = function () {
+  viewerInstructionsModal.style.display = 'block'
+}
+
+closeViewerModal.onclick = function () {
+  viewerInstructionsModal.style.display = 'none'
+}
+
+window.onclick = function (event) {
+  if (event.target === viewerInstructionsModal) {
+    viewerInstructionsModal.style.display = 'none'
   }
 }
 
