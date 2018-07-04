@@ -30,7 +30,7 @@ const emptyArrayList = [ 'Name:', 'CR:', 'Alignment: ', 'Type: ', '()', 'Size: '
   'Additional Special Qualities: ' ]
 
 const signInSuccess = function (signInResponse) {
-  console.log('signInResponse is', signInResponse)
+  // console.log('signInResponse is', signInResponse)
   store.user = signInResponse.user
   $('#sign-in-form').hide()
   $('#show-sign-in').hide()
@@ -51,8 +51,8 @@ const signInSuccess = function (signInResponse) {
   document.getElementById('change-password-form').reset()
 }
 
-const signInError = function (error) {
-  console.log('Error is ', error)
+const signInError = function () {
+  // console.log('Error is ', error)
   $('#auth-notifier').text('Please check username and password.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
@@ -62,7 +62,7 @@ const signInError = function (error) {
 }
 
 const signUpSuccess = function (signUpResponse) {
-  console.log('signUpResponse is ', signUpResponse)
+  // console.log('signUpResponse is ', signUpResponse)
   $('#auth-notifier').text('You are signed up! Please sign in.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
@@ -76,7 +76,7 @@ const signUpSuccess = function (signUpResponse) {
 }
 
 const signUpFail = function (error) {
-  console.log('signUpFail is ', error)
+  // console.log('signUpFail is ', error)
   $('#auth-notifier').show()
   if (error.responseText === '{"email":["has already been taken"]}') {
     document.getElementById('auth-notifier').innerHTML = ('This email has been taken.')
@@ -90,7 +90,7 @@ const signUpFail = function (error) {
 }
 
 const changePasswordSuccess = function (changePasswordResponse) {
-  console.log('changePasswordResponse is ', changePasswordResponse)
+  // console.log('changePasswordResponse is ', changePasswordResponse)
   $('#auth-notifier').text('Your password has been changed.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
@@ -99,8 +99,8 @@ const changePasswordSuccess = function (changePasswordResponse) {
   document.getElementById('change-password-form').reset()
 }
 
-const changePasswordFail = function (error) {
-  console.log('changePasswordFail is ', error)
+const changePasswordFail = function () {
+  // console.log('changePasswordFail is ', error)
   $('#auth-notifier').text('Please check your password inputs.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
@@ -110,7 +110,7 @@ const changePasswordFail = function (error) {
 }
 
 const signOutSuccess = function (signOutResponse) {
-  console.log('signOutSuccess is ', signOutResponse)
+  // console.log('signOutSuccess is ', signOutResponse)
   $('#sign-out-button').hide()
   $('#show-change-password').hide()
   $('#show-sign-in').show()
@@ -136,8 +136,8 @@ const signOutSuccess = function (signOutResponse) {
   document.getElementById('create-creature-form').reset()
 }
 
-const signOutFail = function (error) {
-  console.log('signOutFail is ', error)
+const signOutFail = function () {
+  // console.log('signOutFail is ', error)
   $('#auth-notifier').text('Somehow you failed to sign out.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
@@ -147,10 +147,10 @@ const signOutFail = function (error) {
 }
 
 const createCreatureSuccess = function (createCreatureResponse) {
-  console.log('createCreatureResponse is ', createCreatureResponse)
+  // console.log('createCreatureResponse is ', createCreatureResponse)
   store.currentCreatureId = createCreatureResponse.creature.id
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
-  console.log('createCreatureResponse.creature.name is ' + createCreatureResponse.creature.name)
+  // console.log('createCreatureResponse.creature.name is ' + createCreatureResponse.creature.name)
   document.getElementById('update-creature-form').reset()
   document.getElementById('update-name').value = createCreatureResponse.creature.name
   $('#create-new-creature-notifier').text('Creature created!')
@@ -159,17 +159,17 @@ const createCreatureSuccess = function (createCreatureResponse) {
   document.getElementById('create-creature-form').reset()
 }
 
-const createCreatureFail = function (error) {
-  console.log('createCreatureError is ', error)
+const createCreatureFail = function () {
+  // console.log('createCreatureError is ', error)
   $('#create-new-creature-notifier').text('Create creature failed.')
   $('#create-new-creature-notifier').show()
   $('#create-new-creature-notifier').delay(3000).fadeOut('fast')
 }
 
 const updateCreatureSuccess = function (updateCreatureResponse) {
-  console.log('updateCreatureResponse is ', updateCreatureResponse)
+  // console.log('updateCreatureResponse is ', updateCreatureResponse)
   store.currentCreatureId = updateCreatureResponse.creature.id
-  console.log('store.currentCreatureId is ' + store.currentCreatureId)
+  // console.log('store.currentCreatureId is ' + store.currentCreatureId)
   $('#update-creature-notifier').text('Creature saved!')
   $('#update-creature-notifier-2').text('Creature saved!')
   $('#update-creature-notifier').show()
@@ -179,8 +179,8 @@ const updateCreatureSuccess = function (updateCreatureResponse) {
   document.getElementById('update-creature-form').reset()
 }
 
-const updateCreatureFail = function (error) {
-  console.log('updateCreatureError is ', error)
+const updateCreatureFail = function () {
+  // console.log('updateCreatureError is ', error)
   $('#update-creature-notifier').text('Save creature failed. Please create or select a creature.')
   $('#update-creature-notifier-2').text('Save creature failed. Please create or select a creature.')
   $('#update-creature-notifier').show()
@@ -191,15 +191,15 @@ const updateCreatureFail = function (error) {
 }
 
 const getCreaturesSuccess = function (getCreaturesResponse) {
-  console.log('getCreaturesResponse is ', getCreaturesResponse)
+  // console.log('getCreaturesResponse is ', getCreaturesResponse)
 }
 
-const getCreaturesFail = function (error) {
-  console.log('getCreaturesFail is ', error)
+const getCreaturesFail = function () {
+  // console.log('getCreaturesFail is ', error)
 }
 
 const showCreatureSuccess = function (showCreatureResponse) {
-  console.log('showCreatureResponse is ', showCreatureResponse)
+  // console.log('showCreatureResponse is ', showCreatureResponse)
   if (store.viewState === 0) {
     $('.display-creature').show()
   }
@@ -339,13 +339,13 @@ const showCreatureSuccess = function (showCreatureResponse) {
   document.getElementById('update-additional_special_qualities').value = showCreatureResponse.creature.additional_special_qualities
 }
 
-const showCreatureFail = function (error) {
-  console.log('showCreatureFail is ', error)
+const showCreatureFail = function () {
+  // console.log('showCreatureFail is ', error)
   $('.display-creature').hide()
 }
 
 const deleteCreatureSuccess = function (deleteCreatureResponse) {
-  console.log('deleteCreatureResponse is ', deleteCreatureResponse)
+  // console.log('deleteCreatureResponse is ', deleteCreatureResponse)
   $('#delete-creature-notifier').text('Creature deleted!')
   $('#delete-creature-notifier').show()
   $('#delete-creature-notifier').delay(2000).fadeOut('fast')
@@ -353,8 +353,8 @@ const deleteCreatureSuccess = function (deleteCreatureResponse) {
   document.getElementById('create-creature-form').reset()
 }
 
-const deleteCreatureFail = function (error) {
-  console.log('deleteCreatureFail is ', error)
+const deleteCreatureFail = function () {
+  // console.log('deleteCreatureFail is ', error)
   $('#delete-creature-notifier').text('Failed to delete creature. It was probably already deleted.')
   $('#delete-creature-notifier').show()
   $('#delete-creature-notifier').delay(3000).fadeOut('fast')

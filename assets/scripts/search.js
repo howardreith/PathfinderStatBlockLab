@@ -73,7 +73,7 @@ const searchElement = document.getElementById('result-list')
 document.addEventListener('click', function (event) {
   const isClickInside = searchElement.contains(event.target)
   if (isClickInside) {
-    console.log('You clicked inside the search results')
+    // console.log('You clicked inside the search results')
   } else {
     // console.log('You clicked outside the search results')
     $('#search-results').hide()

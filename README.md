@@ -1,4 +1,116 @@
-Howard Reith's Pathfinder stat block generator.
+Pathfinder Stat Block Lab
+
+Pathfinder is a tabletop role-playing game developed by Paizo Inc. under the
+Open Gaming License of Wizards of the Coast. When playing Pathfinder, the
+Game Master is referee and storyteller, guiding the players through their
+adventure and assuming the role of all non-player characters and enemies they
+may encounter.
+
+The Pathfinder Stat Block Lab is a tool for making the Game Master's life a
+little easier. It aims to present creature stat information in a more
+intuitively-organized manner than is available through other means.
+
+This application has been developed by Howard Reith as his second project for
+General Assembly's Web Development Immersive program.
+
+Links to relevant sections of the project can be found here:
+
+Live site:
+https://howardreith.github.io/PathfinderStatBlockLab/
+
+Live API:
+https://safe-ocean-44449.herokuapp.com/
+
+Front-End Repository
+https://github.com/howardreith/PathfinderStatBlockLab
+
+Back-End Repository
+https://github.com/howardreith/PathfinderStatBlockLabBackEnd
 
 Live link:
 https://howardreith.github.io/PathfinderStatBlockLab/
+
+What does it do?
+
+The Pathfinder Stat Block Lab has two primary view states - one in one the user
+can view a "stat block" for the relevant creature and a "lab" in which the user
+can input information concerning the creature including its name, hit points,
+armor class, attack bonus, and so on. The user can save this data on the
+database and retrieve it via a search tool to construct the "stat block"
+for reference while running the game.
+
+Technologies used:
+
+The Pathfinder Stat Block Lab makes use of Javascript, SCSS, HTML, Ruby on Rails,
+and SQL.
+
+It makes use of CSS buttons from https://freshdesignweb.com/css3-buttons/
+
+Future Plans
+
+The Stat Block Lab as it presently exists was originally intended to be the
+secondary feature of the app. I had intended on seeding a database of over
+3,000 Pathfinder creatures generated from the various Pathfinder bestiaries.
+The application would primarily serve as a quick reference tool with a
+"lab" element available for any monsters not already in the database. Due to
+time constraints this was not possible.
+
+In the present version of the application the "Update Creature" part of the
+form clears upon saving the creature. This makes for a poor user experience
+as there is a large number of fields to populate and it makes sense to want
+to save along the way, especially given how lengthy some of the descriptions
+in the fields can be. Clearing all fields after submission was a requirement
+for this project to demonstrate competence in this area and I have adhered to
+that requirement. Should I return to this project in the future, this behavior
+will be adjusted.
+
+The Process
+
+I began this project by setting up as much "scaffolding" as possible. I first
+created the rails databases with both the User and Creature tables, established
+their relationship, and made certain both could be modified via CURL scripts.
+I then constructed a basic HTML template with javascript functions to perform
+those same actions through the browser. Thanks to my experience in the first
+project, I was able to fulfill the majority of requirements for the project
+within the first eight hours of work, which gave me some freedom thereafter.
+
+Since I had, at the time, hoped to incorporate both the public and private
+databases, my next goal was to set up the search engine on which most of the
+application would depend. This took approximately ten hours of work to research
+and implement, as I had never attempted such a mechanism before.
+
+With the search engine in place, I next began building the "stat block" user
+interface followed by the same for the "lab." I then began replacing the static
+API interaction buttons I'd built to test the system with fields and systems
+that would incorporate user actions into the API interactions. This took 8-10
+hours of work.
+
+Following this, I began working on the various "view states" of the application,
+making certain no inappropriate elements or fields were showing when they should
+not have been and setting up responses to every action a user could take. This
+took a full eight hours of work, more than I expected.
+
+For one hour I researched seeding a database with my creature statistics CSV
+and determined I lacked the time remaining to achieve it. I have thus spent
+the past five hours fixing bugs and testing.
+
+My original wireframe for this project can be found here:
+https://imgur.com/a/cgZvd2K
+
+My user stories were as follows:
+
+I want to be able to search for the monster I need and display all of its
+information on screen.
+
+I want less essential information to be hidden unless I ask for it.
+
+I want the information to be displayed in an intuitive way - the role-playing
+relevant information at the top, then the defensive information, then the
+offensive information.
+
+I want to be able to add my own custom monster to the database and I want to be
+able to retrieve this from the server.
+
+I want custom monsters to be private so other users can't corrupt my work and
+so I don't have to search through endless bad or partially-completed entries
+that other users have created.

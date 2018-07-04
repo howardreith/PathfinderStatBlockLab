@@ -217,8 +217,8 @@ const onCreateCreature = function (event) {
     throw new UserException('Please enter a name')
   }
   createCreatureObject.creature.name = data.name
-  console.log('data.name is ' + data.name)
-  console.log('the stringefy is ' + JSON.stringify(createCreatureObject, null, 4))
+  // console.log('data.name is ' + data.name)
+  // console.log('the stringefy is ' + JSON.stringify(createCreatureObject, null, 4))
 
   api.createCreature(createCreatureObject)
     .then(ui.createCreatureSuccess)
@@ -227,7 +227,7 @@ const onCreateCreature = function (event) {
 
 const onUpdateCreature = function (event) {
   event.preventDefault()
-  console.log('store.currentCreatureId in onUpdateCreature is ' + store.currentCreatureId)
+  // console.log('store.currentCreatureId in onUpdateCreature is ' + store.currentCreatureId)
   const data = getFormFields(event.target)
   if (data.name === '') {
     $('#update-creature-notifier').text('Please enter a name.')
