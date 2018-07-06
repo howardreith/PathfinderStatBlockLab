@@ -55,10 +55,11 @@ The application would primarily serve as a quick reference tool with a
 "lab" element available for any monsters not already in the database. Due to
 time constraints this was not possible.
 
-the overall organization of the stat block is not quite what I hoped. I would
+The overall organization of the stat block is not quite what I hoped. I would
 like to tweak some minor aspects in the future, mostly in regard to removing
 some labels that are implicit in their location on the form to make it a bit
-less cluttered.
+less cluttered. I would also like to re-design the instructions gifs so the
+white space surrounding the instructions readjust according to screen size.
 
 The Process
 
