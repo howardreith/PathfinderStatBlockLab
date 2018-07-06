@@ -15,7 +15,6 @@ const onClick = function (event) {
 const onSearch = function (onClickData) {
   // console.log('onClickData is ', onClickData)
   // console.log('The list is ', onClickData.creatures)
-  $('#search-results').show()
   store.creatures = onClickData.creatures
   const creaturesArray = onClickData.creatures
   if (creaturesArray.length === 0) {
@@ -44,6 +43,7 @@ const onSearch = function (onClickData) {
   const searchListener = document.getElementById('search-input')
   searchListener.addEventListener('keyup', function (value, callback) {
     updateResult(this.value)
+    $('#search-results').show()
   })
 }
 // $('.list-group-item').on('click', onSearchResultClick)
