@@ -13,7 +13,7 @@ const onClick = function (event) {
 }
 
 const onSearch = function (onClickData) {
-  // console.log('onClickData is ', onClickData)
+  console.log('onClickData is ', onClickData)
   // console.log('The list is ', onClickData.creatures)
   store.creatures = onClickData.creatures
   const creaturesArray = onClickData.creatures

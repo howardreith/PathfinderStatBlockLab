@@ -194,7 +194,7 @@ const updateCreatureFail = function () {
 }
 
 const getCreaturesSuccess = function (getCreaturesResponse) {
-  // console.log('getCreaturesResponse is ', getCreaturesResponse)
+  console.log('getCreaturesResponse is ', getCreaturesResponse)
 }
 
 const getCreaturesFail = function () {
