@@ -14,8 +14,11 @@
     <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="search-nav collapse navbar-collapse" id="navbarSupportedContent">
-            <div id='search' class="form-inline my-2 my-lg-0">
-              <input id = 'search-input' tabindex='-1' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <div id='search'>
+              <input id = 'search-input' tabindex='-1' class="form-control mr-sm-2" type="search" placeholder="Private Search" aria-label="Private Search">
+            </div>
+            <div id='public-search'>
+              <input id = 'public-search-input' tabindex='-1' class='form-control mr-sm-2' type="search" placeholder="Public Search" aria-labe='Public Search'>
             </div>
           </div>
           <span id='search-notifier'>You have no creatures to search for.</span>
@@ -50,6 +53,11 @@
         <li class='list-group-item'></li>
       </ul>
     </div>
+    <div class="public-search-results" id="public-search-results">
+    <ul id="public-result-list" class='result'>
+      <li class='list-group-item'></li>
+    </ul>
+  </div>
       <div id='logo-wrapper'>
         <img id='logo' src='public/pathfinderlogo.png' alt='Pathfinder Stat Block Lab'>
       </div>

@@ -16,14 +16,14 @@ body {
 #logo {
   margin-bottom: 0;
   padding: 0;
-  margin-top: 15px
+  margin-top: 15px;
 }
 
 .display-creature {
   background-size: cover;
   background-color: black;
   color: white;
-  border-color: #FFD700;
+  border-color: #ffd700;
   border-width: 10px;
   border: solid;
   border-style: ridge;
@@ -55,15 +55,12 @@ body {
   padding-right: 30px;
 }
 
-.roleplay-section {
-}
-
 #create-lab {
   font-family: 'Markazi Text';
   background-size: cover;
   background-color: black;
   color: white;
-  border-color: #FFD700;
+  border-color: #ffd700;
   border-width: 10px;
   border: solid;
   border-style: ridge;
@@ -85,7 +82,7 @@ body {
   background-size: cover;
   background-color: black;
   color: white;
-  border-color: #FFD700;
+  border-color: #ffd700;
   border-width: 10px;
   border: solid;
   border-style: ridge;
@@ -154,41 +151,41 @@ body {
 // Begins instructions modal
 
 #instructions-modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    margin-top: 30%;
-    margin: auto;
-    width: 60%;
-    height: 55%;
-    overflow: auto;
-    background-color: white;
-    text-align: center;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  margin-top: 30%;
+  margin: auto;
+  width: 60%;
+  height: 55%;
+  overflow: auto;
+  background-color: white;
+  text-align: center;
 }
 
 #viewer-instructions-modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    margin-top: 20%;
-    margin: auto;
-    width: 60%;
-    height: 28%;
-    overflow: auto;
-    background-color: white;
-    text-align: center;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  margin-top: 20%;
+  margin: auto;
+  width: 60%;
+  height: 28%;
+  overflow: auto;
+  background-color: white;
+  text-align: center;
 }
 
 // Modal content
 .modal-content {
-    margin: auto;
-    margin-top: 15px;
-    padding: 5px;
-    border: 2px solid #888;
-    width: 96%;
-    font-family: 'Markazi Text';
-    font-size: 20px;
-    text-align: center
+  margin: auto;
+  margin-top: 15px;
+  padding: 5px;
+  border: 2px solid #888;
+  width: 96%;
+  font-family: 'Markazi Text';
+  font-size: 20px;
+  text-align: center;
 }
 
 // Close button
@@ -196,15 +193,15 @@ body {
   color: black;
   font-size: 20px;
   text-decoration: none;
-  padding:10px;
+  padding: 10px;
   right: 7px;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 // End instructions modal
@@ -244,15 +241,28 @@ a {
   font-size: 20px;
 }
 
-.search-nav {
+#search {
   position: fixed;
   width: 250px;
-  margin: 0;
+  margin-left: 360px;
+}
+
+#public-search {
+  position: fixed;
+  width: 250px;
+  margin-left: 100px;
 }
 
 .search-results {
   position: fixed;
-  margin: auto;
+  margin-left: 360px;
+  width: 230px;
+  top: 35px;
+}
+
+.public-search-results {
+  position: fixed;
+  margin-left: 100px;
   width: 230px;
   top: 35px;
 }
@@ -333,36 +343,40 @@ h1 {
   text-align: center;
   text-shadow: 0 -1px 1px #64799e;
   text-transform: uppercase;
-  width: 150px; }
-  button.blue-pill:hover {
-    background-color: #9badcc;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9badcc), color-stop(100%, #687fa6));
-    background-image: -webkit-linear-gradient(top, #9badcc, #687fa6);
-    background-image: -moz-linear-gradient(top, #9badcc, #687fa6);
-    background-image: -ms-linear-gradient(top, #9badcc, #687fa6);
-    background-image: -o-linear-gradient(top, #9badcc, #687fa6);
-    background-image: linear-gradient(top, #9badcc, #687fa6);
-    border-top: 1px solid #6d86ad;
-    border-right: 1px solid #647a9e;
-    border-bottom: 1px solid #546685;
-    border-left: 1px solid #647a9e;
-    -webkit-box-shadow: inset 0 1px 0 0 #a5b9d9;
-    box-shadow: inset 0 1px 0 0 #a5b9d9;
-    cursor: pointer; }
-  button.blue-pill:active {
-    border: 1px solid #546685;
-    -webkit-box-shadow: inset 0 0 8px 2px #7e8da6, 0 1px 0 0 #eeeeee;
-    box-shadow: inset 0 0 8px 2px #7e8da6, 0 1px 0 0 #eeeeee;
+  width: 150px;
+}
+
+button.blue-pill:hover {
+  background-color: #9badcc;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9badcc), color-stop(100%, #687fa6));
+  background-image: -webkit-linear-gradient(top, #9badcc, #687fa6);
+  background-image: -moz-linear-gradient(top, #9badcc, #687fa6);
+  background-image: -ms-linear-gradient(top, #9badcc, #687fa6);
+  background-image: -o-linear-gradient(top, #9badcc, #687fa6);
+  background-image: linear-gradient(top, #9badcc, #687fa6);
+  border-top: 1px solid #6d86ad;
+  border-right: 1px solid #647a9e;
+  border-bottom: 1px solid #546685;
+  border-left: 1px solid #647a9e;
+  -webkit-box-shadow: inset 0 1px 0 0 #a5b9d9;
+  box-shadow: inset 0 1px 0 0 #a5b9d9;
+  cursor: pointer;
+}
+
+button.blue-pill:active {
+  border: 1px solid #546685;
+  -webkit-box-shadow: inset 0 0 8px 2px #7e8da6, 0 1px 0 0 #eee;
+  box-shadow: inset 0 0 8px 2px #7e8da6, 0 1px 0 0 #eee;
 }
 
 .auth-button {
-  background-color: #eeeeee;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
-  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
-  background-image: linear-gradient(top, #eeeeee, #cccccc);
+  background-color: #eee;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eee), color-stop(100%, #ccc));
+  background-image: -webkit-linear-gradient(top, #eee, #ccc);
+  background-image: -moz-linear-gradient(top, #eee, #ccc);
+  background-image: -ms-linear-gradient(top, #eee, #ccc);
+  background-image: -o-linear-gradient(top, #eee, #ccc);
+  background-image: linear-gradient(top, #eee, #ccc);
   border: 1px solid #ccc;
   border-bottom: 1px solid #bbb;
   border-radius: 3px;
@@ -373,61 +387,69 @@ h1 {
   padding: 8px 0;
   text-align: center;
   text-shadow: 0 1px 0 #eee;
-  width: 120px; }
-  button.clean-gray:hover {
-    background-color: #dddddd;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dddddd), color-stop(100%, #bbbbbb));
-    background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: linear-gradient(top, #dddddd, #bbbbbb);
-    border: 1px solid #bbb;
-    border-bottom: 1px solid #999;
-    cursor: pointer;
-    text-shadow: 0 1px 0 #ddd; }
-  button.clean-gray:active {
-    border: 1px solid #aaa;
-    border-bottom: 1px solid #888;
-    -webkit-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
-    box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+  width: 120px;
+}
+
+button.clean-gray:hover {
+  background-color: #dddddd;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ddd), color-stop(100%, #bbb));
+  background-image: -webkit-linear-gradient(top, #ddd, #bbb);
+  background-image: -moz-linear-gradient(top, #ddd, #bbb);
+  background-image: -ms-linear-gradient(top, #ddd, #bbb);
+  background-image: -o-linear-gradient(top, #ddd, #bbb);
+  background-image: linear-gradient(top, #ddd, #bbb);
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #999;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #ddd;
+}
+
+button.clean-gray:active {
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #888;
+  -webkit-box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;
+  box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;
 }
 
 .outside-button {
   background-color: #ee432e;
- background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee432e), color-stop(50%, #c63929), color-stop(50%, #b51700), color-stop(100%, #891100));
- background-image: -webkit-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
- background-image: -moz-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
- background-image: -ms-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
- background-image: -o-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
- background-image: linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
- border: 1px solid #951100;
- border-radius: 5px;
- -webkit-box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
- box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
- color: #fff;
- font: bold 20px/1 "helvetica neue", helvetica, arial, sans-serif;
- padding: 12px 0 14px 0;
- text-align: center;
- text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
- width: 150px; }
- button.thoughtbot:hover {
-   background-color: #f37873;
-   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f37873), color-stop(50%, #db504d), color-stop(50%, #cb0500), color-stop(100%, #a20601));
-   background-image: -webkit-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
-   background-image: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
-   background-image: -ms-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
-   background-image: -o-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
-   background-image: linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
-   cursor: pointer; }
- button.thoughtbot:active {
-   background-color: #d43c28;
-   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d43c28), color-stop(50%, #ad3224), color-stop(50%, #9c1500), color-stop(100%, #700d00));
-   background-image: -webkit-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
-   background-image: -moz-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
-   background-image: -ms-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
-   background-image: -o-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
-   background-image: linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
-   -webkit-box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4);
-   box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee432e), color-stop(50%, #c63929), color-stop(50%, #b51700), color-stop(100%, #891100));
+  background-image: -webkit-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: -moz-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: -ms-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: -o-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  border: 1px solid #951100;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  color: #fff;
+  font: bold 20px/1 "helvetica neue", helvetica, arial, sans-serif;
+  padding: 12px 0 14px 0;
+  text-align: center;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
+  width: 150px;
+}
+
+button.thoughtbot:hover {
+  background-color: #f37873;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f37873), color-stop(50%, #db504d), color-stop(50%, #cb0500), color-stop(100%, #a20601));
+  background-image: -webkit-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+  background-image: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+  background-image: -ms-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+  background-image: -o-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+  background-image: linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+  cursor: pointer;
+}
+
+button.thoughtbot:active {
+  background-color: #d43c28;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d43c28), color-stop(50%, #ad3224), color-stop(50%, #9c1500), color-stop(100%, #700d00));
+  background-image: -webkit-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+  background-image: -moz-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+  background-image: -ms-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+  background-image: -o-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+  background-image: linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+  -webkit-box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(255, 115, 100, 0.4);
 }

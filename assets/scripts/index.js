@@ -2,6 +2,7 @@
 
 const events = require('./events')
 const search = require('./search')
+const publicSearch = require('./public-search')
 
 $(() => {
   $('#sign-in-form').on('submit', events.onSignIn)
@@ -15,6 +16,8 @@ $(() => {
   $('#delete-creature-form').hide()
   $('#search').on('click', search.onClick)
   $('#result-list').on('click', search.onResultClick)
+  $('#public-search').on('click', publicSearch.onClick)
+  $('#public-result-list').on('click', publicSearch.onResultClick)
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
   $('#show-sign-in').on('click', events.onShowSignIn)

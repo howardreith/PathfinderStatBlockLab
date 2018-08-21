@@ -94,6 +94,20 @@ const deleteCreature = function (id) {
   })
 }
 
+const getPublicCreatures = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/public_creatures'
+  })
+}
+
+const showPublicCreature = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/public_creatures/' + data.id
+  })
+}
+
 module.exports = {
   signUp: signUp,
   signIn: signIn,
@@ -103,5 +117,7 @@ module.exports = {
   getCreatures: getCreatures,
   updateCreature: updateCreature,
   showCreature: showCreature,
-  deleteCreature: deleteCreature
+  deleteCreature: deleteCreature,
+  getPublicCreatures: getPublicCreatures,
+  showPublicCreature: showPublicCreature
 }
