@@ -15,13 +15,13 @@ const onLoad = function (event) {
   api.getPublicCreatures()
     .then((response) => {
       const publicCreatures = response.public_creatures
-      console.log('publicCreatures is ', publicCreatures)
+      // console.log('publicCreatures is ', publicCreatures)
       for (let i = 0; i < publicCreatures.length; i++) {
         publicCreaturesList.push(publicCreatures[i].name)
       }
-      console.log('publicCreaturesList is ', publicCreaturesList)
+      // console.log('publicCreaturesList is ', publicCreaturesList)
       publicCreaturesString = publicCreaturesList.join('"')
-      console.log('publicCreaturesString is ', publicCreaturesString)
+      // console.log('publicCreaturesString is ', publicCreaturesString)
     })
     .catch(ui.getPublicCreaturesFail)
 }
@@ -30,6 +30,8 @@ $('#public-search-input').keyup(function () {
   const search = $(this).val()
   const resultsText = $('#results_text')
   const resultsCount = $('#results_count')
+  const resultList = document.querySelector('#public-result-list')
+  resultList.innerHTML = ''
   if (!search) {
     resultsText.val('')
     resultsCount.val('0')
@@ -39,32 +41,40 @@ $('#public-search-input').keyup(function () {
   let i = 0
   let results = ''
   let result
-  console.log('rx is ', rx)
+  // console.log('rx is ', rx)
   while (result = rx.exec(publicCreaturesString)) {
-    console.log('result is ', result)
-    console.log('results before the \n stuff is ', results)
+    // console.log('result is ', result)
+    // console.log('results before the \n stuff is ', results)
     results += '\n' + result
     i += 1
     if (i >= 100) {
       break
     }
   }
+  console.log('results is ', results)
+  const resultsArray = results.split('\n')
+  console.log('resultsArray is ', resultsArray)
+  for (let i = 0; i < resultsArray.length; i++) {
+    resultList.innerHTML += `<li class="list-group-item">${resultsArray[i]}</li>`
+  }
+  $('#public-search-results').show()
+  // resultList.innerHTML += `<li class="list-group-item">${resultsArray}</li>`
   resultsText.val(results)
   resultsCount.val(i)
 })
 
 // const onPublicSearch = function () {
-//   function updateResult (query) {
-//     const resultList = document.querySelector('#public-result-list')
-//     resultList.innerHTML = ''
-//     console.log('publicCreaturesList is ', publicCreaturesList)
-//     publicCreaturesList.map(function (algo) {
-//       query.split(' ').map(function (word) {
-//         if (algo.toLowerCase().indexOf(word.toLowerCase()) !== '') {
-//           resultList.innerHTML += `<li class="list-group-item">${algo}</li>`
-//         }
-//       })
-//     })
+  // function updateResult (query) {
+  //   const resultList = document.querySelector('#public-result-list')
+  //   resultList.innerHTML = ''
+  //   console.log('publicCreaturesList is ', publicCreaturesList)
+    // publicCreaturesList.map(function (algo) {
+    //   query.split(' ').map(function (word) {
+    //     if (algo.toLowerCase().indexOf(word.toLowerCase()) !== '') {
+    //       resultList.innerHTML += `<li class="list-group-item">${algo}</li>`
+    //     }
+    //   })
+    // })
 //   }
 //   const publicSearchListener = document.getElementById('public-search-input')
 //   publicSearchListener.addEventListener('keyup', function (value, callback) {
@@ -73,7 +83,7 @@ $('#public-search-input').keyup(function () {
 //   })
 // }
 // $('.list-group-item').on('click', onSearchResultClick)
-//
+
 const onResultClick = function (event) {
   const chosenMonster = event.target.innerHTML
   // console.log('the value is ' + chosenMonster)
@@ -107,7 +117,7 @@ document.addEventListener('click', function (event) {
 })
 
 module.exports = {
-  onResultClick: onResultClick,
-  onPublicSearch: onPublicSearch
+  onResultClick: onResultClick
+  // onPublicSearch: onPublicSearch
   // onShowDetails: onShowDetails
 }
