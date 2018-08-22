@@ -22,7 +22,8 @@ const onLoad = function (event) {
       }
       // console.log('publicCreaturesList is ', publicCreaturesList)
       publicCreaturesString = publicCreaturesList.join('"')
-      // console.log('publicCreaturesString is ', publicCreaturesString)
+      publicCreaturesString = '"' + publicCreaturesString + '"'
+      console.log('publicCreaturesString is ', publicCreaturesString)
     })
     .catch(ui.getPublicCreaturesFail)
 }
