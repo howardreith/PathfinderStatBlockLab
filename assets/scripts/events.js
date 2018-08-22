@@ -322,6 +322,15 @@ const onShowFromSearch = function (searchResult) {
     .catch(ui.showCreatureFail)
 }
 
+const onShowFromPublicSearch = function (searchResult) {
+  console.log('searchResult is ', searchResult)
+  const data = { 'id': searchResult }
+
+  api.showPublicCreature(data)
+    .then(ui.showPublicCreatureSuccess)
+    .catch(ui.showPublicCreatureFail)
+}
+
 const onDeleteCreature = function (event) {
   event.preventDefault()
   const id = store.currentCreatureId
@@ -376,6 +385,7 @@ module.exports = {
   onShowCreature: onShowCreature,
   onDeleteCreature: onDeleteCreature,
   onShowFromSearch: onShowFromSearch,
+  onShowFromPublicSearch: onShowFromPublicSearch,
   onSignUp: onSignUp,
   onShowSignIn: onShowSignIn,
   onShowSignUp: onShowSignUp,

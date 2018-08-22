@@ -347,6 +347,83 @@ const showCreatureFail = function () {
   $('.display-creature').hide()
 }
 
+const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
+  // console.log('showCreatureResponse is ', showCreatureResponse)
+  if (store.viewState === 0) {
+    $('.display-creature').show()
+  }
+  store.currentPublicCreatureId = showPublicCreatureResponse.public_creature.id
+  $('#display-name').text('Name: ' + showPublicCreatureResponse.public_creature.name)
+  $('#display-cr').text('CR: ' + showPublicCreatureResponse.public_creature.cr)
+  $('#display-alignment').text('Alignment: ' + showPublicCreatureResponse.public_creature.alignment)
+  $('#display-creature_category').text('Type: ' + showPublicCreatureResponse.public_creature.creature_category)
+  $('#display-subcategory').text('(' + showPublicCreatureResponse.public_creature.subcategory + ')')
+  $('#display-size').text('Size: ' + showPublicCreatureResponse.public_creature.size)
+  $('#display-initiative').text('Initiative: +' + showPublicCreatureResponse.public_creature.initiative)
+  $('#display-senses').text('Senses: ' + showPublicCreatureResponse.public_creature.senses)
+  $('#display-perception').text('Perception: ' + showPublicCreatureResponse.public_creature.perception)
+  $('#display-languages').text('Languages: ' + showPublicCreatureResponse.public_creature.languages)
+  $('#display-skills').text('Skills: ' + showPublicCreatureResponse.public_creature.skills)
+  $('#display-str').text('Str: ' + showPublicCreatureResponse.public_creature.str)
+  $('#display-dex').text('Dex: ' + showPublicCreatureResponse.public_creature.dex)
+  $('#display-con').text('Con: ' + showPublicCreatureResponse.public_creature.con)
+  $('#display-int').text('Int: ' + showPublicCreatureResponse.public_creature.int)
+  $('#display-wis').text('Wis: ' + showPublicCreatureResponse.public_creature.wis)
+  $('#display-cha').text('Cha: ' + showPublicCreatureResponse.public_creature.cha)
+  $('#display-items').text('Items: ' + showPublicCreatureResponse.public_creature.items)
+  $('#display-appearance').text('Appearance: ' + showPublicCreatureResponse.public_creature.appearance)
+  $('#display-description').text('Description: ' + showPublicCreatureResponse.public_creature.description)
+  $('#display-environment').text('Environment: ' + showPublicCreatureResponse.public_creature.environment)
+  $('#display-organization').text('Organization: ' + showPublicCreatureResponse.public_creature.organization)
+  $('#display-treasure').text('Treasure: ' + showPublicCreatureResponse.public_creature.treasure)
+  $('#display-source').text('Source: ' + showPublicCreatureResponse.public_creature.source)
+  $('#display-ac').text('AC: ' + showPublicCreatureResponse.public_creature.ac)
+  $('#display-dodgeac').text('Touch: ' + showPublicCreatureResponse.public_creature.dodgeac)
+  $('#display-flat_footed').text('Flat-Footed: ' + showPublicCreatureResponse.public_creature.flat_footed)
+  $('#display-ac_notes').text('AC Notes: ' + showPublicCreatureResponse.public_creature.ac_notes)
+  $('#display-cmd').text('CMD: ' + showPublicCreatureResponse.public_creature.cmd)
+  $('#display-saves').text('Saves: ' + showPublicCreatureResponse.public_creature.saves)
+  $('#display-hp').text('HP: ' + showPublicCreatureResponse.public_creature.hp)
+  $('#display-hd').text('HD: ' + showPublicCreatureResponse.public_creature.hd)
+  $('#display-dr').text('DR: ' + showPublicCreatureResponse.public_creature.dr)
+  $('#display-fast_healing_regen').text('Healing Abilities: ' + showPublicCreatureResponse.public_creature.fast_healing_regen)
+  $('#display-immunities').text('Immunities: ' + showPublicCreatureResponse.public_creature.immunities)
+  $('#display-resistances').text('Resistances: ' + showPublicCreatureResponse.public_creature.resistances)
+  $('#display-sr').text('SR: ' + showPublicCreatureResponse.public_creature.sr)
+  $('#display-weaknesses').text('Weaknesses: ' + showPublicCreatureResponse.public_creature.weaknesses)
+  $('#display-defensive_abilities').text('Defensive Abilities: ' + showPublicCreatureResponse.public_creature.defensive_abilities)
+  $('#display-speed').text('Speed: ' + showPublicCreatureResponse.public_creature.speed)
+  $('#display-speed_note').text('Speed Note: ' + showPublicCreatureResponse.public_creature.speed_note)
+  $('#display-melee').text('Melee: ' + showPublicCreatureResponse.public_creature.melee)
+  $('#display-ranged').text('Ranged: ' + showPublicCreatureResponse.public_creature.ranged)
+  $('#display-cmb').text('CMB: ' + showPublicCreatureResponse.public_creature.cmb)
+  $('#display-reach').text('Reach: ' + showPublicCreatureResponse.public_creature.reach)
+  $('#display-offense_note').text('Offense Note: ' + showPublicCreatureResponse.public_creature.offense_note)
+  $('#display-special_abilities').text('Special Abilities: ' + showPublicCreatureResponse.public_creature.special_abilities)
+  $('#display-spell_like_abilities').text('Spell-like Abilities: ' + showPublicCreatureResponse.public_creature.spell_like_abilities)
+  $('#display-spells_known').text('Spells Known: ' + showPublicCreatureResponse.public_creature.spells_known)
+  $('#display-spells_prepared').text('Spells Prepared: ' + showPublicCreatureResponse.public_creature.spells_prepared)
+  $('#display-feats').text('Feats: ' + showPublicCreatureResponse.public_creature.feats)
+  $('#display-additional_special_qualities').text('Additional Special Qualities: ' + showPublicCreatureResponse.public_creature.additional_special_qualities)
+  for (let i = 0; i < creatureDisplayList.length; i++) {
+    // console.log(creatureDisplayList[i])
+    // console.log(document.getElementById(creatureDisplayList[i]).innerHTML)
+    // console.log('#' + creatureDisplayList[i])
+    if (document.getElementById(creatureDisplayList[i]).innerHTML.includes('null')) {
+      $('#' + creatureDisplayList[i]).hide()
+    } else if (document.getElementById(creatureDisplayList[i]).innerHTML === emptyArrayList[i]) {
+      $('#' + creatureDisplayList[i]).hide()
+    } else {
+      $('#' + creatureDisplayList[i]).show()
+    }
+  }
+}
+
+const showPublicCreatureFail = function () {
+  // console.log('showCreatureFail is ', error)
+  $('.display-creature').hide()
+}
+
 const deleteCreatureSuccess = function (deleteCreatureResponse) {
   // console.log('deleteCreatureResponse is ', deleteCreatureResponse)
   $('#delete-creature-notifier').text('Creature deleted!')
@@ -377,6 +454,8 @@ module.exports = {
   getCreaturesFail: getCreaturesFail,
   showCreatureSuccess: showCreatureSuccess,
   showCreatureFail: showCreatureFail,
+  showPublicCreatureSuccess: showPublicCreatureSuccess,
+  showPublicCreatureFail: showPublicCreatureFail,
   deleteCreatureSuccess: deleteCreatureSuccess,
   deleteCreatureFail: deleteCreatureFail,
   changePasswordSuccess: changePasswordSuccess,

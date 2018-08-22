@@ -8,13 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
   onLoad()
 })
 
+let publicCreatures = []
 const publicCreaturesList = []
 let publicCreaturesString = ''
 
 const onLoad = function (event) {
   api.getPublicCreatures()
     .then((response) => {
-      const publicCreatures = response.public_creatures
+      publicCreatures = response.public_creatures
       // console.log('publicCreatures is ', publicCreatures)
       for (let i = 0; i < publicCreatures.length; i++) {
         publicCreaturesList.push(publicCreatures[i].name)
@@ -68,6 +69,22 @@ $('#public-search-input').keyup(function () {
   resultsCount.val(i)
 })
 
+const onResultClick = function (event) {
+  const chosenMonster = event.target.innerHTML
+  console.log('the value is ' + chosenMonster)
+  // console.log('store.creatures is ' + store.creatures)
+  // console.log('store.creaturesList is ' + store.creaturesList)
+  const publicMonsterIndex = publicCreaturesList.indexOf(chosenMonster)
+  // console.log('monsterIndex is ' + monsterIndex)
+  // console.log('The database index is ' + store.creatures[publicMonsterIndex].id)
+  const publicMonsterDatabaseIndex = publicCreatures[publicMonsterIndex].id
+  store.currentPublicCreatureId = publicMonsterDatabaseIndex
+  console.log('store.currentPublicCreatureId is ', store.currentPublicCreatureId)
+  events.onShowFromPublicSearch(publicMonsterDatabaseIndex)
+  // $('.details').hide()
+  document.getElementById('public-search-input').value = ''
+}
+
 // const onPublicSearch = function () {
   // function updateResult (query) {
   //   const resultList = document.querySelector('#public-result-list')
@@ -88,21 +105,6 @@ $('#public-search-input').keyup(function () {
 //   })
 // }
 // $('.list-group-item').on('click', onSearchResultClick)
-
-const onResultClick = function (event) {
-  const chosenMonster = event.target.innerHTML
-  // console.log('the value is ' + chosenMonster)
-  // console.log('store.creatures is ' + store.creatures)
-  // console.log('store.creaturesList is ' + store.creaturesList)
-  const publicMonsterIndex = store.publicCreaturesList.indexOf(chosenMonster)
-  // console.log('monsterIndex is ' + monsterIndex)
-  // console.log('The database index is ' + store.creatures[monsterIndex].id)
-  const publicMonsterDatabaseIndex = store.creatures[publicMonsterIndex].id
-  store.currentPublicCreatureId = publicMonsterDatabaseIndex
-  events.onShowFromSearch(publicMonsterDatabaseIndex)
-  // $('.details').hide()
-  document.getElementById('public-search-input').value = ''
-}
 
 // const onShowDetails = function (event) {
 //   event.preventDefault()
