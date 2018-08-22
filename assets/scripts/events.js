@@ -323,7 +323,7 @@ const onShowFromSearch = function (searchResult) {
 }
 
 const onShowFromPublicSearch = function (searchResult) {
-  console.log('searchResult is ', searchResult)
+  // console.log('searchResult is ', searchResult)
   const data = { 'id': searchResult }
 
   api.showPublicCreature(data)
