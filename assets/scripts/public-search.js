@@ -23,6 +23,7 @@ const onLoad = function (event) {
       // console.log('publicCreaturesList is ', publicCreaturesList)
       publicCreaturesString = publicCreaturesList.join('"')
       publicCreaturesString = '"' + publicCreaturesString + '"'
+      publicCreaturesString = publicCreaturesString.replace(/~/g, ',')
       console.log('publicCreaturesString is ', publicCreaturesString)
     })
     .catch(ui.getPublicCreaturesFail)

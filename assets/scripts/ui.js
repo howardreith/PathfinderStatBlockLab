@@ -348,7 +348,16 @@ const showCreatureFail = function () {
 }
 
 const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
-  // console.log('showCreatureResponse is ', showCreatureResponse)
+  // console.log('showPublicCreatureResponse is ', showPublicCreatureResponse)
+  for (const key of Object.keys(showPublicCreatureResponse.public_creature)) {
+    // console.log('the thing is ', key, showPublicCreatureResponse.public_creature[key])
+    // console.log('the typeof is ', typeof showPublicCreatureResponse.public_creature[key])
+    if (typeof showPublicCreatureResponse.public_creature[key] === 'string') {
+      // console.log('its a string!')
+      showPublicCreatureResponse.public_creature[key] = showPublicCreatureResponse.public_creature[key].replace(/~/g, ',')
+    }
+    // console.log('the thing is ', key, showPublicCreatureResponse.public_creature[key])
+  }
   if (store.viewState === 0) {
     $('.display-creature').show()
   }
