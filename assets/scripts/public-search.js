@@ -4,44 +4,74 @@ const api = require('./api.js')
 const store = require('./store.js')
 const events = require('./events.js')
 
-const onClick = function (event) {
-  console.log('a click!')
-  event.preventDefault()
+document.addEventListener('DOMContentLoaded', function () {
+  onLoad()
+})
 
+const publicCreaturesList = []
+let publicCreaturesString = ''
+
+const onLoad = function (event) {
   api.getPublicCreatures()
-    .then(onPublicSearch)
+    .then((response) => {
+      const publicCreatures = response.public_creatures
+      console.log('publicCreatures is ', publicCreatures)
+      for (let i = 0; i < publicCreatures.length; i++) {
+        publicCreaturesList.push(publicCreatures[i].name)
+      }
+      console.log('publicCreaturesList is ', publicCreaturesList)
+      publicCreaturesString = publicCreaturesList.join('"')
+      console.log('publicCreaturesString is ', publicCreaturesString)
+    })
     .catch(ui.getPublicCreaturesFail)
 }
 
-const onPublicSearch = function (onClickData) {
-  console.log('onClickData is ', onClickData)
-  // console.log('The list is ', onClickData.creatures)
-  store.publicCreatures = onClickData.public_creatures
-  const publicCreaturesArray = onClickData.public_creatures
-  // console.log('creaturesArray length is ' + creaturesArray.length)
-  const publicCreaturesList = []
-  for (let i = 0; i < publicCreaturesArray.length; i++) {
-    publicCreaturesList.push(publicCreaturesArray[i].name)
-    // console.log(creaturesList)
+$('#public-search-input').keyup(function () {
+  const search = $(this).val()
+  const resultsText = $('#results_text')
+  const resultsCount = $('#results_count')
+  if (!search) {
+    resultsText.val('')
+    resultsCount.val('0')
+    return
   }
-  store.publicCreaturesList = publicCreaturesList
-  function updateResult (query) {
-    const resultList = document.querySelector('.result')
-    resultList.innerHTML = ''
-    publicCreaturesList.map(function (algo) {
-      query.split(' ').map(function (word) {
-        if (algo.toLowerCase().indexOf(word.toLowerCase()) !== -1) {
-          resultList.innerHTML += `<li class="list-group-item">${algo}</li>`
-        }
-      })
-    })
+  const rx = new RegExp('"([^"]*' + search + '[^"]*)"', 'gi')
+  let i = 0
+  let results = ''
+  let result
+  console.log('rx is ', rx)
+  while (result = rx.exec(publicCreaturesString)) {
+    console.log('result is ', result)
+    console.log('results before the \n stuff is ', results)
+    results += '\n' + result
+    i += 1
+    if (i >= 100) {
+      break
+    }
   }
-  const publicSearchListener = document.getElementById('public-search-input')
-  publicSearchListener.addEventListener('keyup', function (value, callback) {
-    updateResult(this.value)
-    $('#public-search-results').show()
-  })
-}
+  resultsText.val(results)
+  resultsCount.val(i)
+})
+
+// const onPublicSearch = function () {
+//   function updateResult (query) {
+//     const resultList = document.querySelector('#public-result-list')
+//     resultList.innerHTML = ''
+//     console.log('publicCreaturesList is ', publicCreaturesList)
+//     publicCreaturesList.map(function (algo) {
+//       query.split(' ').map(function (word) {
+//         if (algo.toLowerCase().indexOf(word.toLowerCase()) !== '') {
+//           resultList.innerHTML += `<li class="list-group-item">${algo}</li>`
+//         }
+//       })
+//     })
+//   }
+//   const publicSearchListener = document.getElementById('public-search-input')
+//   publicSearchListener.addEventListener('keyup', function (value, callback) {
+//     updateResult(this.value)
+//     $('#public-search-results').show()
+//   })
+// }
 // $('.list-group-item').on('click', onSearchResultClick)
 //
 const onResultClick = function (event) {
@@ -77,7 +107,7 @@ document.addEventListener('click', function (event) {
 })
 
 module.exports = {
-  onClick: onClick,
-  onResultClick: onResultClick
+  onResultClick: onResultClick,
+  onPublicSearch: onPublicSearch
   // onShowDetails: onShowDetails
 }
