@@ -24,7 +24,7 @@ const onLoad = function (event) {
       publicCreaturesString = publicCreaturesList.join('"')
       publicCreaturesString = '"' + publicCreaturesString + '"'
       publicCreaturesString = publicCreaturesString.replace(/~/g, ',')
-      console.log('publicCreaturesString is ', publicCreaturesString)
+      // console.log('publicCreaturesString is ', publicCreaturesString)
     })
     .catch(ui.getPublicCreaturesFail)
 }
@@ -54,16 +54,18 @@ $('#public-search-input').keyup(function () {
       break
     }
   }
-  console.log('results is ', results)
+  // console.log('results is ', results)
   const resultsArray = results.split('\n')
-  console.log('resultsArray is ', resultsArray)
+  // console.log('resultsArray is ', resultsArray)
   for (let i = 0; i < resultsArray.length; i++) {
     const newResult = resultsArray[i].split(',')
     resultsArray[i] = newResult[1]
   }
-  console.log('revised resultsArray is ', resultsArray)
+  // console.log('revised resultsArray is ', resultsArray)
   for (let i = 0; i < resultsArray.length; i++) {
-    resultList.innerHTML += `<li class="list-group-item">${resultsArray[i]}</li>`
+    if (resultsArray[i]) {
+      resultList.innerHTML += `<li class="list-group-item">${resultsArray[i]}</li>`
+    }
   }
   $('#public-search-results').show()
   // resultList.innerHTML += `<li class="list-group-item">${resultsArray}</li>`
@@ -73,7 +75,7 @@ $('#public-search-input').keyup(function () {
 
 const onResultClick = function (event) {
   const chosenMonster = event.target.innerHTML
-  console.log('the value is ' + chosenMonster)
+  // console.log('the value is ' + chosenMonster)
   // console.log('store.creatures is ' + store.creatures)
   // console.log('store.creaturesList is ' + store.creaturesList)
   const publicMonsterIndex = publicCreaturesList.indexOf(chosenMonster)
@@ -81,24 +83,24 @@ const onResultClick = function (event) {
   // console.log('The database index is ' + store.creatures[publicMonsterIndex].id)
   const publicMonsterDatabaseIndex = publicCreatures[publicMonsterIndex].id
   store.currentPublicCreatureId = publicMonsterDatabaseIndex
-  console.log('store.currentPublicCreatureId is ', store.currentPublicCreatureId)
+  // console.log('store.currentPublicCreatureId is ', store.currentPublicCreatureId)
   events.onShowFromPublicSearch(publicMonsterDatabaseIndex)
   // $('.details').hide()
   document.getElementById('public-search-input').value = ''
 }
 
 // const onPublicSearch = function () {
-  // function updateResult (query) {
-  //   const resultList = document.querySelector('#public-result-list')
-  //   resultList.innerHTML = ''
-  //   console.log('publicCreaturesList is ', publicCreaturesList)
-    // publicCreaturesList.map(function (algo) {
-    //   query.split(' ').map(function (word) {
-    //     if (algo.toLowerCase().indexOf(word.toLowerCase()) !== '') {
-    //       resultList.innerHTML += `<li class="list-group-item">${algo}</li>`
-    //     }
-    //   })
-    // })
+// function updateResult (query) {
+//   const resultList = document.querySelector('#public-result-list')
+//   resultList.innerHTML = ''
+//   console.log('publicCreaturesList is ', publicCreaturesList)
+// publicCreaturesList.map(function (algo) {
+//   query.split(' ').map(function (word) {
+//     if (algo.toLowerCase().indexOf(word.toLowerCase()) !== '') {
+//       resultList.innerHTML += `<li class="list-group-item">${algo}</li>`
+//     }
+//   })
+// })
 //   }
 //   const publicSearchListener = document.getElementById('public-search-input')
 //   publicSearchListener.addEventListener('keyup', function (value, callback) {
