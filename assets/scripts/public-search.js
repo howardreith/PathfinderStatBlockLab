@@ -55,6 +55,11 @@ $('#public-search-input').keyup(function () {
   const resultsArray = results.split('\n')
   console.log('resultsArray is ', resultsArray)
   for (let i = 0; i < resultsArray.length; i++) {
+    const newResult = resultsArray[i].split(',')
+    resultsArray[i] = newResult[1]
+  }
+  console.log('revised resultsArray is ', resultsArray)
+  for (let i = 0; i < resultsArray.length; i++) {
     resultList.innerHTML += `<li class="list-group-item">${resultsArray[i]}</li>`
   }
   $('#public-search-results').show()
