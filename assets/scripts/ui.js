@@ -200,7 +200,7 @@ const updateCreatureFail = function () {
 }
 
 const getCreaturesSuccess = function (getCreaturesResponse) {
-  console.log('getCreaturesResponse is ', getCreaturesResponse)
+  // console.log('getCreaturesResponse is ', getCreaturesResponse)
 }
 
 const getCreaturesFail = function () {
@@ -290,7 +290,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
       $('#' + creatureDisplayList[i]).show()
     }
   }
-  console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
+  // console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
   if ((document.getElementById('display-appearance').innerHTML.includes('null')) &&
     (document.getElementById('display-description').innerHTML.includes('null')) &&
     (document.getElementById('display-environment').innerHTML.includes('null')) &&
@@ -477,7 +477,7 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
   $('#show-details-div').show()
   for (let i = 0; i < creatureDisplayList.length; i++) {
     // console.log(creatureDisplayList[i])
-    console.log(document.getElementById(creatureDisplayList[i]).innerHTML)
+    // console.log(document.getElementById(creatureDisplayList[i]).innerHTML)
     // console.log('#' + creatureDisplayList[i])
     if (document.getElementById(creatureDisplayList[i]).innerHTML.includes('null')) {
       $('#' + creatureDisplayList[i]).hide()

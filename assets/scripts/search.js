@@ -13,7 +13,7 @@ const onClick = function (event) {
 }
 
 const onSearch = function (onClickData) {
-  console.log('onClickData is ', onClickData)
+  // console.log('onClickData is ', onClickData)
   // console.log('The list is ', onClickData.creatures)
   store.creatures = onClickData.creatures
   const creaturesArray = onClickData.creatures
@@ -26,7 +26,7 @@ const onSearch = function (onClickData) {
   const creaturesList = []
   for (let i = 0; i < creaturesArray.length; i++) {
     creaturesList.push(creaturesArray[i].name)
-    console.log(creaturesList)
+    // console.log(creaturesList)
   }
   store.creaturesList = creaturesList
   function updateResult (query) {
