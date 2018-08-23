@@ -381,12 +381,36 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
   $('#display-perception').text('Perception: ' + showPublicCreatureResponse.public_creature.perception + ',')
   $('#display-languages').text('Languages: ' + showPublicCreatureResponse.public_creature.languages)
   $('#display-skills').text('Skills: ' + showPublicCreatureResponse.public_creature.skills)
-  $('#display-str').text('Str: ' + showPublicCreatureResponse.public_creature.str + ',')
-  $('#display-dex').text('Dex: ' + showPublicCreatureResponse.public_creature.dex + ',')
-  $('#display-con').text('Con: ' + showPublicCreatureResponse.public_creature.con + ',')
-  $('#display-int').text('Int: ' + showPublicCreatureResponse.public_creature.int + ',')
-  $('#display-wis').text('Wis: ' + showPublicCreatureResponse.public_creature.wis + ',')
-  $('#display-cha').text('Cha: ' + showPublicCreatureResponse.public_creature.cha)
+  if (showPublicCreatureResponse.public_creature.str >= 0) {
+    $('#display-str').text('Str: ' + '+' + showPublicCreatureResponse.public_creature.str + ',')
+  } else {
+    $('#display-str').text('Str: ' + showPublicCreatureResponse.public_creature.str + ',')
+  }
+  if (showPublicCreatureResponse.public_creature.dex >= 0) {
+    $('#display-dex').text('Dex: ' + '+' + showPublicCreatureResponse.public_creature.dex + ',')
+  } else {
+    $('#display-dex').text('Dex: ' + showPublicCreatureResponse.public_creature.dex + ',')
+  }
+  if (showPublicCreatureResponse.public_creature.con >= 0) {
+    $('#display-con').text('Con: ' + '+' + showPublicCreatureResponse.public_creature.con + ',')
+  } else {
+    $('#display-con').text('Con: ' + showPublicCreatureResponse.public_creature.con + ',')
+  }
+  if (showPublicCreatureResponse.public_creature.int >= 0) {
+    $('#display-int').text('Int: ' + '+' + showPublicCreatureResponse.public_creature.int + ',')
+  } else {
+    $('#display-int').text('Int: ' + showPublicCreatureResponse.public_creature.int + ',')
+  }
+  if (showPublicCreatureResponse.public_creature.wis >= 0) {
+    $('#display-wis').text('Wis: ' + '+' + showPublicCreatureResponse.public_creature.wis + ',')
+  } else {
+    $('#display-wis').text('Wis: ' + showPublicCreatureResponse.public_creature.wis + ',')
+  }
+  if (showPublicCreatureResponse.public_creature.cha >= 0) {
+    $('#display-cha').text('Cha: ' + '+' + showPublicCreatureResponse.public_creature.cha)
+  } else {
+    $('#display-cha').text('Cha: ' + showPublicCreatureResponse.public_creature.cha)
+  }
   $('#display-items').text('Items: ' + showPublicCreatureResponse.public_creature.items)
   $('#display-appearance').text('Appearance: ' + showPublicCreatureResponse.public_creature.appearance)
   $('#display-description').text('Description: ' + showPublicCreatureResponse.public_creature.description)
