@@ -212,6 +212,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
   $('#display-alignment').text(showCreatureResponse.creature.alignment + ',')
   if (!showCreatureResponse.creature.subcategory) {
     $('#display-creature_category').text(showCreatureResponse.creature.creature_category + ',')
+    $('#display-subcategory').text('')
   } else {
     $('#display-creature_category').text(showCreatureResponse.creature.creature_category)
     $('#display-subcategory').text(showCreatureResponse.creature.subcategory + ',')
@@ -370,6 +371,7 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
   $('#display-alignment').text(showPublicCreatureResponse.public_creature.alignment + ',')
   if (!showPublicCreatureResponse.public_creature.subcategory) {
     $('#display-creature_category').text(showPublicCreatureResponse.public_creature.creature_category + ',')
+    $('#display-subcategory').text('')
   } else {
     $('#display-creature_category').text(showPublicCreatureResponse.public_creature.creature_category)
     $('#display-subcategory').text(showPublicCreatureResponse.public_creature.subcategory + ',')
@@ -445,6 +447,7 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
   $('#display-spells_prepared').text('Spells Prepared: ' + showPublicCreatureResponse.public_creature.spells_prepared)
   $('#display-feats').text('Feats: ' + showPublicCreatureResponse.public_creature.feats)
   $('#display-additional_special_qualities').text('Additional Special Qualities: ' + showPublicCreatureResponse.public_creature.additional_special_qualities)
+  $('#show-details-div').show()
   for (let i = 0; i < creatureDisplayList.length; i++) {
     // console.log(creatureDisplayList[i])
     console.log(document.getElementById(creatureDisplayList[i]).innerHTML)
