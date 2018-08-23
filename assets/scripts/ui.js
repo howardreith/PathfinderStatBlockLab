@@ -18,11 +18,11 @@ const creatureDisplayList = [ 'display-name', 'display-cr', 'display-alignment',
   'display-spells_known', 'display-spells_prepared', 'display-feats',
   'display-additional_special_qualities' ]
 
-const emptyArrayList = [ 'Name:', 'CR:', 'Alignment: ', 'Type: ', '()', 'Size: ',
-  'Initiative: +null', 'Senses: ', 'Perception: ', 'Languages: ', 'Skills: ',
-  'Str: ', 'Dex: ', 'Con: ', 'Int: ', 'Wis: ', 'Cha: ', 'Items: ', 'Appearance: ',
+const emptyArrayList = [ '', 'CR:', ',', ',', ',', 'Size: ',
+  'Initiative: +null', 'Senses: ', 'Perception: ,', 'Languages: ', 'Skills: ',
+  'Str: ,', 'Dex: ,', 'Con: ,', 'Int: ,', 'Wis: ,', 'Cha: ', 'Items: ', 'Appearance: ',
   'Description: ', 'Environment: ', 'Organization: ', 'Treasure: ', 'Source: null',
-  'AC: ', 'Touch: null', 'Flat-Footed: null', 'AC Notes: ', 'CMD: ', 'Saves: ',
+  'AC: ,', 'Touch: null', 'Flat-Footed: null', 'Notes: ', 'CMD: ', 'Saves: ',
   'HP: null', 'HD: ', 'DR: ', 'Healing Abilities: ', 'Immunities: ', 'Resistances: ',
   'SR: null', 'Weaknesses: ', 'Defensive Abilities: ', 'Speed: ', 'Speed Note: null',
   'Melee: ', 'Ranged: ', 'CMB: ', 'Reach: ', 'Offense Note: ', 'Special Abilities: ',
@@ -275,23 +275,22 @@ const showCreatureSuccess = function (showCreatureResponse) {
       $('#' + creatureDisplayList[i]).show()
     }
   }
-  // for (let i = 0; i < creatureDisplayList.length; i++) {
-  //   if (document.getElementById(creatureDisplayList[i]).innerHTML === ('')) {
-  //     $('#' + creatureDisplayList[i]).hide()
-  //   } else {
-  //     $('#' + creatureDisplayList[i]).show()
-  //   }
-  // }
-  // console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
-  // if ((document.getElementById('display-appearance').innerHTML.includes('null')) &&
-  //   (document.getElementById('display-description').innerHTML.includes('null')) &&
-  //   (document.getElementById('display-environment').innerHTML.includes('null')) &&
-  //   (document.getElementById('display-organization').innerHTML.includes('null')) &&
-  //   (document.getElementById('display-treasure').innerHTML.includes('null'))) {
-  //   $('show-details-div').hide()
-  // } else {
-  //   $('show-details-div').show()
-  // }
+  console.log('display appearance is' + document.getElementById('display-appearance').innerHTML)
+  if ((document.getElementById('display-appearance').innerHTML.includes('null')) &&
+    (document.getElementById('display-description').innerHTML.includes('null')) &&
+    (document.getElementById('display-environment').innerHTML.includes('null')) &&
+    (document.getElementById('display-organization').innerHTML.includes('null')) &&
+    (document.getElementById('display-treasure').innerHTML.includes('null'))) {
+    $('#show-details-div').hide()
+  } else if ((document.getElementById('display-appearance').innerHTML === 'Appearance: ') &&
+    (document.getElementById('display-description').innerHTML === 'Description: ') &&
+    (document.getElementById('display-environment').innerHTML === 'Environment: ') &&
+    (document.getElementById('display-organization').innerHTML === 'Organization: ') &&
+    (document.getElementById('display-treasure').innerHTML === 'Treasure: ')) {
+    $('#show-details-div').hide()
+  } else {
+    $('#show-details-div').show()
+  }
   // This section begins the update lab portion
   $('#update-id').text('Creature ID: ' + store.currentCreatureId)
   document.getElementById('update-name').value = showCreatureResponse.creature.name
@@ -448,7 +447,7 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
   $('#display-additional_special_qualities').text('Additional Special Qualities: ' + showPublicCreatureResponse.public_creature.additional_special_qualities)
   for (let i = 0; i < creatureDisplayList.length; i++) {
     // console.log(creatureDisplayList[i])
-    // console.log(document.getElementById(creatureDisplayList[i]).innerHTML)
+    console.log(document.getElementById(creatureDisplayList[i]).innerHTML)
     // console.log('#' + creatureDisplayList[i])
     if (document.getElementById(creatureDisplayList[i]).innerHTML.includes('null')) {
       $('#' + creatureDisplayList[i]).hide()

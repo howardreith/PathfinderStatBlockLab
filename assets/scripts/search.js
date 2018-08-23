@@ -63,10 +63,10 @@ const onResultClick = function (event) {
   document.getElementById('search-input').value = ''
 }
 
-// const onShowDetails = function (event) {
-//   event.preventDefault()
-//   $('.details').toggle()
-// }
+const onShowDetails = function (event) {
+  event.preventDefault()
+  $('.details').toggle()
+}
 
 const searchElement = document.getElementById('result-list')
 
@@ -82,6 +82,6 @@ document.addEventListener('click', function (event) {
 
 module.exports = {
   onClick: onClick,
-  onResultClick: onResultClick
-  // onShowDetails: onShowDetails
+  onResultClick: onResultClick,
+  onShowDetails: onShowDetails
 }
