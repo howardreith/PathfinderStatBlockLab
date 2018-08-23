@@ -258,9 +258,15 @@ h1 {
   float: right;
 }
 
+.input {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
 #auth-notifier {
+  float: right;
   margin-right: 3px;
-  clear: right;
   color: gold;
   font-size: 20px;
 }

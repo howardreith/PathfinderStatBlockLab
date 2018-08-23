@@ -28,6 +28,8 @@ $(() => {
   $('#go-to-lab').on('click', events.onGoToLab)
   $('#go-to-viewer').hide()
   $('#go-to-viewer').on('click', events.onGoToViewer)
+  $('#go-to-viewer-no-creature').hide()
+  $('#go-to-viewer-no-creature').on('click', events.onGoToViewer)
   // $('#show-creature-form').hide()
   $('.display-creature').hide()
   $('#show-details').on('click', search.onShowDetails)

@@ -27,25 +27,25 @@
         <button id= 'show-sign-in-back' class='auth auth-button'>Back</button>
         <button id= 'show-sign-up-back' class='auth auth-button'>Back</button>
         <form id="sign-in-form" class='auth'>
-          <input name="credentials[email]" class = "sign-in-email" placeholder="Sign In - Email " type="email">
-          <input name="credentials[password]" class = "sign-in-password" placeholder="Password" type="password">
+          <input name="credentials[email]" class = "sign-in-email input" placeholder="Sign In - Email " type="email">
+          <input name="credentials[password]" class = "sign-in-password input" placeholder="Password" type="password">
           <button type="submit" class='auth-button' id= "sign-in-submit">Sign In</button>
         </form>
         <form id="sign-up-form" class='auth'>
-          <input name="credentials[email]" class = "sign-up-email" placeholder="Sign Up - Email " type="email">
-          <input name="credentials[password]" class = "sign-up-password" placeholder="Password" type="password">
-          <input name="credentials[password_confirmation]" class = "sign-up-password-confirm" placeholder="Confirm Password" type="password">
+          <input name="credentials[email]" class = "sign-up-email input" placeholder="Sign Up - Email " type="email">
+          <input name="credentials[password]" class = "sign-up-password input" placeholder="Password" type="password">
+          <input name="credentials[password_confirmation]" class = "sign-up-password-confirm input" placeholder="Confirm Password" type="password">
           <button type="submit" class='auth-button' id= "sign-up-submit">Sign Up</button>
         </form>
         <button id= 'sign-out-button' class='auth auth-button'>Sign Out</button>
         <button id= 'show-change-password' class='auth auth-button'>Change Password</button>
         <button id= 'show-change-password-back' class='auth auth-button'>Back</button>
         <form id='change-password-form' class='auth'>
-          <input name='passwords[old]' class='change-password-old' placeholder='Old Password' type='password'>
-          <input name='passwords[new]' class='change-password-new' placeholder='New Password' type='password'>
+          <input name='passwords[old]' class='change-password-old input' placeholder='Old Password' type='password'>
+          <input name='passwords[new]' class='change-password-new input' placeholder='New Password' type='password'>
           <button type='submit' id='change-password-button' class='auth-button'>Change Password</button>
         </form>
-        <p id='auth-notifier' class='auth'></p>
+        <span id='auth-notifier' class='auth'></span>
       </nav>
 
       <div class="search-results" id="search-results">
@@ -68,12 +68,11 @@
           <span class="close">close &times;</span><br>
           <h3><b>Lab Instructions</b></h3>
           <p>To create a new creature, input the name of your creature in the "Create New Creature" form and click the "Create New Creature" button.</p>
-          <p>The name is used for our search tool and is the only required field. The name will be added to the "Update Creature" form below automatically.</p>
-          <p>To update an existing creature, search for the creature's name in the search bar and click on its result. Its information will be added to all known fields.</p>
-          <p>To save your work, click the "Save Creature" button at the top of bottom of the form.
-          <p>All fields will clear when you save your work, so make sure you've filled in everything you need!</p>
-          <p>Fields can be re-populated by once again searching for your creature in the search bar.</p>
-          <p>To delete a creature, load the creature you wish to delete using the search bar and click the "Delete Creature" button just below the "Update Creature" form.</p>
+          <p>Your creature's name will be added to the "Update Creature" form automatically. Add the creature's information and click the "Save Creature" button at the top or bottom of the form.</p>
+          <p>To update an existing creature, search for the creature's name in the "Private Search" field and click on its result. Its information will be added to all fields for which there is data.</p>
+          <p>To delete a creature, load the creature you wish to delete using the search bar and click the "Delete Creature" button beneath the "Update Creature" form.</p>
+          <p>To view your creature's stat block, click the "See This Stat Block" button after saving your creature.</p>
+          <p>You can use the public creature search to view a public creature in the viewer at any time. This will not overwrite your work.</p>
         </div>
       </div>
 
@@ -81,9 +80,11 @@
         <div class="modal-content">
           <span class="close">close &times;</span><br>
           <h3><b>Viewer Instructions</b></h3>
-          <p>To view a creature, type the creature's name into the search bar in the upper-left corner of your screen.</p>
+          <p>To view a creature from the public database, type the creature's name into the "Public Search" field in the upper-left corner.</p>
+          <p>To view a creature you created, type the creature's name into the "Private Search" field next to the "Public Search" field.</p>
           <p>If you do not have any creatures, you will need to create one!</p>
           <p>To create or modify a creature, click the "Go to Lab" button.</p>
+          <p>Note that you cannot modify public creatures.</p>
         </div>
       </div>
 
@@ -101,7 +102,8 @@
         </div>
 
         <div id='go-to-viewer-wrapper'>
-          <button id="go-to-viewer" class='outside-button'>Stat Block Viewer</button>
+          <button id="go-to-viewer" class='outside-button'>See This Stat Block</button>
+          <button id="go-to-viewer-no-creature" class='outside-button'>Back To Viewer</button>
         </div>
       </div>
 

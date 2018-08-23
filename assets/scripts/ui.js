@@ -26,7 +26,7 @@ const emptyArrayList = [ '', 'CR:', ',', ',', ',', 'Size: ',
   'HP: null', 'HD: ', 'DR: ', 'Healing Abilities: ', 'Immunities: ', 'Resistances: ',
   'SR: null', 'Weaknesses: ', 'Defensive Abilities: ', 'Speed: ', 'Speed Note: null',
   'Melee: ', 'Ranged: ', 'CMB: ', 'Reach: ', 'Offense Note: ', 'Special Abilities: ',
-  'Spell-like Abilities: ', 'Spells Known: ', 'Spells Prepared: ', 'Feats: ',
+  '', 'Spells Known: ', 'Spells Prepared: ', 'Feats: ',
   'Additional Special Qualities: ' ]
 
 const signInSuccess = function (signInResponse) {
@@ -101,7 +101,7 @@ const changePasswordSuccess = function (changePasswordResponse) {
 
 const changePasswordFail = function () {
   // console.log('changePasswordFail is ', error)
-  $('#auth-notifier').text('Please check your password inputs.')
+  $('#auth-notifier').text('Check password inputs.')
   $('#auth-notifier').show()
   $('#auth-notifier').delay(4000).fadeOut('fast')
   document.getElementById('sign-in-form').reset()
@@ -125,6 +125,8 @@ const signOutSuccess = function (signOutResponse) {
   $('#delete-creature-form').hide()
   $('#go-to-lab').hide()
   $('#go-to-viewer').hide()
+  $('#go-to-viewer-no-creature').hide()
+  $('#go-to-viewer-wrapper').hide()
   $('#viewer-instructions-wrapper').hide()
   $('#instructions-modal').hide()
   $('#viewer-instructions-modal').hide()
@@ -157,6 +159,11 @@ const createCreatureSuccess = function (createCreatureResponse) {
   $('#create-new-creature-notifier').text('Creature created!')
   $('#create-new-creature-notifier').show()
   $('#create-new-creature-notifier').delay(1000).fadeOut('fast')
+  $('#update-lab').show()
+  $('#delete-creature-form').show()
+  $('#go-to-viewer').show()
+  $('#go-to-viewer-no-creature').hide()
+  document.getElementById('lab-instructions-wrapper').setAttribute('style', 'float: left')
   document.getElementById('create-creature-form').reset()
 }
 
@@ -178,7 +185,6 @@ const updateCreatureSuccess = function (updateCreatureResponse) {
   $('#update-creature-notifier-2').show()
   $('#update-creature-notifier-2').delay(1000).fadeOut('fast')
   document.getElementById('update-id').innerHTML = 'Creature ID:'
-  document.getElementById('update-creature-form').reset()
 }
 
 const updateCreatureFail = function () {
@@ -205,6 +211,14 @@ const showCreatureSuccess = function (showCreatureResponse) {
   // console.log('showCreatureResponse is ', showCreatureResponse)
   if (store.viewState === 0) {
     $('.display-creature').show()
+  }
+  if (store.viewState === 1) {
+    $('#update-lab').show()
+    $('#delete-creature-form').show()
+    $('#go-to-viewer').show()
+    $('#go-to-viewer-no-creature').hide()
+    $('#go-to-viewer-wrapper').show()
+    document.getElementById('lab-instructions-wrapper').setAttribute('style', 'float: left')
   }
   store.currentCreatureId = showCreatureResponse.creature.id
   $('#display-name').text(showCreatureResponse.creature.name)
@@ -259,7 +273,7 @@ const showCreatureSuccess = function (showCreatureResponse) {
   $('#display-reach').text('Reach: ' + showCreatureResponse.creature.reach)
   $('#display-offense_note').text('Offense Note: ' + showCreatureResponse.creature.offense_note)
   $('#display-special_abilities').text('Special Abilities: ' + showCreatureResponse.creature.special_abilities)
-  $('#display-spell_like_abilities').text('Spell-like Abilities: ' + showCreatureResponse.creature.spell_like_abilities)
+  $('#display-spell_like_abilities').text(showCreatureResponse.creature.spell_like_abilities)
   $('#display-spells_known').text('Spells Known: ' + showCreatureResponse.creature.spells_known)
   $('#display-spells_prepared').text('Spells Prepared: ' + showCreatureResponse.creature.spells_prepared)
   $('#display-feats').text('Feats: ' + showCreatureResponse.creature.feats)
@@ -365,6 +379,19 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
   if (store.viewState === 0) {
     $('.display-creature').show()
   }
+  if (store.user && store.viewState === 1) {
+    store.viewState = 0
+    $('#update-lab').hide()
+    $('#create-lab').hide()
+    $('.display-creature').show()
+    $('#go-to-lab').show()
+    $('#go-to-viewer').hide()
+    $('#delete-creature-form').hide()
+    $('#lab-instructions-wrapper').hide()
+    $('#viewer-instructions-wrapper').show()
+    $('#instructions-modal').hide()
+    $('#viewer-instructions-modal').hide()
+  }
   store.currentPublicCreatureId = showPublicCreatureResponse.public_creature.id
   $('#display-name').text(showPublicCreatureResponse.public_creature.name)
   $('#display-cr').text('CR: ' + showPublicCreatureResponse.public_creature.cr)
@@ -442,7 +469,7 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
   $('#display-reach').text('Reach: ' + showPublicCreatureResponse.public_creature.reach)
   $('#display-offense_note').text('Offense Note: ' + showPublicCreatureResponse.public_creature.offense_note)
   $('#display-special_abilities').text('Special Abilities: ' + showPublicCreatureResponse.public_creature.special_abilities)
-  $('#display-spell_like_abilities').text('Spell-like Abilities: ' + showPublicCreatureResponse.public_creature.spell_like_abilities)
+  $('#display-spell_like_abilities').text(showPublicCreatureResponse.public_creature.spell_like_abilities)
   $('#display-spells_known').text('Spells Known: ' + showPublicCreatureResponse.public_creature.spells_known)
   $('#display-spells_prepared').text('Spells Prepared: ' + showPublicCreatureResponse.public_creature.spells_prepared)
   $('#display-feats').text('Feats: ' + showPublicCreatureResponse.public_creature.feats)
@@ -475,6 +502,11 @@ const deleteCreatureSuccess = function (deleteCreatureResponse) {
   $('#delete-creature-notifier').delay(2000).fadeOut('fast')
   document.getElementById('update-creature-form').reset()
   document.getElementById('create-creature-form').reset()
+  store.currentCreatureId = null
+  $('#update-lab').hide()
+  $('#go-to-viewer-no-creature').show()
+  $('#go-to-viewer').hide()
+  $('#delete-creature-form').hide()
 }
 
 const deleteCreatureFail = function () {

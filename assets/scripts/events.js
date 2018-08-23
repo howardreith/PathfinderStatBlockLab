@@ -101,12 +101,18 @@ const onGoToLab = function (event) {
   event.preventDefault()
   viewState = 1
   store.viewState = 1
-  $('#update-lab').show()
+  if (store.currentCreatureId) {
+    $('#update-lab').show()
+    $('#delete-creature-form').show()
+    $('#go-to-viewer').show()
+    $('#go-to-viewer-wrapper').show()
+  } else if (!store.currentCreatureId) {
+    $('#go-to-viewer-no-creature').show()
+    $('#go-to-viewer-wrapper').show()
+  }
   $('#create-lab').show()
   $('.display-creature').hide()
   $('#go-to-lab').hide()
-  $('#go-to-viewer').show()
-  $('#delete-creature-form').show()
   $('#lab-instructions-wrapper').show()
   $('#viewer-instructions-wrapper').hide()
   $('#instructions-modal').hide()
@@ -122,6 +128,8 @@ const onGoToViewer = function (event) {
   $('.display-creature').show()
   $('#go-to-lab').show()
   $('#go-to-viewer').hide()
+  $('#go-to-viewer-no-creature').hide()
+  $('#go-to-viewer-wrapper').hide()
   $('#delete-creature-form').hide()
   $('#lab-instructions-wrapper').hide()
   $('#viewer-instructions-wrapper').show()
