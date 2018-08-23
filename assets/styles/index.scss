@@ -151,29 +151,11 @@ body {
 // Begins instructions modal
 
 #instructions-modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  margin-top: 30%;
-  margin: auto;
-  width: 60%;
-  height: 55%;
-  overflow: auto;
-  background-color: white;
-  text-align: center;
+  margin-top: 10%;
 }
 
 #viewer-instructions-modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  margin-top: 20%;
-  margin: auto;
-  width: 60%;
-  height: 28%;
-  overflow: auto;
-  background-color: white;
-  text-align: center;
+  margin-top: 10%;
 }
 
 // Modal content
@@ -236,7 +218,7 @@ a {
 
 #search-notifier {
   position: fixed;
-  margin-left: 225px;
+  margin-left: 635px;
   color: gold;
   font-size: 20px;
 }
