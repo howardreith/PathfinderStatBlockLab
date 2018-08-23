@@ -117,6 +117,18 @@ body {
   clear: both;
 }
 
+#public-result-list {
+  max-height: 70vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#result-list {
+  max-height: 70vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
 #update-submit-top {
   color: black;
 }
