@@ -386,6 +386,7 @@ const showPublicCreatureSuccess = function (showPublicCreatureResponse) {
     $('.display-creature').show()
     $('#go-to-lab').show()
     $('#go-to-viewer').hide()
+    $('#go-to-viewer-no-creature').hide()
     $('#delete-creature-form').hide()
     $('#lab-instructions-wrapper').hide()
     $('#viewer-instructions-wrapper').show()
