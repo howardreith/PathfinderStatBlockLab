@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Pathfinder Stat Block Generator</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="search-nav collapse navbar-collapse" id="navbarSupportedContent">
+            <div id='search'>
+              <input id = 'search-input' tabindex='-1' class="form-control mr-sm-2" type="search" placeholder="Private Search" aria-label="Private Search">
+            </div>
+            <div id='public-search'>
+              <input id = 'public-search-input' tabindex='-1' class='form-control mr-sm-2' type="search" placeholder="Public Search" aria-labe='Public Search'>
+            </div>
+          </div>
+          <span id='search-notifier'>You have no creatures to search for.</span>
+        <button id= 'show-sign-in' class='auth auth-button'>Sign In</button>
+        <button id= 'show-sign-up' class='auth auth-button'>Sign Up</button>
+        <button id= 'show-sign-in-back' class='auth auth-button'>Back</button>
+        <button id= 'show-sign-up-back' class='auth auth-button'>Back</button>
+        <form id="sign-in-form" class='auth'>
+          <input name="credentials[email]" class = "sign-in-email input" placeholder="Sign In - Email " type="email">
+          <input name="credentials[password]" class = "sign-in-password input" placeholder="Password" type="password">
+          <button type="submit" class='auth-button' id= "sign-in-submit">Sign In</button>
+        </form>
+        <form id="sign-up-form" class='auth'>
+          <input name="credentials[email]" class = "sign-up-email input" placeholder="Sign Up - Email " type="email">
+          <input name="credentials[password]" class = "sign-up-password input" placeholder="Password" type="password">
+          <input name="credentials[password_confirmation]" class = "sign-up-password-confirm input" placeholder="Confirm Password" type="password">
+          <button type="submit" class='auth-button' id= "sign-up-submit">Sign Up</button>
+        </form>
+        <button id= 'sign-out-button' class='auth auth-button'>Sign Out</button>
+        <button id= 'show-change-password' class='auth auth-button'>Change Password</button>
+        <button id= 'show-change-password-back' class='auth auth-button'>Back</button>
+        <form id='change-password-form' class='auth'>
+          <input name='passwords[old]' class='change-password-old input' placeholder='Old Password' type='password'>
+          <input name='passwords[new]' class='change-password-new input' placeholder='New Password' type='password'>
+          <button type='submit' id='change-password-button' class='auth-button'>Change Password</button>
+        </form>
+        <span id='auth-notifier' class='auth'></span>
+      </nav>
+
+      <div class="search-results" id="search-results">
+      <ul id="result-list" class='result'>
+        <li class='list-group-item'></li>
+      </ul>
+    </div>
+    <div class="public-search-results" id="public-search-results">
+    <ul id="public-result-list" class='result'>
+      <!-- <li class='list-group-item'></li> -->
+    </ul>
+  </div>
+  <!-- <textarea id="results_text" style="width:300px; height:500px"></textarea> -->
+      <div id='logo-wrapper'>
+        <img id='logo' src='public/pathfinderlogo.png' alt='Pathfinder Stat Block Lab'>
+      </div>
+
+      <div id="instructions-modal" class='modal' tabindex='-1' display: 'none'>
+        <div class="modal-content">
+          <span class="close">close &times;</span><br>
+          <h3><b>Lab Instructions</b></h3>
+          <p>To create a new creature, input the name of your creature in the "Create New Creature" form and click the "Create New Creature" button.</p>
+          <p>Your creature's name will be added to the "Update Creature" form automatically. Add the creature's information and click the "Save Creature" button at the top or bottom of the form.</p>
+          <p>To update an existing creature, search for the creature's name in the "Private Search" field and click on its result. Its information will be added to all fields for which there is data.</p>
+          <p>To delete a creature, load the creature you wish to delete using the search bar and click the "Delete Creature" button beneath the "Update Creature" form.</p>
+          <p>To view your creature's stat block, click the "See This Stat Block" button after saving your creature.</p>
+          <p>You can use the public creature search to view a public creature in the viewer at any time. This will not overwrite your work.</p>
+        </div>
+      </div>
+
+      <div id='viewer-instructions-modal' class='modal' tabindex='-1' display: 'none'>
+        <div class="modal-content">
+          <span class="close">close &times;</span><br>
+          <h3><b>Viewer Instructions</b></h3>
+          <p>To view a creature from the public database, type the creature's name into the "Public Search" field in the upper-left corner.</p>
+          <p>To view a creature you created, type the creature's name into the "Private Search" field next to the "Public Search" field.</p>
+          <p>If you do not have any creatures, you will need to create one!</p>
+          <p>To create or modify a creature, click the "Go to Lab" button.</p>
+          <p>Note that you cannot modify public creatures.</p>
+        </div>
+      </div>
+
+      <div id='outside-buttons-wrapper'>
+        <div id='lab-instructions-wrapper' class='lab-instructions-wrapper'>
+          <button id="lab-instructions-button" class='outside-button'>Lab Instructions (Read Me!)</button>
+        </div>
+
+        <div id='viewer-instructions-wrapper' class='viewer-instructions-wrapper'>
+          <button id="viewer-instructions-button" class='outside-button'>Viewer Instructions (Read Me!)</button>
+        </div>
+
+        <div id='go-to-lab-wrapper' class='go-to-lab-wrapper'>
+          <button id="go-to-lab" class='outside-button'>Go to Lab</button>
+        </div>
+
+        <div id='go-to-viewer-wrapper' class='go-to-viewer-wrapper'>
+          <button id="go-to-viewer" class='outside-button'>See This Stat Block</button>
+          <button id="go-to-viewer-no-creature" class='outside-button'>Back To Viewer</button>
+        </div>
+      </div>
+
+      <div id='create-lab' class=workspace>
+        <h2>Create New Creature</h2>
+        <form id="create-creature-form">
+          <span>Name: </span>
+          <input name="name" id= "create-name" placeholder="Creature Name" type="text"><br>
+          <button type="submit" id= "create-submit" class="form-button">Create New Creature</button>
+        </form>
+        <p id='create-new-creature-notifier' class= 'notifier'>New creature created!</p>
+      </div>
+
+      <div id="update-lab" class=workspace>
+        <h2>Update Creature</h2>
+        <form id="update-creature-form">
+          <p id='update-id'>Creature ID: </p>
+          <button type="submit" id='update-submit-top' class= "update-submit form-button">Save Creature</button><br>
+          <p id='update-creature-notifier' class= 'notifier'>Creature saved!</p>
+          <span>Name: </span>
+          <input name="name" id= "update-name" class="update" placeholder="Creature Name" type="text"><br>
+          <span>CR: </span>
+          <input name="cr" id= "update-cr" class="update" placeholder="CR" type="float"><br>
+          <span>Alignment: </span>
+          <input name="alignment" id= "update-alignment" class="update" placeholder="Alignment" type="text"><br>
+          <span>Type: </span>
+          <input name="creature_category" id= "update-creature_category" class="update" placeholder="Type" type="text"><br>
+          <span>Subtype: </span>
+          <input name="subcategory" id= "update-subcategory" class="update" placeholder="Subtype" type="text"><br>
+          <span>Size: </span>
+          <input name="size" id= "update-size" class="update" placeholder="Size" type="text"><br>
+          <span>Initiative: </span>
+          <input name="initiative" id= "update-initiative" class="update" placeholder="Initiative" type="text"><br>
+          <span>Senses: </span>
+          <input name="senses" id= "update-senses" class="update" placeholder="Senses" type="text"><br>
+          <span>Perception: </span>
+          <input name="perception" id= "update-perception" class="update" placeholder="Perception" type="text"><br>
+          <span>Languages: </span>
+          <input name="languages" id= "update-languages" class="update" placeholder="Languages" type="text"><br>
+          <span>Skills: </span>
+          <input name="skills" id= "update-skills" class="update" placeholder="Skills" type="text"><br>
+          <span>Strength: </span>
+          <input name="str" id= "update-str" class="update" placeholder="Str" type="text"><br>
+          <span>Dexterity: </span>
+          <input name="dex" id= "update-dex" class="update" placeholder="Dex" type="text"><br>
+          <span>Constitution: </span>
+          <input name="con" id= "update-con" class="update" placeholder="Con" type="text"><br>
+          <span>Intelligence: </span>
+          <input name="int" id= "update-int" class="update" placeholder="Int" type="text"><br>
+          <span>Wisdom: </span>
+          <input name="wis" id= "update-wis" class="update" placeholder="Wis" type="text"><br>
+          <span>Charisma: </span>
+          <input name="cha" id= "update-cha" class="update" placeholder="Cha" type="text"><br>
+          <span>Items: </span>
+          <input name="items" id= "update-items" class="update" placeholder="Items" type="text"><br>
+          <span>Appearance: </span>
+          <input name="appearance" id= "update-appearance" class="update" placeholder="Appearance" type="text"><br>
+          <span>Description: </span>
+          <input name="description" id= "update-description" class="update" placeholder="Description" type="text"><br>
+          <span>Environment: </span>
+          <input name="environment" id= "update-environment" class="update" placeholder="Environment" type="text"><br>
+          <span>Organization: </span>
+          <input name="organization" id= "update-organization" class="update" placeholder="Organization" type="text"><br>
+          <span>Treasure: </span>
+          <input name="treasure" id= "update-treasure" class="update" placeholder="Treasure" type="text"><br>
+          <span>Armor Class: </span>
+          <input name="ac" id= "update-ac" class="update" placeholder="AC" type="integer"><br>
+          <span>Touch AC: </span>
+          <input name="dodgeac" id= "update-dodgeac" class="update" placeholder="Touch" type="integer"><br>
+          <span>Flat-Footed AC: </span>
+          <input name="flat_footed" id= "update-flat_footed" class="update" placeholder="Flat-footed" type="integer"><br>
+          <span>AC Breakdown: </span>
+          <input name="ac_notes" id= "update-ac_notes" class="update" placeholder="AC Breakdown" type="text"><br>
+          <span>Combat Maneuver Defense: </span>
+          <input name="cmd" id= "update-cmd" class="update" placeholder="CMD" type="text"><br>
+          <span>Saves (Fort, Ref, Will): </span>
+          <input name="saves" id= "update-saves" class="update" placeholder="Saves" type="text"><br>
+          <span>Hit Points: </span>
+          <input name="hp" id= "update-hp" class="update" placeholder="HP" type="integer"><br>
+          <span>Hit Dice: </span>
+          <input name="hd" id= "update-hd" class="update" placeholder="HD" type="text"><br>
+          <span>Damage Reduction: </span>
+          <input name="dr" id= "update-dr" class="update" placeholder="DR" type="text"><br>
+          <span>Fast Healing/Regeneration: </span>
+          <input name="fast_healing_regen" id= "update-fast_healing_regen" class="update" placeholder="Fast Healing/Regeneration" type="text"><br>
+          <span>Immunities: </span>
+          <input name="immunities" id= "update-immunities" class="update" placeholder="Immunities" type="text"><br>
+          <span>Resistances: </span>
+          <input name="resistances" id= "update-resistances" class="update" placeholder="Resistances" type="text"><br>
+          <span>Spell Resistance: </span>
+          <input name="sr" id= "update-sr" class="update" placeholder="SR" type="integer"><br>
+          <span>Weaknesses: </span>
+          <input name="weaknesses" id= "update-weaknesses" class="update" placeholder="Weaknesses" type="text"><br>
+          <span>Defensive Abilities: </span>
+          <input name="defensive_abilities" id= "update-defensive_abilities" class="update" placeholder="Defensive Abilities" type="text"><br>
+          <span>Speed: </span>
+          <input name="speed" id= "update-speed" class="update" placeholder="Speed" type="text"><br>
+          <span>Melee: </span>
+          <input name="melee" id= "update-melee" class="update" placeholder="Melee" type="text"><br>
+          <span>Ranged: </span>
+          <input name="ranged" id= "update-ranged" class="update" placeholder="Ranged" type="text"><br>
+          <span>Combat Maneuver Bonus: </span>
+          <input name="cmb" id= "update-cmb" class="update" placeholder="CMB" type="text"><br>
+          <span>Reach: </span>
+          <input name="reach" id= "update-reach" class="update" placeholder="Reach" type="text"><br>
+          <span>Offense Note: </span>
+          <input name="offense_note" id= "update-offense_note" class="update" placeholder="Offense Note (grab, etc.)" type="text"><br>
+          <span>Special Abilities: </span>
+          <input name="special_abilities" id= "update-special_abilities" class="update" placeholder="Special Abilities" type="text"><br>
+          <span>Spell-like Abilities: </span>
+          <input name="spell_like_abilities" id= "update-spell_like_abilities" class="update" placeholder="Spell-like Abilities" type="text"><br>
+          <span>Spells Known: </span>
+          <input name="spells_known" id= "update-spells_known" class="update" placeholder="spells_known" type="text"><br>
+          <span>Spells Prepared: </span>
+          <input name="spells_prepared" id= "update-spells_prepared" class="update" placeholder="Spells Prepared" type="text"><br>
+          <span>Feats: </span>
+          <input name="feats" id= "update-feats" class="update" placeholder="Feats" type="text"><br>
+          <span>Additional Special Qualities: </span>
+          <input name="additional_special_qualities" id= "update-additional_special_qualities" class="update" placeholder="Additional Special Qualities" type="text"><br>
+          <button type="submit" id='update-submit-bottom' class= "update-submit form-button">Save Creature</button>
+          <p id='update-creature-notifier-2' class= 'notifier'>Creature saved!</p>
+        </form>
+      </div>
+      <!-- <form id="get-creatures-form">
+        <button type="submit" id="get-creatures" class="button">Get Creatures</button>
+      </form> -->
+      <!-- <form id="show-creature-form">
+        <input name="id" id= "show-id" class="show" placeholder="ID" type="number">
+        <button type="submit" id= "show-submit" class="button">Get Creature Stats</button>
+      </form> -->
+      <div class='display-creature'>
+        <div id='heading-wrapper'>
+          <div id='heading-section'>
+            <span id='display-name'></span>
+            <span id='display-cr'></span>
+        </div>
+      </div>
+        <div class='roleplay-section'>
+          <div class='line 2' 'line'>
+            <span id='display-alignment' class='roleplay' 'line-2'></span>
+            <span id='display-creature_category' class='roleplay' 'line-2'></span>
+            <span id='display-subcategory' class='roleplay' 'line-2'></span>
+            <span id='display-size' class='roleplay' 'line-2'></span>
+          </div>
+          <div class='line 3' 'line'>
+        <span id='display-perception' class='perception-related'></span>
+        <span id='display-senses' class='perception-related'></span>
+          </div>
+          <div class='line 4' 'line'>
+            <span id='display-initiative'></span>
+          </div>
+          <div class='line 5' 'line'>
+            <span id='display-languages'></span>
+          </div>
+          <div class='line 6' 'line'>
+            <span id='display-skills'></span>
+          </div>
+          <div class='line 7' 'line'>
+            <span id='display-str'></span>
+            <span id='display-dex'></span>
+            <span id='display-con'></span>
+            <span id='display-int'></span>
+            <span id='display-wis'></span>
+            <span id='display-cha'></span>
+          </div>
+          <div class='line 8' 'line'>
+            <span id='display-items'></span>
+          </div>
+          <div class='show-details-link' id='show-details-div'>
+            <a href='#' id='show-details'>Details (click to view/hide):</a>
+          </div>
+          <div class='details'>
+            <div class='line 9' 'line'>
+              <span id='display-appearance'></span>
+            </div>
+            <div class='line 10' 'line'>
+              <span id='display-description'></span>
+            </div>
+            <div class='line 11' 'line'>
+              <span id='display-environment'></span>
+            </div>
+            <div class='line 12' 'line'>
+              <span id='display-organization'></span>
+            </div>
+            <div class='line 13' 'line'>
+              <span id='display-treasure'></span>
+            </div>
+            <div class='line 14' 'line'>
+              <span id='display-source'></span>
+            </div>
+          </div>
+        </div>
+        <div class='defenses-section'>
+          <div class='line 15' 'line'>
+            <span id='display-ac'></span>
+            <span id='display-dodgeac'></span>
+            <span id='display-flat_footed'></span>
+            <span id='display-ac_notes'></span>
+          </div>
+          <div class='line 16' 'line'>
+            <span id='display-cmd'></span>
+          </div>
+          <div class='line 17' 'line'>
+            <span id='display-saves'></span>
+          </div>
+          <div class='line 18' 'line'>
+            <span id='display-hp'></span>
+            <span id='display-hd'></span>
+          </div>
+          <div class='line 19' 'line'>
+            <span id='display-dr' 'line'></span>
+          </div>
+          <div class='line 20' 'line'>
+            <span id='display-fast_healing_regen'></span>
+          </div>
+          <div class='line 21' 'line'>
+            <span id='display-immunities'></span>
+          </div>
+          <div class='line 22' 'line'>
+            <span id='display-resistances'></span>
+          </div>
+          <div class='line 23' 'line'>
+            <span id='display-sr'></span>
+          </div>
+          <div class='line 24' 'line'>
+            <span id='display-weaknesses'></span>
+          </div>
+          <div class='line 25' 'line'>
+            <span id='display-defensive_abilities'></span>
+          </div>
+          <div class='line 26' 'line'>
+            <span id='display-speed'></span>
+            <span id='display-speed_note'></span>
+          </div>
+        </div>
+        <div class='offense-section'>
+          <div class='line 27' 'line'>
+            <span id='display-melee'></span>
+          </div>
+          <div class='line 28' 'line'>
+            <span id='display-ranged'></span>
+          </div>
+          <div class='line 29' 'line'>
+            <span id='display-cmb'></span>
+          </div>
+          <div class='line 30' 'line'>
+            <span id='display-reach'></span>
+          </div>
+          <div class='line 31' 'line'>
+            <span id='display-offense_note'></span>
+          </div>
+          <div class='line 32' 'line'>
+            <span id='display-special_abilities'></span>
+          </div>
+          <div class='line 33' 'line'>
+            <span id='display-spell_like_abilities'></span>
+          </div>
+          <div class='line 34' 'line'>
+            <span id='display-spells_known'></span>
+          </div>
+          <div class='line 35' 'line'>
+            <span id='display-spells_prepared'></span>
+          </div>
+          <div class='line 36' 'line'>
+            <span id='display-feats'></span>
+          </div>
+          <div class='line 37' 'line'>
+            <span id='display-additional_special_qualities'></span>
+          </div>
+          </div>
+        </div>
+      <p id='delete-creature-notifier' class= 'notifier'>Creature deleted!</p>
+      <form id="delete-creature-form">
+        <button type="submit" id= "delete-submit" class="outside-button">Delete This Creature</button>
+      </form>
+    </body>
+</html>
